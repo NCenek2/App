@@ -1,0 +1,31 @@
+/* Loading Bar */
+
+.loading-container-primary {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-container-secondary {
+  text-align: center;
+}
+
+.loading,
+.percentage {
+  margin-bottom: 15px;
+  color: white;
+}
+
+.outer-bar {
+  background-color: white;
+  height: 10px;
+  width: 300px;
+  border-radius: 1vmax;
+}
+.inner-bar {
+  background-color: red;
+  height: 10px;
+  border-radius: 1vmax;
+}

@@ -1,0 +1,35 @@
+.python-subsections {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.python-subsections ul,
+.python-subsections ol {
+  padding-left: 1rem;
+}
+
+.short-subsection {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s linear;
+}
+
+.long-subsection {
+  height: 200px;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+}
+
+.long-subsection::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .python-subsections ul,
+  .python-subsections ol {
+    padding-left: 2rem;
+  }
+}
