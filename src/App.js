@@ -53,7 +53,7 @@ const App = () => {
           path="App/front-end-development"
           element={<FrontEnd showNav={showNav} toggleNav={toggleNav} />}
         />
-        <Route path="fruit-store" element={<FruitStore />} />
+        <Route path="App/fruit-store" element={<FruitStore />} />
         <Route
           path="App/python"
           element={<Python showNav={showNav} toggleNav={toggleNav} />}

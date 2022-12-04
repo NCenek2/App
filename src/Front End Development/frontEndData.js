@@ -3,7 +3,7 @@ export const mainData = {
   text1:
     "Welcome, to my Front End Development page where I display some smaller projects that I have created following the FreeCodeCamp curriculum, watching javascript/react project tutorials on youtube, and my own self-created projects.",
   text2:
-    'My favorite project at the moment is Fruit Store. In Fruit Store, I tried to replicate a shopping cart. Pick your items, choose the qunaitity, and then get a summary of your fruits.',
+    "My favorite project at the moment is Fruit Store. In Fruit Store, I tried to replicate a shopping cart. Pick your items, choose the qunaitity, and then get a summary of your fruits.",
 };
 
 // {title: "",
@@ -16,31 +16,31 @@ const sectionsData = [
     title: "Fruit Store",
     image: "images/fruit_store.JPG",
     text: "A user selects fruits that they want to buy and the quantity. Then, they can review thier order before submitting. On submit, the user will get a confirmation of their purchase.",
-    link: "/fruit-store",
+    link: "App/fruit-store",
   },
   {
     title: "Sound Drumset",
     image: "images/drumset.JPG",
     text: "The Drumset allows a user to either click or press a key to play a corresponding sound. Note: Keypress values are uppercase (Ctrl + key).",
-    link: "/sound-drum",
+    link: "App/sound-drum",
   },
   {
     title: "Calculator",
     image: "images/calculator.JPG",
     text: "This is a calculator, essentially, but the inputs for an equation before clicking the equal sign will be printed in the top-most display.",
-    link: "/calculator",
+    link: "App/calculator",
   },
   {
     title: "Color Box",
     image: "images/color_box.JPG",
     text: "Color Box allows the user to input any CSS color and the box will fill with that inputted color. Clicking the space bar will clear the field.",
-    link: "/color-box",
+    link: "App/color-box",
   },
   {
     title: "Stop and Go Timer",
     image: "images/go-and-stop-timer.JPG",
     text: "This timer allows for the user to set a session and break length time. After the session time, the break time will run. Set for continuous session and break intervals.",
-    link: "/timer",
+    link: "App/timer",
   },
 ];
 
