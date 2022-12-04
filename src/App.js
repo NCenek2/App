@@ -39,7 +39,7 @@ const App = () => {
     <React.Fragment>
       <Routes>
         <Route
-          path="/App/"
+          path="/"
           element={
             <Home
               showNav={showNav}
@@ -50,18 +50,18 @@ const App = () => {
           }
         />
         <Route
-          path="/App/front-end-development"
+          path="front-end-development"
           element={<FrontEnd showNav={showNav} toggleNav={toggleNav} />}
         />
-        <Route path="App/fruit-store" element={<FruitStore />} />
+        <Route path="fruit-store" element={<FruitStore />} />
         <Route
-          path="/App/python"
+          path="python"
           element={<Python showNav={showNav} toggleNav={toggleNav} />}
         />
-        <Route path="/App/calculator" element={<Calculator />} />
-        <Route path="/App/color-box" element={<ColorBox />} />
-        <Route path="/App/sound-drum" element={<SoundDrum />} />
-        <Route path="/App/timer" element={<Timer />} />
+        <Route path="calculator" element={<Calculator />} />
+        <Route path="color-box" element={<ColorBox />} />
+        <Route path="sound-drum" element={<SoundDrum />} />
+        <Route path="timer" element={<Timer />} />
       </Routes>
     </React.Fragment>
   );
