@@ -1,6 +1,6 @@
 export const mainData = {
   title: "Front End Development",
-  image: "images/frontend_main.webp",
+  image: "images/frontend_main.WEBP",
   text1:
     "Welcome, to my Front End Development page where I display some smaller projects that I have created following the FreeCodeCamp curriculum, watching javascript/react project tutorials on youtube, and my own self-created projects.",
   text2: "",
