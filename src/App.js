@@ -39,7 +39,7 @@ const App = () => {
     <React.Fragment>
       <Routes>
         <Route
-          path="/"
+          path="/App/"
           element={
             <Home
               showNav={showNav}
