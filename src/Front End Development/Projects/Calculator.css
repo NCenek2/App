@@ -29,8 +29,8 @@
 
 .calculator-button {
   background-color: #aaa;
-  border-color: transparent;
   border-radius: 5px;
+  border-color: black;
   color: black;
   display: flex;
   align-items: center;
@@ -42,7 +42,7 @@
 }
 
 .calculator-button:hover {
-  outline: 4px whitesmoke solid;
+  outline: 5px whitesmoke solid;
   border-radius: 5px !important;
   z-index: 1;
 }
