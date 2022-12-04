@@ -4,81 +4,164 @@ import "./Calculator.css";
 const Calculator = () => {
   const [topString, setTopString] = useState("0");
   const [bottomString, setBottomString] = useState("0");
+  const [resetCalc, setResetCalc] = useState(false);
 
   const resetAC = () => {
-    setBottomString(0);
     setTopString("0");
-    console.clear();
+    setBottomString("0");
   };
+
+  // console.log(topString, bottomString);
 
   const onSymbol = (event) => {
-    const name = event.target.name;
-    console.log(topString, "OUTSIDE TOPSTRING");
-    let dumbString = topString + name;
-    console.log(dumbString, "OUTSIDE DUMBSTRING");
-    if (/[*+/-][-][*+/-]/.test(dumbString)) {
-      dumbString = dumbString.split("");
-      console.log(dumbString, "SPLIT");
-      dumbString.splice(dumbString.length - 3, 2);
-      console.log(dumbString, "SPLICE");
-      dumbString = dumbString.join("");
-      console.log(dumbString, "JOINED");
-      setBottomString(name);
-      setTopString(dumbString);
-    } else if (/[*+/-][*+/]/.test(dumbString)) {
-      console.log("option b");
-      dumbString = dumbString.split("");
-      dumbString.splice(dumbString.length - 2, 1);
-      dumbString = dumbString.join("");
-      setBottomString(name);
-      setTopString(dumbString);
-    } else {
-      console.log("elss case");
-      setBottomString(name);
-      updateScreen(name);
-    }
-  };
+    setResetCalc(false);
+    const { id } = event.target;
+    // console.log(topString, "oldTopString");
+    const oldTopString = topString;
+    let newTopString = oldTopString + id;
+    // console.log(newTopString, "newTopString");
 
-  const updateScreen = (name) => {
-    setTopString(topString + name);
+    if (/^0/.test(oldTopString)) {
+      // console.log("On Symbol -> zero case");
+      setTopString(newTopString);
+      setBottomString(id);
+    }
+    if (/\d+.?\d*[/*+-]\d?.?\d+/.test(oldTopString)) {
+      // console.log("On Symbol -> evaluating number without digit");
+      // console.log(typeof id, id);
+      const evaluatedString = eval(oldTopString).toString();
+      setTopString(evaluatedString + id);
+      setBottomString(id);
+    } else if (/\d+.?\d*[/*+-]\d+.?\d*/.test(oldTopString)) {
+      // console.log("On Symbol -> evaluating number");
+      // console.log(typeof id, id);
+      const evaluatedString = eval(oldTopString).toString();
+      setTopString(evaluatedString + id);
+      setBottomString(id);
+    } else if (/\d+.?\d*[/*+][+/*]/.test(newTopString)) {
+      // console.log("On Symbol -> second symbol not -");
+      setTopString(oldTopString);
+    } else if (/\d+.?\d*[-]{2}$/.test(newTopString)) {
+      // console.log("On Symbol -> second symbol w/ -");
+      // setTopString(newTopString);
+    } else if (/\d+.?\d*[-][*/+-]$/.test(newTopString)) {
+      // console.log("No onther symbol after negative");
+    } else if (/\d+.?\d*[/*+-][+/*-][*/+-]/.test(newTopString)) {
+      // console.log("On Symbol -> No more symbols");
+    } else if (/\d+.?\d*[/*+-]?/.test(newTopString)) {
+      // console.log("On Symbol -> adding symbol");
+      setTopString(newTopString);
+      setBottomString(id);
+    } else {
+      // console.log("On Symbol -> no case :(");
+    }
   };
 
   const onDecimal = (event) => {
-    const name = event.target.name;
+    const { id } = event.target;
+    const oldTopString = topString;
+    let newTopString = oldTopString + id;
 
-    if (/[\d]+/.test(bottomString)) {
-      console.log("after digit");
-      if (/[.]/.test(bottomString)) {
-        console.log("dot already here");
-      } else {
-        setBottomString(bottomString + name);
-        updateScreen(name);
-      }
+    if (resetCalc) {
+      setTopString("0" + id);
+      setResetCalc(false);
+      return undefined;
+    }
+
+    if (/\d+.?\d*[-/+*]+\d*[.]\d*.$/.test(newTopString)) {
+      // console.log("Enough Dots");
+    } else if (/\d+.?\d*[-/+*]+\d*[.][.]$/.test(newTopString)) {
+      // console.log("onDecimal => second number, no more dots");
+    } else if (/\d+.?\d*[-/+*]+\d*./.test(newTopString)) {
+      // console.log("onDecimal => Second Number, first dot");
+      setTopString(newTopString);
+      setBottomString(id);
+    } else if (/\d+.?\d*[-/+*]+.$/.test(newTopString)) {
+      // console.log("onDecimal => Second Number, no number dot");
+      setTopString(newTopString);
+    } else if (/\d+[.]\d*.$/.test(newTopString)) {
+      // console.log("onDecimal => no dot after first number");
+    } else if (/\d+.$/.test(newTopString)) {
+      // console.log("onDecimal => first dot with int");
+      setTopString(newTopString);
+      setBottomString(id);
+    } else if (/\d+.+\d?.$/.test(newTopString)) {
+      // console.log("onDecimal => no more first number dots, 1");
+    } else if (/\d+.$/.test(newTopString)) {
+      // console.log("onDecimal => first number ,first dot");
+      setTopString(newTopString);
+      setBottomString(id);
+    } else if (/\d+[.][.]$/.test(newTopString)) {
+      // console.log("onDecimal => first number, consecutive dots");
     } else {
-      updateScreen(name);
-      setBottomString(name);
+      // console.log("onDecimal => do nothing");
     }
   };
+
   const onNumber = (event) => {
-    const name = event.target.name;
-    if (bottomString === "0" && topString === "0") {
-      setTopString(name);
-      setBottomString(name);
-    } else if (/[*-+/]/.test(bottomString)) {
-      updateScreen(name);
-      setBottomString(name);
-    } else {
-      updateScreen(name);
-      setBottomString(bottomString + name);
+    const { id } = event.target;
+    // console.log(id, "On Number -> ID", typeof id);
+    if (resetCalc) {
+      setTopString(id);
+      setBottomString(id);
+      setResetCalc(false);
+      return undefined;
     }
+    if (bottomString === "0" && topString === "0") {
+      // console.log("onNumber -> initial case");
+
+      setTopString((prevTopString) => id);
+      setBottomString((prevBottomString) => id);
+    } else if (/\d+[*-+/]/.test(bottomString)) {
+      // console.log("onNumber -> second number case");
+      setTopString((prevTopString) => prevTopString + id);
+      setBottomString((prevBottomString) => id);
+    } else {
+      // console.log("onNumber -> else case (adding number)");
+      setTopString((prevTopString) => prevTopString + id);
+      setBottomString((prevBottomString) => id);
+    }
+    setResetCalc(false);
   };
 
   const onEqual = () => {
-    const number = eval(topString);
-    setTopString(number);
-    setBottomString(number);
-    console.log(bottomString);
-    console.log(topString);
+    // console.log("equal pressed");
+    let oldTopString = topString;
+
+    if (/\d+.?\d?[-/+*]{2}$]/.test(oldTopString)) {
+      // console.log("Do nothing on equal, 1");
+    } else if (/\d+.?\d?[-/+*]$/.test(oldTopString)) {
+      // console.log("Do nothing on equal ,2");
+    } else if (/\d+.?\d*[-+/*][.]$/.test(oldTopString)) {
+      let array = oldTopString.split("");
+      array.pop();
+      array.pop();
+      const newArray = array.join("");
+      setTopString(newArray);
+      setBottomString(newArray);
+    } else if (/\d+.?\d?[.]$/.test(oldTopString)) {
+      let array = oldTopString.split("");
+      array.pop();
+      const newArray = array.join("");
+      // console.log("Do nothing on equal, 3", typeof newArray);
+      const number = eval(newArray).toString();
+      setTopString(number);
+      setBottomString(number);
+    } else if (/\d+[.]$/.test(oldTopString)) {
+      let array = oldTopString.split("");
+      array.pop();
+      const newArray = array.join("");
+      setTopString(newArray);
+      setBottomString(newArray);
+    } else {
+      const number = eval(topString).toString();
+      setTopString(number);
+      setBottomString(number);
+      // console.log(topString);
+      // console.log(bottomString);
+    }
+
+    setResetCalc(true);
   };
 
   return (
@@ -88,56 +171,116 @@ const Calculator = () => {
           <span className="calculator-display">{topString}</span>
           <span className="calculator-display">{bottomString}</span>
         </span>
-        <button className="calculator-button" onClick={resetAC} name="AC">
-          <p>AC</p>
+        <button className="calculator-button" id="AC" onClick={resetAC}>
+          AC
         </button>
-        <button className="calculator-button" onClick={onSymbol} name="/">
-          <p>/</p>
+        <button
+          className="calculator-button"
+          id="/"
+          onClick={(event) => onSymbol(event)}
+        >
+          /
         </button>
-        <button className="calculator-button" onClick={onSymbol} name="*">
-          <p>X</p>
+        <button
+          className="calculator-button"
+          id="*"
+          onClick={(event) => onSymbol(event)}
+        >
+          X
         </button>
-        <button className="calculator-button" onClick={onNumber} name="7">
-          <p>7</p>
+        <button
+          className="calculator-button"
+          id="7"
+          onClick={(event) => onNumber(event)}
+        >
+          7
         </button>
-        <button className="calculator-button" onClick={onNumber} name="8">
-          <p>8</p>
+        <button
+          className="calculator-button"
+          id="8"
+          onClick={(event) => onNumber(event)}
+        >
+          8
         </button>
-        <button className="calculator-button" onClick={onNumber} name="9">
-          <p>9</p>
+        <button
+          className="calculator-button"
+          id="9"
+          onClick={(event) => onNumber(event)}
+        >
+          9
         </button>
-        <button className="calculator-button" onClick={onSymbol} name="-">
-          <p>-</p>
+        <button
+          className="calculator-button"
+          id="-"
+          onClick={(event) => onSymbol(event)}
+        >
+          -
         </button>
-        <button className="calculator-button" onClick={onNumber} name="4">
-          <p>4</p>
+        <button
+          className="calculator-button"
+          id="4"
+          onClick={(event) => onNumber(event)}
+        >
+          4
         </button>
-        <button className="calculator-button" onClick={onNumber} name="5">
-          <p>5</p>
+        <button
+          className="calculator-button"
+          id="5"
+          onClick={(event) => onNumber(event)}
+        >
+          5
         </button>
-        <button className="calculator-button" onClick={onNumber} name="6">
-          <p>6</p>
+        <button
+          className="calculator-button"
+          id="6"
+          onClick={(event) => onNumber(event)}
+        >
+          6
         </button>
-        <button className="calculator-button" onClick={onSymbol} name="+">
-          <p>+</p>
+        <button
+          className="calculator-button"
+          id="+"
+          onClick={(event) => onSymbol(event)}
+        >
+          +
         </button>
-        <button className="calculator-button" onClick={onNumber} name="1">
-          <p>1</p>
+        <button
+          className="calculator-button"
+          id="1"
+          onClick={(event) => onNumber(event)}
+        >
+          1
         </button>
-        <button className="calculator-button" onClick={onNumber} name="2">
-          <p>2</p>
+        <button
+          className="calculator-button"
+          id="2"
+          onClick={(event) => onNumber(event)}
+        >
+          2
         </button>
-        <button className="calculator-button" onClick={onNumber} name="3">
-          <p>3</p>
+        <button
+          className="calculator-button"
+          id="3"
+          onClick={(event) => onNumber(event)}
+        >
+          3
         </button>
-        <button className="calculator-button" onClick={onEqual} name="=">
-          <p>=</p>
+        <button className="calculator-button" id="=" onClick={() => onEqual()}>
+          =
         </button>
-        <button className="calculator-button" onClick={onNumber} name="0">
-          <p>0</p>
+        <button
+          className="calculator-button"
+          id="0"
+          onClick={(event) => onNumber(event)}
+        >
+          0
         </button>
-        <button className="calculator-button" onClick={onDecimal} name=".">
-          <p>.</p>
+        <button
+          className="calculator-button"
+          id="."
+          onClick={(event) => onDecimal(event)}
+        >
+          .
         </button>
       </div>
     </React.Fragment>

@@ -12,7 +12,7 @@ const Sections = ({ sections, sectionOn, handleSection, fruits }) => {
 
   //
 
-  if (width < 427) {
+  if (width < 500) {
     let newSections = [...sections];
     if (fruits.filter((fruit) => fruit.selected === true).length === 0) {
       newSections.splice(2, 1);

@@ -13,10 +13,10 @@ const Header = ({ showNav, toggleNav }) => {
       </div>
       <ul className={`menu ${showNav && "show-menu"}`}>
         <li onClick={() => navigate("/App/")}>Home</li>
-        <li onClick={() => navigate("/front-end-development")}>
+        <li onClick={() => navigate("/App/front-end-development")}>
           Front End Development
         </li>
-        <li onClick={() => navigate("/python")}>Python</li>
+        <li onClick={() => navigate("/App/python")}>Python</li>
       </ul>
     </header>
   );

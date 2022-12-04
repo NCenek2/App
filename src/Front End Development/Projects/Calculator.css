@@ -31,14 +31,11 @@
   background-color: #aaa;
   border-radius: 5px;
   border-color: black;
-  color: black;
+  color: black !important;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.calculator-button p {
-  color: black;
+  z-index: 2;
 }
 
 .calculator-button:hover {
