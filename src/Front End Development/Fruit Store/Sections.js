@@ -14,7 +14,7 @@ const Sections = ({ sections, sectionOn, handleSection, fruits }) => {
 
   if (width < 427) {
     let newSections = [...sections];
-    if (fruits.filter((fruit) => fruit.selected == true).length == 0) {
+    if (fruits.filter((fruit) => fruit.selected === true).length === 0) {
       newSections.splice(2, 1);
     }
     return (

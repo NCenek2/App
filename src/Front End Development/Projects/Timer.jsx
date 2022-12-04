@@ -87,7 +87,7 @@ const Timer = () => {
   useEffect(() => {
     if (playing) {
       const intervalID = window.setTimeout(() => {
-        if (parseInt(minutes) > 0 && parseInt(seconds) == 0) {
+        if (parseInt(minutes) > 0 && parseInt(seconds) === 0) {
           setMinutes((minutes) => {
             let newMinutes = minutes - 1;
             newMinutes = newMinutes.toString();
@@ -99,14 +99,14 @@ const Timer = () => {
             return newMinutes;
           });
           setSeconds("59");
-        } else if (parseInt(minutes) == 0 && parseInt(seconds) == 1) {
+        } else if (parseInt(minutes) === 0 && parseInt(seconds) === 1) {
           const source = "https://samplelib.com/lib/preview/mp3/sample-3s.mp3";
           function playSound(source) {
             const sound = document.getElementById("beep");
             sound.currentTime = 0;
             sound.play();
           }
-          if (display == "Session") {
+          if (display === "Session") {
             const newBreakLength = breakLength;
             setMinutes(newBreakLength);
             setDisplay("Break");

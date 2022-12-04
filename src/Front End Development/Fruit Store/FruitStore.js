@@ -15,7 +15,7 @@ function FruitStore() {
   const [sectionOn, setSectionOn] = useState("Pick Fruits");
 
   useEffect(() => {
-    if (fruits.filter((fruit) => fruit.amount != 0).length > 0) {
+    if (fruits.filter((fruit) => fruit.amount !== 0).length > 0) {
       setIsDisabled(false);
     } else {
       setIsDisabled(true);
@@ -27,11 +27,11 @@ function FruitStore() {
   };
 
   const handleSelected = (inputID) => {
-    let filteredObject = fruits.filter((fruit) => fruit.id == inputID);
+    let filteredObject = fruits.filter((fruit) => fruit.id === inputID);
     let fruitSelected = filteredObject.map((item) => item.fruit);
     setFruits((currentFruits) =>
       currentFruits.map((fruit) => {
-        if (fruit.id == inputID) {
+        if (fruit.id === inputID) {
           const updatedObject = {
             ...fruit,
             selected: !fruit.selected,
@@ -48,7 +48,7 @@ function FruitStore() {
   const increaseFruitCount = (inputID, inputAmount) => {
     setFruits((currentFruits) =>
       currentFruits.map((fruit) => {
-        if (fruit.id == inputID) {
+        if (fruit.id === inputID) {
           const updatedTotal = eval(fruit.price * (fruit.amount + 1).toString())
             .toFixed(2)
             .toString();
@@ -72,7 +72,7 @@ function FruitStore() {
   const decreaseFruitCount = (inputID, inputAmount) => {
     setFruits((currentFruits) =>
       currentFruits.map((fruit) => {
-        if (fruit.id == inputID) {
+        if (fruit.id === inputID) {
           const updatedTotal = eval(fruit.price * (fruit.amount - 1).toString())
             .toFixed(2)
             .toString();
@@ -96,7 +96,7 @@ function FruitStore() {
   const onMarkPress = (inputID) => {
     setFruits((currentFruits) =>
       currentFruits.map((fruit) => {
-        if (fruit.id == inputID) {
+        if (fruit.id === inputID) {
           const updatedObject = {
             ...fruit,
             amount: 0,
@@ -129,7 +129,7 @@ function FruitStore() {
   return (
     <main className="fruit-store-container">
       <div className="counter">
-        <p>{fruits.filter((fruit) => fruit.selected == true).length}</p>
+        <p>{fruits.filter((fruit) => fruit.selected === true).length}</p>
       </div>
       <header className="header-fruit-store">
         <h1>Ceneks Fruit Store</h1>
@@ -140,11 +140,11 @@ function FruitStore() {
           fruits={fruits}
         />
       </header>
-      {sectionOn == "Pick Fruits" ? (
+      {sectionOn === "Pick Fruits" ? (
         <div className="content-section">
           <Fruits fruits={fruits} handleSelected={handleSelected} />
         </div>
-      ) : sectionOn == "Select Quantity" ? (
+      ) : sectionOn === "Select Quantity" ? (
         <Quantities
           fruits={fruits}
           increase={increaseFruitCount}

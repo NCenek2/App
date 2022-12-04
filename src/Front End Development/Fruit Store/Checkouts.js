@@ -22,7 +22,7 @@ const Checkouts = ({
         <h2>Fruit</h2>
         <h2>Price</h2>
         {fruits
-          .filter((fruit) => fruit.selected == true && fruit.total > 0)
+          .filter((fruit) => fruit.selected === true && fruit.total > 0)
           .map((fruit) => (
             <Checkout key={fruit.id} fruit={fruit} />
           ))}
@@ -32,7 +32,7 @@ const Checkouts = ({
         <p>
           $
           {fruits
-            .filter((fruit) => fruit.selected == true && fruit.total > 0)
+            .filter((fruit) => fruit.selected === true && fruit.total > 0)
             .reduce((sum, item) => {
               const number = parseFloat(item.total);
               return sum + number;

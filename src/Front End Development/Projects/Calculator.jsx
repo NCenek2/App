@@ -61,7 +61,7 @@ const Calculator = () => {
   };
   const onNumber = (event) => {
     const name = event.target.name;
-    if (bottomString == "0" && topString == "0") {
+    if (bottomString === "0" && topString === "0") {
       setTopString(name);
       setBottomString(name);
     } else if (/[*-+/]/.test(bottomString)) {
@@ -75,7 +75,6 @@ const Calculator = () => {
 
   const onEqual = () => {
     const number = eval(topString);
-
     setTopString(number);
     setBottomString(number);
     console.log(bottomString);
@@ -90,55 +89,55 @@ const Calculator = () => {
           <span className="calculator-display">{bottomString}</span>
         </span>
         <button className="calculator-button" onClick={resetAC} name="AC">
-          AC
+          <p>AC</p>
         </button>
         <button className="calculator-button" onClick={onSymbol} name="/">
-          /
+          <p>/</p>
         </button>
         <button className="calculator-button" onClick={onSymbol} name="*">
-          X
+          <p>X</p>
         </button>
         <button className="calculator-button" onClick={onNumber} name="7">
-          7
+          <p>7</p>
         </button>
         <button className="calculator-button" onClick={onNumber} name="8">
-          8
+          <p>8</p>
         </button>
         <button className="calculator-button" onClick={onNumber} name="9">
-          9
+          <p>9</p>
         </button>
         <button className="calculator-button" onClick={onSymbol} name="-">
-          -
+          <p>-</p>
         </button>
         <button className="calculator-button" onClick={onNumber} name="4">
-          4
+          <p>4</p>
         </button>
         <button className="calculator-button" onClick={onNumber} name="5">
-          5
+          <p>5</p>
         </button>
         <button className="calculator-button" onClick={onNumber} name="6">
-          6
+          <p>6</p>
         </button>
         <button className="calculator-button" onClick={onSymbol} name="+">
-          +
+          <p>+</p>
         </button>
         <button className="calculator-button" onClick={onNumber} name="1">
-          1
+          <p>1</p>
         </button>
         <button className="calculator-button" onClick={onNumber} name="2">
-          2
+          <p>2</p>
         </button>
         <button className="calculator-button" onClick={onNumber} name="3">
-          3
+          <p>3</p>
         </button>
         <button className="calculator-button" onClick={onEqual} name="=">
-          =
+          <p>=</p>
         </button>
         <button className="calculator-button" onClick={onNumber} name="0">
-          0
+          <p>0</p>
         </button>
         <button className="calculator-button" onClick={onDecimal} name=".">
-          .
+          <p>.</p>
         </button>
       </div>
     </React.Fragment>

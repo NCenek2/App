@@ -4,7 +4,7 @@ const Quantities = ({ fruits, increase, decrease, markPress }) => {
   return (
     <section className="quantities-container" style={{ marginTop: "30px" }}>
       {fruits
-        .filter((fruit) => fruit.selected == true)
+        .filter((fruit) => fruit.selected === true)
         .map((fruit) => (
           <Quantity
             key={fruit.id}

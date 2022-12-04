@@ -5,7 +5,7 @@ const Section = ({ section, sectionOn, handleSection }) => {
     <button
       onClick={() => handleSection(section.name)}
       className={` btn btn-${
-        section.name == sectionOn ? "success" : "secondary"
+        section.name === sectionOn ? "success" : "secondary"
       } }`}
     >
       {section.name}
