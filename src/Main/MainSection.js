@@ -11,7 +11,7 @@ const MainSection = ({ mainData }) => {
             <h2>{title}</h2>
             <p>{text1}</p>
             <p>{text2}</p>
-            <img src={image} alt="" className="main-section-image"></img>
+            <img src={image} alt=""></img>
           </div>
         </section>
       }
