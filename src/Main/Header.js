@@ -12,11 +12,11 @@ const Header = ({ showNav, toggleNav }) => {
         <i className="fa fa-bars" aria-hidden="true" onClick={toggleNav}></i>
       </div>
       <ul className={`menu ${showNav && "show-menu"}`}>
-        <li onClick={() => navigate("/App/")}>Home</li>
-        <li onClick={() => navigate("/App/front-end-development")}>
+        <li onClick={() => navigate("/")}>Home</li>
+        <li onClick={() => navigate("/front-end-development")}>
           Front End Development
         </li>
-        <li onClick={() => navigate("/App/python")}>Python</li>
+        <li onClick={() => navigate("/python")}>Python</li>
       </ul>
     </header>
   );
