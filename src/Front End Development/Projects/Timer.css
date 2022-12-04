@@ -1,7 +1,6 @@
-/* * {
-  box-sizing: border-box;
-  margin: 0 auto;
-} */
+* {
+  font-family: "Courier New", Courier, monospace, sans-serif;
+}
 
 .timer-container {
   width: 100%;

@@ -1,3 +1,7 @@
+* {
+  font-family: "Courier New", Courier, monospace, sans-serif;
+}
+
 .calculator-container {
   margin: 150px auto;
   height: 450px;
@@ -5,6 +9,7 @@
   display: grid;
   grid-template-rows: repeat(6, 1fr);
   grid-template-columns: repeat(4, 1fr);
+  color: black;
 }
 
 .calculator-header {
@@ -15,6 +20,7 @@
   border: 3px black solid;
   justify-content: space-between;
   background-color: #ccc;
+  padding-right: 10px;
 }
 .calculator-display {
   color: black;

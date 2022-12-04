@@ -1,9 +1,9 @@
 export const mainData = {
   title: "Front End Development",
-  image: "images/frontend_main.WEBP",
   text1:
     "Welcome, to my Front End Development page where I display some smaller projects that I have created following the FreeCodeCamp curriculum, watching javascript/react project tutorials on youtube, and my own self-created projects.",
-  text2: "",
+  text2:
+    'My favorite project at the moment is Fruit Store. In Fruit Store, I tried to replicate a shopping cart. Pick your items, choose the qunaitity, and then get a summary of your fruits.',
 };
 
 // {title: "",

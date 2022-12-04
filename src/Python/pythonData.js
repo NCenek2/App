@@ -1,11 +1,10 @@
 export const mainData = {
   title: "Python",
-  image: "images/python_main.JPEG",
   text1:
     " Python was one of the first programming languages that I had learned, aside from MATLAB, a programming language primarily used for engineers. When I started learning Python, I was interested in creating games. Consequently, I created a Turtle Race game. Then, I started going through FreeCodeCamp's Curriculum to learn more of the basics of Scientific Computing. Listed below are some of the projects that I have created.",
-  text2: "",
+  text2:
+    "My current favorite project is Turtle Race. In Turtle Race, the CPU- red turtle in photo- is programmed to move either up or down based on the shortest distance in the X or Y direction at a specific interval (tracer).",
 };
-
 // {title: "",
 // image: "",
 // text: "",

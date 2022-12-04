@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 
 const MainSection = ({ mainData }) => {
-  const { title, image, text1, text2 } = mainData;
+  const { title, text1, text2 } = mainData;
   return (
     <React.Fragment>
       {
@@ -11,7 +11,6 @@ const MainSection = ({ mainData }) => {
             <h2>{title}</h2>
             <p>{text1}</p>
             <p>{text2}</p>
-            <img src={image} alt=""></img>
           </div>
         </section>
       }

@@ -1,6 +1,5 @@
 export const mainData = {
   title: "Welcome",
-  image: "images/main.JPG",
   text1:
     "Hello, my name is Nicholas Cenek. I am an enthusistic programmer who enjoys learning and applying the skills that I have learned into beneficial, real-life projects. This website is ALL self-created, and has been inspired by the passion that I have for web development. I am 6 months into my programming career, but I am excited for what my future holds. Most of my early programming experience came from the FreeCodeCamp.org curriculum. Currently, I am self-teaching through watching tutorials on Youtube and reading/visiting programming-related sources.",
   text2:
