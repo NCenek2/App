@@ -39,7 +39,7 @@ const App = () => {
     <React.Fragment>
       <Routes>
         <Route
-          path="/"
+          path="https://ncenek2.github.io/"
           element={
             <Home
               showNav={showNav}
@@ -50,18 +50,30 @@ const App = () => {
           }
         />
         <Route
-          path="front-end-development"
+          path="https://ncenek2.github.io/front-end-development"
           element={<FrontEnd showNav={showNav} toggleNav={toggleNav} />}
         />
-        <Route path="fruit-store" element={<FruitStore />} />
         <Route
-          path="python"
+          path="https://ncenek2.github.io/fruit-store"
+          element={<FruitStore />}
+        />
+        <Route
+          path="https://ncenek2.github.io/python"
           element={<Python showNav={showNav} toggleNav={toggleNav} />}
         />
-        <Route path="calculator" element={<Calculator />} />
-        <Route path="color-box" element={<ColorBox />} />
-        <Route path="sound-drum" element={<SoundDrum />} />
-        <Route path="timer" element={<Timer />} />
+        <Route
+          path="https://ncenek2.github.io/calculator"
+          element={<Calculator />}
+        />
+        <Route
+          path="https://ncenek2.github.io/color-box"
+          element={<ColorBox />}
+        />
+        <Route
+          path="https://ncenek2.github.io/sound-drum"
+          element={<SoundDrum />}
+        />
+        <Route path="https://ncenek2.github.io/timer" element={<Timer />} />
       </Routes>
     </React.Fragment>
   );
