@@ -30,10 +30,12 @@
 .calculator-button {
   background-color: #aaa;
   border-radius: 5px;
+  color: black;
 }
 
 .calculator-button:hover {
   outline: 4px whitesmoke solid;
+  border-radius: 5px;
   z-index: 1;
 }
 .calculator-button:nth-of-type(1) {
