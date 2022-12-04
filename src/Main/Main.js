@@ -7,7 +7,7 @@ import Footer from "./Footer";
 const Main = ({ sectionsData, mainData, mainFooterIcons }) => {
   return (
     <main className="main">
-      <MainSection {...mainData} />
+      <MainSection mainData={mainData} />
       <SubSections sectionsData={sectionsData} />
       <Footer mainFooterIcons={mainFooterIcons} />
     </main>

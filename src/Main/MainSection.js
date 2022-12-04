@@ -1,7 +1,8 @@
 import React from "react";
 import "./Home.css";
 
-const MainSection = ({ title, image, text1, text2 }) => {
+const MainSection = ({ mainData }) => {
+  const { title, image, text1, text2 } = mainData;
   return (
     <React.Fragment>
       {

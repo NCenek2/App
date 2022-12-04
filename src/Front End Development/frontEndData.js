@@ -14,7 +14,7 @@ export const mainData = {
 const sectionsData = [
   {
     title: "Fruit Store",
-    image: "images/fruit_store.jpg",
+    image: "images/fruit_store.JPG",
     text: "A user selects fruits that they want to buy and the quantity. Then, they can review thier order before submitting. On submit, the user will get a confirmation of their purchase.",
     link: "/fruit-store",
   },
