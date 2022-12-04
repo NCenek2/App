@@ -42,7 +42,7 @@
 }
 
 .calculator-button:hover {
-  outline: 5px whitesmoke solid;
+  border: 5px whitesmoke solid;
   border-radius: 5px !important;
   z-index: 1;
 }
