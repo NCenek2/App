@@ -129,7 +129,7 @@ function FruitStore() {
   return (
     <main className="fruit-store-container">
       <div className="counter">
-        <p>{fruits.filter((fruit) => fruit.selected === true).length}</p>
+        <p>{fruits.filter((fruit) => fruit.selected === true && fruit.amount > 0).length}</p>
       </div>
       <header className="header-fruit-store">
         <h1>Ceneks Fruit Store</h1>

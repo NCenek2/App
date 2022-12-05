@@ -8,7 +8,7 @@ const Header = ({ showNav, toggleNav }) => {
   return (
     <header className="header-outer">
       <div className="header-inner">
-        <h1>My Portfolio</h1>
+        <h1 onClick={() => navigate("/")}>My Portfolio</h1>
         <i className="fa fa-bars" aria-hidden="true" onClick={toggleNav}></i>
       </div>
       <ul className={`menu ${showNav && "show-menu"}`}>

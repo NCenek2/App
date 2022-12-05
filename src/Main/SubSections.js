@@ -30,7 +30,7 @@ const SubSections = ({ sectionsData }) => {
       {data.map((section) => {
         const { title, image, text, link, shown, text2 } = section;
         return (
-          <section className="main-subsection">
+          <section key={title} className="main-subsection">
             <div className="main-subsection-container">
               <h2 className="subsection-title">{title}</h2>
               <img src={image} alt=""></img>

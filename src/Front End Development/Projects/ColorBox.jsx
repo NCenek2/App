@@ -5,7 +5,7 @@ const ColorBox = () => {
   const [color, setColor] = useState("");
 
   const handlePress = document.addEventListener("keypress", (event) => {
-    if (event.key == " ") {
+    if (event.key === " ") {
       setColor("");
     }
     return () => document.removeEventListener(handlePress);

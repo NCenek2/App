@@ -21,11 +21,6 @@ const Calculator = () => {
     let newTopString = oldTopString + id;
     // console.log(newTopString, "newTopString");
 
-    if (/^0/.test(oldTopString)) {
-      // console.log("On Symbol -> zero case");
-      setTopString(newTopString);
-      setBottomString(id);
-    }
     if (/\d+.?\d*[/*+-]\d?.?\d+/.test(oldTopString)) {
       // console.log("On Symbol -> evaluating number without digit");
       // console.log(typeof id, id);
@@ -43,7 +38,6 @@ const Calculator = () => {
       setTopString(oldTopString);
     } else if (/\d+.?\d*[-]{2}$/.test(newTopString)) {
       // console.log("On Symbol -> second symbol w/ -");
-      // setTopString(newTopString);
     } else if (/\d+.?\d*[-][*/+-]$/.test(newTopString)) {
       // console.log("No onther symbol after negative");
     } else if (/\d+.?\d*[/*+-][+/*-][*/+-]/.test(newTopString)) {

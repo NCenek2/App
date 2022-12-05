@@ -22,6 +22,7 @@
 
 .header-inner h1 {
   font-size: 1.75rem;
+  cursor: pointer;
 }
 
 .fa-bars {

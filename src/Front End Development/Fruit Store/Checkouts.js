@@ -2,10 +2,10 @@ import React from "react";
 import Checkout from "./Checkout";
 
 const handleSubmit = (event, name, email) => {
-  event.preventDefault();
-  alert(
-    `Thank you ${name} for your purchase! \n\n Your receipt will be sent to ${email}.`
-  );
+  // event.preventDefault();
+  // alert(
+  //   `Thank you ${name} for your purchase! \n\n Your receipt will be sent to ${email}.`
+  // );
 };
 const Checkouts = ({
   fruits,
@@ -40,7 +40,7 @@ const Checkouts = ({
             .toFixed(2)}
         </p>
       </div>
-      <form className="checkouts-form-container">
+      <form action="" method="" className="checkouts-form-container">
         <h2>Order Sent to Email</h2>
         <div className="checkouts-input-container">
           <p>Name:</p>
