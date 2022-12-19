@@ -7,9 +7,7 @@ import sectionsData, { mainData } from "./mainData";
 
 const Home = ({ showNav, toggleNav, isLoading, percentage }) => {
   if (isLoading) {
-    return (
-      <LoadingBar percentage={percentage} name={"Home"} color={"yellow"} />
-    );
+    return <LoadingBar percentage={percentage} name={"Home"} color={"red"} />;
   }
 
   return (

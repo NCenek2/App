@@ -8,6 +8,7 @@ import Calculator from "./Front End Development/Projects/Calculator";
 import ColorBox from "./Front End Development/Projects/ColorBox";
 import SoundDrum from "./Front End Development/Projects/SoundDrum";
 import Timer from "./Front End Development/Projects/Timer";
+import NotesApp from "./Front End Development/Projects/NotesApp";
 
 const App = () => {
   const [showNav, setShowNav] = React.useState(false);
@@ -62,6 +63,7 @@ const App = () => {
         <Route path="color-box" element={<ColorBox />} />
         <Route path="sound-drum" element={<SoundDrum />} />
         <Route path="timer" element={<Timer />} />
+        <Route path="notes-app" element={<NotesApp />} />
       </Routes>
     </React.Fragment>
   );

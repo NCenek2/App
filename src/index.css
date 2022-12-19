@@ -13,7 +13,8 @@ li,
 ol,
 ul,
 i,
-p {
+p,
+label {
   margin: 0;
 }
 

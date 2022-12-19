@@ -13,9 +13,15 @@ export const mainData = {
 
 const sectionsData = [
   {
+    title: "Notes App",
+    image: "images/notes-app.JPG",
+    text: "The user can write his/her notes within this app. Once their notes are outdated, they can delete them. Add as many notes as you want! Notes longer than container size can be seen on scroll",
+    link: "/notes-app",
+  },
+  {
     title: "Fruit Store",
     image: "images/fruit_store.JPG",
-    text: "A user selects fruits that they want to buy and the quantity. Then, they can review thier order before submitting. On submit, the user will get a confirmation of their purchase.",
+    text: "A user selects fruits that they want to buy and the quantity. Then, they can review thier order before submitting. On submit, the user will be restarted back to the start.",
     link: "/fruit-store",
   },
   {
