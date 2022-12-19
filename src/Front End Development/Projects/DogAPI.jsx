@@ -21,7 +21,7 @@ const DogAPI = () => {
           }
           return newCount;
         });
-      }, 1000);
+      }, 995);
 
       return () => window.clearInterval(handleCountdown);
     }
