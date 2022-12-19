@@ -26,7 +26,7 @@ const NotesApp = () => {
     const newID = new Date().getTime();
     setNotesData((prevData) => {
       const filteredData = prevData.filter(
-        (note) => note.title != "" || note.noteContent != ""
+        (note) => note.title !== "" || note.noteContent !== ""
       );
       return [
         {
@@ -51,7 +51,7 @@ const NotesApp = () => {
   const handleNoteClick = (event) => {
     const { id } = event.target;
     const withFilteredNote = notesData
-      .filter((note) => note.id == id)
+      .filter((note) => note.id === id)
       .map((note) => {
         setInputData((prevData) => {
           return {
@@ -64,8 +64,8 @@ const NotesApp = () => {
         return note;
       })[0];
     const withoutFilteredNote = notesData
-      .filter((note) => note.id != id)
-      .filter((note) => note.title != "" || note.noteContent != "");
+      .filter((note) => note.id !== id)
+      .filter((note) => note.title !== "" || note.noteContent !== "");
     setNotesData([withFilteredNote, ...withoutFilteredNote]);
 
     focusText();
@@ -78,12 +78,12 @@ const NotesApp = () => {
     }
 
     const { value } = event.target;
-    const filteredData = notesData.filter((note) => note.id == inputData.id);
+    const filteredData = notesData.filter((note) => note.id === inputData.id);
     const filteredDataID = filteredData[0].id;
     if (filteredData.length > 0) {
       setNotesData((prevData) =>
         prevData.map((prevNote) => {
-          if (prevNote.id == filteredDataID) {
+          if (prevNote.id === filteredDataID) {
             return {
               ...prevNote,
               title: value,
@@ -109,7 +109,7 @@ const NotesApp = () => {
     }
 
     const { value } = event.target;
-    const filteredData = notesData.filter((note) => note.id == inputData.id);
+    const filteredData = notesData.filter((note) => note.id === inputData.id);
     const filteredDataID = filteredData[0].id;
     if (filteredData.length > 0) {
       setNotesData((prevData) =>

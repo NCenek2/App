@@ -19,6 +19,12 @@ const sectionsData = [
     link: "/notes-app",
   },
   {
+    title: "Dog Selector",
+    image: "images/dog-api.JPG",
+    text: "Six random dog images are fetched from an API. The user selects their favorites. Their pictures will be displayed when finished with special effects.",
+    link: "/dog-api",
+  },
+  {
     title: "Fruit Store",
     image: "images/fruit_store.JPG",
     text: "A user selects fruits that they want to buy and the quantity. Then, they can review thier order before submitting. On submit, the user will be restarted back to the start.",
