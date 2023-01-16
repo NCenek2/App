@@ -23,6 +23,14 @@ const sectionsData = [
     shown: false,
     text2: "",
   },
+  {
+    title: "Matlab",
+    image: "images/matlab_subsection.JPG",
+    text: 'Learn more about the first "programming language" that sparked my interest into the coding world!',
+    link: "/matlab",
+    shown: false,
+    text2: "",
+  },
 ];
 
 export default sectionsData;

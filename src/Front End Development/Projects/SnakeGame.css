@@ -1,0 +1,117 @@
+:root {
+  --snake-size: 20px;
+}
+
+.snake-difficulty {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.snake-game-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 10px;
+  user-select: none;
+}
+.snake-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.snake-border {
+  width: 320px;
+  height: 400px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.snake-border-easy {
+  border: 10px solid green;
+}
+.snake-border-medium {
+  border: 10px solid blue;
+}
+.snake-border-hard {
+  border: 10px solid red;
+}
+
+.snake {
+  width: var(--snake-size);
+  height: var(--snake-size);
+  position: absolute;
+  border-radius: 1.5px;
+  z-index: 1;
+}
+
+.snake-easy {
+  background-color: green;
+}
+
+.snake-medium {
+  background-color: blue;
+}
+
+.snake-hard {
+  background-color: red;
+}
+
+.body {
+  width: var(--snake-size);
+  height: var(--snake-size);
+  position: absolute;
+  border-radius: 1.5px;
+  background-color: black;
+  z-index: 0;
+}
+
+.food {
+  width: var(--snake-size);
+  height: var(--snake-size);
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  z-index: -1;
+}
+.snake-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.snake-controls-container {
+  /* padding: 10px 0 30px 0; */
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  grid-template-rows: repeat(2, 60px);
+  row-gap: 17.5px;
+  column-gap: 45px;
+  position: absolute;
+  bottom: 40px;
+  user-select: none;
+}
+
+.snake-control:nth-of-type(1) {
+  grid-column: 2/ 3;
+  grid-row: 1;
+}
+.snake-control:nth-of-type(2) {
+  grid-column: 1/ 2;
+  grid-row: 2;
+}
+.snake-control:nth-of-type(3) {
+  grid-column: 2/ 3;
+  grid-row: 2;
+}
+.snake-control:nth-of-type(4) {
+  grid-column: 3/ 4;
+  grid-row: 2;
+}

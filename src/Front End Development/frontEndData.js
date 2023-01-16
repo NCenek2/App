@@ -13,6 +13,12 @@ export const mainData = {
 
 const sectionsData = [
   {
+    title: "Snake Game",
+    image: "images/snake_game.JPG",
+    text: "The classic snake game uses WASD as controls. For mobile users, you have to use the buttons at the top. What high score can you get??",
+    link: "/snake-game",
+  },
+  {
     title: "Notes App",
     image: "images/notes-app.JPG",
     text: "The user can write his/her notes within this app. Once their notes are outdated, they can delete them. Add as many notes as you want! Notes longer than container size can be seen on scroll",

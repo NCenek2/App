@@ -10,7 +10,8 @@ import SoundDrum from "./Front End Development/Projects/SoundDrum";
 import Timer from "./Front End Development/Projects/Timer";
 import DogAPI from "./Front End Development/Projects/DogAPI";
 import NotesApp from "./Front End Development/Projects/NotesApp";
-
+import SnakeGame from "./Front End Development/Projects/SnakeGame";
+import Matlab from "./Matlab/Matlab";
 const App = () => {
   const [showNav, setShowNav] = React.useState(false);
 
@@ -29,7 +30,7 @@ const App = () => {
           return newPercentage;
         });
         return () => clearInterval(increasePercentage);
-      }, 25);
+      }, 15);
     }
     return undefined;
   }, [isLoading]);
@@ -60,12 +61,17 @@ const App = () => {
           path="python"
           element={<Python showNav={showNav} toggleNav={toggleNav} />}
         />
+        <Route
+          path="matlab"
+          element={<Matlab showNav={showNav} toggleNav={toggleNav} />}
+        />
         <Route path="calculator" element={<Calculator />} />
         <Route path="color-box" element={<ColorBox />} />
         <Route path="sound-drum" element={<SoundDrum />} />
         <Route path="timer" element={<Timer />} />
         <Route path="dog-api" element={<DogAPI />} />
         <Route path="notes-app" element={<NotesApp />} />
+        <Route path="snake-game" element={<SnakeGame />} />
       </Routes>
     </React.Fragment>
   );
