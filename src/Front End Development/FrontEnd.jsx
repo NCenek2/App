@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../Main/Header";
 import Main from "../Main/Main";
+import "./FrontEnd.css";
 import sectionsData, { mainData } from "./frontEndData";
 
 const FrontEnd = ({ showNav, toggleNav }) => {

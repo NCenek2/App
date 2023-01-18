@@ -13,6 +13,38 @@ export const mainData = {
 
 const sectionsData = [
   {
+    title: "What is It?",
+    image: "images/what-is-it.JPG",
+    text: `This game tests your memorization. Upon clicking 
+    "View Project", you will have a pattern to memorize. 
+    The more patterns correct, the harder it gets!`,
+    link: "",
+    shown: false,
+    text2: `<div class="generic-subsections">
+    <a class="btn btn-secondary" style="width: 150px;" 
+    href="https://ncenek2.github.io/what-is-it/" 
+    target="_blank">View Project</a>
+    <a class="btn btn-secondary" style="width: 150px;" 
+    href="https://github.com/NCenek2/Scripts/blob/main/what-is-it.js" 
+    target="_blank">View Code</a>
+    </div>`,
+  },
+  {
+    title: "Dice Randomizer",
+    image: "images/dice-randomizer.JPG",
+    text: "This app will randomly roll a die for each player. The higher die roll wins. Roll as many times as you want!",
+    link: "",
+    shown: false,
+    text2: `<div class="generic-subsections">
+    <a class="btn btn-secondary" style="width: 150px;" 
+    href="https://ncenek2.github.io/dice-randomizer/" 
+    target="_blank">View Project</a>
+    <a class="btn btn-secondary" style="width: 150px;" 
+    href="https://github.com/NCenek2/Scripts/blob/main/dice-randomizer.js" 
+    target="_blank">View Code</a>
+    </div>`,
+  },
+  {
     title: "Snake Game",
     image: "images/snake_game.JPG",
     text: "The classic snake game uses WASD as controls. For mobile users, you have to use the buttons at the top. What high score can you get??",

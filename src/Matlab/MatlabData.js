@@ -28,7 +28,7 @@ const sectionsData = [
     text: ``,
     link: "",
     shown: false,
-    text2: `<div class="matlab-subsections">
+    text2: `<div class="generic-subsections">
   <a class="btn btn-secondary" style="width: 150px;" 
   href="https://www.linkedin.com/posts/nicholas-cenek-91ba5b173_ive-had-time-to-put-coding-knowledge-learned-activity-6944690305958907904-0F51?utm_source=share&utm_medium=member_desktop" 
   target="_blank">View Video</a>

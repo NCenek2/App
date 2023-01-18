@@ -2,6 +2,16 @@
   font-family: "Courier New", Courier, monospace, sans-serif;
 }
 
+/* Generic Subsection */
+
+.generic-subsections {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  gap: 30px;
+  margin-inline: auto;
+}
+
 /* Header */
 
 .header-outer {
