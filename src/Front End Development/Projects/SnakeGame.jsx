@@ -29,6 +29,7 @@ const SnakeGame = () => {
           const nextCoordinate = currentPosition[1] - spacing;
           const nextArray = [currentPosition[0], nextCoordinate];
           if (nextCoordinate < -360) {
+            // Border Crash
             setPlaying(false);
             handleReset();
             return currentPosition;
@@ -36,6 +37,7 @@ const SnakeGame = () => {
             currentPosition[0] == foodCoordinate[0] &&
             nextCoordinate == foodCoordinate[1]
           ) {
+            // Food Collection
             increaseScore();
             setPrevPoints((oldPoints) => {
               let oldArray = [...oldPoints];
@@ -50,6 +52,7 @@ const SnakeGame = () => {
               );
             }).length > 0
           ) {
+            // Body Collision
             setPlaying(false);
             handleReset();
             return currentPosition;
@@ -317,38 +320,43 @@ const SnakeGame = () => {
   } else {
     return (
       <main className="snake-game-container">
-        <header className="snake-header">
+        <header
+          className={`snake-header ${
+            window.innerWidth >= 800 && "large-snake-header"
+          }`}
+        >
           <h3>{playing ? `Score: ${score}` : `CRASHED at ${score}`}</h3>
-          {window.innerWidth < 800 && (
-            <div className="snake-controls-container">
-              <button
-                className="btn- btn-primary snake-control"
-                onClick={() => setTurn("UP")}
-              >
-                W
-              </button>
-              <button
-                className="btn- btn-primary snake-control"
-                onClick={() => setTurn("LEFT")}
-              >
-                A
-              </button>
-              <button
-                className="btn- btn-primary snake-control"
-                onClick={() => setTurn("DOWN")}
-              >
-                S
-              </button>
-              <button
-                className="btn- btn-primary snake-control"
-                onClick={() => setTurn("RIGHT")}
-              >
-                D
-              </button>
-            </div>
-          )}
         </header>
+        {window.innerWidth < 800 && (
+          <div className="snake-controls-container">
+            <button
+              className="btn- btn-primary snake-control"
+              onClick={() => setTurn("UP")}
+            >
+              W
+            </button>
+            <button
+              className="btn- btn-primary snake-control"
+              onClick={() => setTurn("LEFT")}
+            >
+              A
+            </button>
+            <button
+              className="btn- btn-primary snake-control"
+              onClick={() => setTurn("DOWN")}
+            >
+              S
+            </button>
+            <button
+              className="btn- btn-primary snake-control"
+              onClick={() => setTurn("RIGHT")}
+            >
+              D
+            </button>
+          </div>
+        )}
         <div className="snake-container">
+          {/* Handeling Border Color and Snake Color */}
           <div
             className={`snake-border ${
               gameMode == "EASY"
@@ -356,7 +364,7 @@ const SnakeGame = () => {
                 : gameMode == "MEDIUM"
                 ? "snake-border-medium"
                 : "snake-border-hard"
-            }`}
+            } ${window.innerWidth >= 800 && "large-snake-border"}`}
           >
             <div
               className={`snake ${
@@ -368,6 +376,7 @@ const SnakeGame = () => {
               }`}
               style={snakeStyle}
             ></div>
+            {/* Handles Update of Body */}
             {prevPoints.length > 0 &&
               prevPoints.map((body, index) => {
                 const VALUES = Object.values(prevPoints);

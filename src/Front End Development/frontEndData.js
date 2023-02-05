@@ -15,9 +15,9 @@ const sectionsData = [
   {
     title: "What is It?",
     image: "images/what-is-it.JPG",
-    text: `This game tests your memorization. Upon clicking 
-    "View Project", you will have a pattern to memorize. 
-    The more patterns correct, the harder it gets!`,
+    text: `This game tests your ability to memorize patterns. 
+    The more patterns that you get correct, the harder it gets!
+    Built using a Queue Data Structure.`,
     link: "",
     shown: false,
     text2: `<div class="generic-subsections">
@@ -32,7 +32,9 @@ const sectionsData = [
   {
     title: "Dice Randomizer",
     image: "images/dice-randomizer.JPG",
-    text: "This app will randomly roll a die for each player. The higher die roll wins. Roll as many times as you want!",
+    text: `This app will randomly roll a die for each player. 
+    The higher number roll wins. Can be used for probability or as an
+    actual pair of dice!`,
     link: "",
     shown: false,
     text2: `<div class="generic-subsections">
@@ -47,7 +49,7 @@ const sectionsData = [
   {
     title: "Snake Game",
     image: "images/snake_game.JPG",
-    text: "The classic snake game uses WASD as controls. For mobile users, you have to use the buttons at the top. What high score can you get??",
+    text: "The classic snake game uses WASD as controls. For mobile users, you have to use the buttons at the bottom. What high score can you get??",
     link: "/snake-game",
   },
   {

@@ -27,10 +27,19 @@
 .snake-border {
   width: 320px;
   height: 400px;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -25%);
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: flex-end;
+}
+
+.large-snake-border {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .snake-border-easy {
@@ -81,10 +90,16 @@
   z-index: -1;
 }
 .snake-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%, -5%);
+  width: max-content;
+}
+
+.large-snake-header {
+  top: 10%;
+  transform: translate(-50%, -10%);
 }
 
 .snake-controls-container {
@@ -95,7 +110,9 @@
   row-gap: 25px;
   column-gap: 45px;
   position: absolute;
-  bottom: 50px;
+  left: 50%;
+  bottom: 5%;
+  transform: translate(-50%, 5%);
   user-select: none;
 }
 
