@@ -33,6 +33,9 @@ const sectionsData = [
     <li>WASD to move.</li>
     <li>Space Bar will allow your turtle to teleport to the center.</li>
   </ul>
+  <a class="btn btn-secondary" style="width: 150px; margin: 0 auto" 
+href="https://youtu.be/BBOJbZ653dE" 
+target="_blank">View Video</a>
 <a class="btn btn-secondary" style="width: 150px; margin: 0 auto" 
 href="https://github.com/NCenek2/PythonScripts/blob/1d4253619df1cae3cee61246d3568ea577c534dd/TurtleRace.py" 
 target="_blank">View Code</a></div>`,

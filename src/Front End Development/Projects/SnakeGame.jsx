@@ -7,8 +7,9 @@ const SnakeGame = () => {
   const [spacing, setSpacing] = React.useState(20);
   const [score, setScore] = React.useState(0);
   const [playing, setPlaying] = React.useState(false);
-  const [direction, setDirection] = React.useState([0, 0]);
-  const [foodCoordinate, setFoodCordinate] = React.useState([
+
+  const [snakeCoordinate, setSnakeCoordinate] = React.useState([0, 0]);
+  const [foodCoordinate, setFoodCoordinate] = React.useState([
     Math.floor((Math.random() * 281 - 140) / spacing) * spacing,
     Math.floor((Math.random() * -361) / spacing) * spacing,
   ]);
@@ -17,45 +18,46 @@ const SnakeGame = () => {
   React.useEffect(() => {
     const increaseScore = () => {
       setScore((previousScore) => previousScore + 1);
-      setFoodCordinate([
+      setFoodCoordinate([
         Math.floor((Math.random() * 281 - 140) / spacing) * spacing,
         Math.floor((Math.random() * -361) / spacing) * spacing,
       ]);
     };
     const handleTurn = () => {
       if (turn == "UP") {
-        setDirection((currentPosition) => {
+        setSnakeCoordinate((currentCoordinate) => {
           // Start new
-          const nextCoordinate = currentPosition[1] - spacing;
-          const nextArray = [currentPosition[0], nextCoordinate];
-          if (nextCoordinate < -360) {
+          const nextYCoordinate = currentCoordinate[1] - spacing;
+          const nextArray = [currentCoordinate[0], nextYCoordinate];
+          if (nextYCoordinate < -360) {
             // Border Crash
             setPlaying(false);
             handleReset();
-            return currentPosition;
+            return currentCoordinate;
           } else if (
-            currentPosition[0] == foodCoordinate[0] &&
-            nextCoordinate == foodCoordinate[1]
+            currentCoordinate[0] == foodCoordinate[0] &&
+            nextYCoordinate == foodCoordinate[1]
           ) {
             // Food Collection
             increaseScore();
             setPrevPoints((oldPoints) => {
               let oldArray = [...oldPoints];
-              oldArray.unshift(currentPosition);
+              oldArray.unshift(currentCoordinate);
               return oldArray;
             });
             return nextArray;
           } else if (
             prevPoints.filter((item, index) => {
               return (
-                item[0] == currentPosition[0] && item[1] == currentPosition[1]
+                item[0] == currentCoordinate[0] &&
+                item[1] == currentCoordinate[1]
               );
             }).length > 0
           ) {
             // Body Collision
             setPlaying(false);
             handleReset();
-            return currentPosition;
+            return currentCoordinate;
           }
           // End Statement to update body
           if (prevPoints.length > 0) {
@@ -63,7 +65,7 @@ const SnakeGame = () => {
               previousPoints.map((obj, index) => {
                 const VALUES = Object.values(previousPoints);
                 if (index == 0) {
-                  return currentPosition;
+                  return currentCoordinate;
                 } else {
                   const prevIndex = index - 1;
                   const prevValue = VALUES[prevIndex];
@@ -75,41 +77,42 @@ const SnakeGame = () => {
           return nextArray;
         });
       } else if (turn == "RIGHT") {
-        setDirection((currentPosition) => {
-          const nextCoordinate = currentPosition[0] + spacing;
-          const nextArray = [nextCoordinate, currentPosition[1]];
-          if (nextCoordinate > 140) {
+        setSnakeCoordinate((currentCoordinate) => {
+          const nextXCoordinate = currentCoordinate[0] + spacing;
+          const nextArray = [nextXCoordinate, currentCoordinate[1]];
+          if (nextXCoordinate > 140) {
             setPlaying(false);
             handleReset();
-            return currentPosition;
+            return currentCoordinate;
           } else if (
-            nextCoordinate == foodCoordinate[0] &&
-            currentPosition[1] == foodCoordinate[1]
+            nextXCoordinate == foodCoordinate[0] &&
+            currentCoordinate[1] == foodCoordinate[1]
           ) {
             increaseScore();
             setPrevPoints((oldPoints) => {
               let oldArray = [...oldPoints];
-              oldArray.unshift(currentPosition);
+              oldArray.unshift(currentCoordinate);
               return oldArray;
             });
             return nextArray;
           } else if (
             prevPoints.filter((item, index) => {
               return (
-                item[0] == currentPosition[0] && item[1] == currentPosition[1]
+                item[0] == currentCoordinate[0] &&
+                item[1] == currentCoordinate[1]
               );
             }).length > 0
           ) {
             setPlaying(false);
             handleReset();
-            return currentPosition;
+            return currentCoordinate;
           }
           if (prevPoints.length > 0) {
             setPrevPoints((previousPoints) =>
               previousPoints.map((obj, index) => {
                 const VALUES = Object.values(previousPoints);
                 if (index == 0) {
-                  return currentPosition;
+                  return currentCoordinate;
                 } else {
                   const prevIndex = index - 1;
                   const prevValue = VALUES[prevIndex];
@@ -121,41 +124,42 @@ const SnakeGame = () => {
           return nextArray;
         });
       } else if (turn == "DOWN") {
-        setDirection((currentPosition) => {
-          const nextCoordinate = currentPosition[1] + spacing;
-          const nextArray = [currentPosition[0], nextCoordinate];
-          if (nextCoordinate > 0) {
+        setSnakeCoordinate((currentCoordinate) => {
+          const nextYCoordinate = currentCoordinate[1] + spacing;
+          const nextArray = [currentCoordinate[0], nextYCoordinate];
+          if (nextYCoordinate > 0) {
             setPlaying(false);
             handleReset();
-            return currentPosition;
+            return currentCoordinate;
           } else if (
-            currentPosition[0] == foodCoordinate[0] &&
-            nextCoordinate == foodCoordinate[1]
+            currentCoordinate[0] == foodCoordinate[0] &&
+            nextYCoordinate == foodCoordinate[1]
           ) {
             increaseScore();
             setPrevPoints((oldPoints) => {
               let oldArray = [...oldPoints];
-              oldArray.unshift(currentPosition);
+              oldArray.unshift(currentCoordinate);
               return oldArray;
             });
             return nextArray;
           } else if (
             prevPoints.filter((item, index) => {
               return (
-                item[0] == currentPosition[0] && item[1] == currentPosition[1]
+                item[0] == currentCoordinate[0] &&
+                item[1] == currentCoordinate[1]
               );
             }).length > 0
           ) {
             setPlaying(false);
             handleReset();
-            return currentPosition;
+            return currentCoordinate;
           }
           if (prevPoints.length > 0) {
             setPrevPoints((previousPoints) =>
               previousPoints.map((obj, index) => {
                 const VALUES = Object.values(previousPoints);
                 if (index == 0) {
-                  return currentPosition;
+                  return currentCoordinate;
                 } else {
                   const prevIndex = index - 1;
                   const prevValue = VALUES[prevIndex];
@@ -167,41 +171,42 @@ const SnakeGame = () => {
           return nextArray;
         });
       } else {
-        setDirection((currentPosition) => {
-          const nextCoordinate = currentPosition[0] - spacing;
-          const nextArray = [nextCoordinate, currentPosition[1]];
-          if (nextCoordinate < -140) {
+        setSnakeCoordinate((currentCoordinate) => {
+          const nextXCoordinate = currentCoordinate[0] - spacing;
+          const nextArray = [nextXCoordinate, currentCoordinate[1]];
+          if (nextXCoordinate < -140) {
             setPlaying(false);
             handleReset();
-            return currentPosition;
+            return currentCoordinate;
           } else if (
-            nextCoordinate == foodCoordinate[0] &&
-            currentPosition[1] == foodCoordinate[1]
+            nextXCoordinate == foodCoordinate[0] &&
+            currentCoordinate[1] == foodCoordinate[1]
           ) {
             increaseScore();
             setPrevPoints((oldPoints) => {
               let oldArray = [...oldPoints];
-              oldArray.unshift(currentPosition);
+              oldArray.unshift(currentCoordinate);
               return oldArray;
             });
             return nextArray;
           } else if (
             prevPoints.filter((item, index) => {
               return (
-                item[0] == currentPosition[0] && item[1] == currentPosition[1]
+                item[0] == currentCoordinate[0] &&
+                item[1] == currentCoordinate[1]
               );
             }).length > 0
           ) {
             setPlaying(false);
             handleReset();
-            return currentPosition;
+            return currentCoordinate;
           }
           if (prevPoints.length > 0) {
             setPrevPoints((previousPoints) =>
               previousPoints.map((obj, index) => {
                 const VALUES = Object.values(previousPoints);
                 if (index == 0) {
-                  return currentPosition;
+                  return currentCoordinate;
                 } else {
                   const prevIndex = index - 1;
                   const prevValue = VALUES[prevIndex];
@@ -269,8 +274,8 @@ const SnakeGame = () => {
   const handleReset = () => {
     function resetFunctions() {
       setGameMode("");
-      setDirection([0, 0]);
-      setFoodCordinate([
+      setSnakeCoordinate([0, 0]);
+      setFoodCoordinate([
         Math.floor((Math.random() * 281 - 140) / spacing) * spacing,
         Math.floor((Math.random() * -361) / spacing) * spacing,
       ]);
@@ -285,7 +290,7 @@ const SnakeGame = () => {
 
   // Snake Translation
   const snakeStyle = {
-    transform: `translate(${direction[0]}px, ${direction[1]}px)`,
+    transform: `translate(${snakeCoordinate[0]}px, ${snakeCoordinate[1]}px)`,
   };
 
   // Food Translation

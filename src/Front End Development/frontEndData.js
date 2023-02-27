@@ -13,6 +13,13 @@ export const mainData = {
 
 const sectionsData = [
   {
+    title: "Quizlet Cards",
+    image: "images/quizlet.JPG",
+    text: `Quizlet knock off that allows you to create study cards and 
+    check definitions based on correctness.`,
+    link: "/quizlet",
+  },
+  {
     title: "What is It?",
     image: "images/what-is-it.JPG",
     text: `This game tests your ability to memorize patterns. 

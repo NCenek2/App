@@ -1,0 +1,93 @@
+.quizlet-body {
+  color: black;
+  min-height: 100vh;
+  max-width: 300px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Data Drop Page */
+.quizlet-directions {
+  color: whitesmoke;
+  font-size: 0.85rem;
+}
+
+.quizlet-directions:nth-of-type(2n) {
+  font-size: 1rem;
+  color: red;
+  margin: 10px 0 10px 0;
+}
+
+.droppedData {
+  background-color: beige;
+  height: 20rem;
+  width: 100%;
+}
+
+.quizlet-words {
+  text-align: center;
+  height: 12rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: beige;
+  margin-bottom: 20px;
+  position: relative;
+  transition: 0.4s ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+.term.quizlet-words {
+  transform: rotateY(180deg);
+}
+
+.definition {
+  transform: rotateY(180deg);
+}
+
+.card-identifier {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.quizlet-index {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: black;
+}
+.definition.quizlet-index {
+  transform: translateX(-50%) rotateY(180deg);
+}
+
+.last-index {
+  color: red;
+}
+
+.quizlet-btn-group {
+  display: flex;
+  gap: 20px;
+}
+
+.quizletInput {
+  border-radius: 5px;
+  padding: 1rem;
+  width: 300px;
+  height: 200px;
+  background-color: beige;
+  margin-bottom: 20px;
+}
+
+/* Finished CSS */
+.quizlet-finished {
+  text-align: center;
+  color: white;
+}

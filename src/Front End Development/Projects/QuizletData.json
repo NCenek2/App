@@ -1,0 +1,102 @@
+[
+  {
+    "term": "heart",
+    "definition": "positive displacement pump that generates energy to drive circulation"
+  },
+  {
+    "term": "heart anatomy",
+    "definition": "two ventricles, two atria, and four valves"
+  },
+  {
+    "term": "cardiac cycle (diastole)",
+    "definition": "ventricular relaxation"
+  },
+  {
+    "term": "cardiac cycle (systole)",
+    "definition": "ventricular contraction"
+  },
+  {
+    "term": "stroke volume",
+    "definition": "volume of ventricle at its largest - volume of ventricle at its smallest (EDV - ESV)"
+  },
+  {
+    "term": "cardiac output",
+    "definition": "heart rate x stroke volume"
+  },
+  {
+    "term": "ejection fraction",
+    "definition": "stroke volume / ventricular volume (50 - 60%)"
+  },
+  {
+    "term": "fluid power output",
+    "definition": "mean pressure x flow rate (1.2 W)"
+  },
+  {
+    "term": "isovolumetric contraction",
+    "definition": "muscles have a constant volume and ventricles contract, so pressure increases"
+  },
+  {
+    "term": "isovolumetric relaxation",
+    "definition": "muscles have a constant volume and ventricles relax, so pressure decreases"
+  },
+  {
+    "term": "blood flow in and out of the heart",
+    "definition": "deoxygenated blood: through Vena Cava => into right atrium => into right ventricle => into lungs through pulmonary arteries oxygenated blood: into left atrium from pulmonary veins => through left ventricle => out the aorta in the body"
+  },
+  {
+    "term": "heart pump",
+    "definition": "venous pump (one-way venous valves are found in the calf)"
+  },
+  {
+    "term": "heart valves",
+    "definition": "arteriovenous valves (tricuspid and mitral) and semilunar valves (pulmonary and aortic)"
+  },
+  {
+    "term": "aorta",
+    "definition": "compliant vessel that allows for large volumetric changes"
+  },
+  {
+    "term": "Wiggers Diagram",
+    "definition": "relates electrical events of heart cycle to the mechanical changes that occur during a cardiac cycle"
+  },
+  {
+    "term": "respiratory system pump",
+    "definition": "diaphragm"
+  },
+  {
+    "term": "respiratory system valves",
+    "definition": "epiglottis"
+  },
+  {
+    "term": "conducting portion of respiratory system",
+    "definition": "nose, nasal cavity, pharynx, larynx, trachea, bronchi, large bronchioles"
+  },
+  {
+    "term": "respiratory portion of respiratory system",
+    "definition": "respiratory bronchioles, alveolar ducts, alveolar sacs, alveoli"
+  },
+  {
+    "term": "respiratory bronchioles, alveolar ducts, alveolar sacs, alveoli",
+    "definition": "trachea and bronchial tubes"
+  },
+  {
+    "term": "trachea",
+    "definition": "semi-rigid windpipe that is 10 cm long and 2.5 cm in diameter"
+  },
+  {
+    "term": "dead space in respiratory system",
+    "definition": "150 mL where no oxygen/carbon dioxide exchange happens"
+  },
+  {
+    "term": "alveolar sacs",
+    "definition": "all gas exchange happens here (250 million sacs)"
+  },
+  {
+    "term": "tidal volume",
+    "definition": "total inhaled air / total exhaled air (500 mL at rest)"
+  },
+  {
+    "term": "exhaled air",
+    "definition": "contains more carbon dioxide and less oxygen"
+  }
+]
