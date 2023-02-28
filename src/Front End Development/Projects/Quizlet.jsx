@@ -7,11 +7,12 @@ const Quizlet = () => {
   const [droppedData, setDroppedData] = React.useState("");
   // After a successful data conversion, dataProcess will be set to true
   const [dataProcess, setDataProcess] = React.useState(false);
+  // Data is an object of notecard data
+  const [fixedData, setFixedData] = React.useState();
+  const [data, setData] = React.useState();
 
   // Index keeps index of the card
   const [index, setIndex] = React.useState(0);
-  // Data is an object of notecard data
-  const [data, setData] = React.useState();
   // showDefinition toggles between term and defintion when flipped
   const [showDefinition, setShowDefinition] = React.useState(false);
   const [inputValue, setInputValue] = React.useState("");
@@ -23,6 +24,12 @@ const Quizlet = () => {
   // Houses incorrect definition terms
   const [wrongDataSet, setWrongDataSet] = React.useState(new Set());
   const [finishedCards, setFinishedCards] = React.useState(false);
+
+  // Mode Handling
+  const [mode, setMode] = React.useState({
+    flashcards: true,
+    write: false,
+  });
 
   const handleData = () => {
     // Checks if cards can be made. Anything check, # and : check
@@ -49,10 +56,11 @@ const Quizlet = () => {
     }
     setDataProcess((p) => true);
     setData((p) => myObj);
+    randomize();
+    setFixedData((p) => myObj);
   };
 
   const handleShow = () => {
-    // Toggles Term and Definition
     setShowDefinition((past) => !past);
   };
 
@@ -64,10 +72,8 @@ const Quizlet = () => {
         previousData[i] = previousData[randomIndex];
         previousData[randomIndex] = temp;
       }
-      setShowDefinition((p) => false);
       setIndex((p) => 0);
-      setInputValue("");
-      setCheckValue(null);
+      handleReset();
       return previousData;
     });
   };
@@ -93,16 +99,21 @@ const Quizlet = () => {
   const handleNextTerm = () => {
     setIndex((p) => {
       if (p + 1 >= data.length) {
-        setData((p) => {
-          if (wrongData.length <= 0) {
-            setFinishedCards((p) => true);
-            return;
-          }
-          handleReset();
-          setWrongDataSet((p) => new Set());
-          return wrongData;
-        });
-        setWrongData([]);
+        if (mode.write) {
+          setData((p) => {
+            if (wrongData.length <= 0) {
+              setFinishedCards((p) => true);
+              return;
+            }
+            handleReset();
+            setWrongDataSet((p) => new Set());
+            return wrongData;
+          });
+          setWrongData([]);
+        } else {
+          setData((p) => fixedData);
+          randomize();
+        }
         return 0;
       }
       handleReset();
@@ -173,13 +184,46 @@ const Quizlet = () => {
         output.push(data[index]);
       }
       setCheckValue((p) => false);
+      setInputValue((p) => data[index].definition);
       return output;
     });
   };
+
+  const handleMode = (mode) => {
+    if (mode == "flashcards") {
+      setMode((prevMode) => {
+        if (!prevMode.flashcards) {
+          setData((p) => fixedData);
+          randomize();
+        }
+        return { write: false, flashcards: true };
+      });
+    } else if (mode == "write") {
+      setMode((prevMode) => {
+        if (!prevMode.write) {
+          setData((p) => fixedData);
+          randomize();
+        }
+        return { write: true, flashcards: false };
+      });
+    } else {
+      return;
+    }
+  };
+
+  const handleFinish = () => {
+    setMode((prevMode) => {
+      return { write: false, flashcards: true };
+    });
+    setData((p) => fixedData);
+    randomize();
+    setFinishedCards((p) => false);
+  };
+
   if (!dataProcess) {
     return (
       <React.Fragment>
-        <div className="quizlet-body">
+        <div className="quizlet-body quizlet-front">
           <p className="quizlet-directions">
             Term and definition pairs should be written in the following format
             with numeric values in parenthesis.
@@ -211,6 +255,9 @@ const Quizlet = () => {
       <React.Fragment>
         <div className="quizlet-body">
           <h1 className="quizlet-finished">You're Done!</h1>
+          <button className="btn btn-light" onClick={() => handleFinish()}>
+            Go Back!
+          </button>
         </div>
       </React.Fragment>
     );
@@ -219,60 +266,105 @@ const Quizlet = () => {
   return (
     <React.Fragment>
       <div className="quizlet-body">
-        <div
-          className={`quizlet-words ${showDefinition && "term definition"}`}
-          onClick={() => handleShow()}
-        >
-          <p className={`card-identifier ${showDefinition && "definition"}`}>
-            {showDefinition ? "Definition" : "Term"}
-          </p>
-          <p
-            className={`quizlet-index ${
-              index == data.length - 1 && "last-index"
-            } ${showDefinition && "definition"}`}
+        <div className="quizlet-modes">
+          <button
+            className={`btn btn${
+              mode.flashcards ? "-light" : "-outline-light"
+            }`}
+            onClick={() => handleMode("flashcards")}
           >
-            {index + 1}/{data.length}
-          </p>
-          {!showDefinition && <p>{data[index].term}</p>}
-          {showDefinition && (
-            <p className="definition">{data[index].definition}</p>
-          )}
-        </div>
-        <div className="quizlet-btn-group">
-          <button className="btn btn-primary" onClick={() => handlePrevTerm()}>
-            {"<-"}
+            Flashcards
           </button>
-          <button className="btn btn-primary" onClick={() => handleNextTerm()}>
-            {"->"}
+          <button
+            className={`btn btn${mode.write ? "-light" : "-outline-light"}`}
+            onClick={() => handleMode("write")}
+          >
+            Write
           </button>
         </div>
-        <br />
-        <button className="btn btn-outline-light" onClick={() => randomize()}>
-          Randomize
-        </button>
-        <h3>{index}</h3>
-        <textarea
-          name="quizletInput"
-          value={inputValue}
-          onChange={(event) => setInputValue(event.target.value)}
-          className="quizletInput"
-        ></textarea>
-        <button
-          className={`btn btn-${
-            checkValue == true
-              ? "success"
-              : checkValue == false
-              ? "danger"
-              : "outline-light"
-          }`}
-          onClick={() => handleCheck()}
-        >
-          Check
-        </button>
-        {/* {split.map((item) => (
-          <p>{item}</p>
-        ))} */}
-        {/* <p>{inputValue}</p> */}
+        {mode.flashcards && (
+          <React.Fragment>
+            <div
+              className={`quizlet-words ${showDefinition && "term definition"}`}
+              onClick={() => handleShow()}
+            >
+              <p
+                className={`card-identifier ${showDefinition && "definition"}`}
+              >
+                {showDefinition ? "Definition" : "Term"}
+              </p>
+              <p
+                className={`quizlet-index ${
+                  index == data.length - 1 && "last-index"
+                } ${showDefinition && "definition"}`}
+              >
+                {index + 1}/{data.length}
+              </p>
+              {!showDefinition && <p>{data[index].term}</p>}
+              {showDefinition && (
+                <p className="definition">{data[index].definition}</p>
+              )}
+            </div>
+            <div className="quizlet-btn-group">
+              <button
+                className="btn btn-primary"
+                onClick={() => handlePrevTerm()}
+              >
+                {"<-"}
+              </button>
+              <button
+                className="btn btn-outline-light"
+                onClick={() => randomize()}
+              >
+                Randomize
+              </button>
+              <button
+                className="btn btn-primary"
+                onClick={() => handleNextTerm()}
+              >
+                {"->"}
+              </button>
+            </div>
+          </React.Fragment>
+        )}
+        {mode.write && (
+          <div className="quizlet-write-container">
+            <div className="write-term-btn">
+              <span className="write-term">
+                {data[index].term} {""}
+                <span className={`${index == data.length - 1 && "last-index"}`}>
+                  {index + 1}/{data.length}
+                </span>
+              </span>
+              {checkValue !== null && (
+                <button
+                  className="btn btn-primary btn-sm"
+                  onClick={() => handleNextTerm()}
+                >
+                  {"->"}
+                </button>
+              )}
+            </div>
+            <textarea
+              name="quizletInput"
+              value={inputValue}
+              onChange={(event) => setInputValue(event.target.value)}
+              className="quizletInput"
+            ></textarea>
+            <button
+              className={`btn btn-${
+                checkValue == true
+                  ? "success"
+                  : checkValue == false
+                  ? "danger"
+                  : "outline-light"
+              }`}
+              onClick={() => handleCheck()}
+            >
+              Check
+            </button>
+          </div>
+        )}
       </div>
     </React.Fragment>
   );
