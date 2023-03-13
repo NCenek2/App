@@ -120,6 +120,10 @@
   margin-bottom: 20px;
 }
 
+.check-btn {
+  margin-bottom: 0.5rem;
+}
+
 /* Finished CSS */
 .quizlet-finished {
   text-align: center;

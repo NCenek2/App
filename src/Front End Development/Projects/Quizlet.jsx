@@ -16,6 +16,7 @@ const Quizlet = () => {
   // showDefinition toggles between term and defintion when flipped
   const [showDefinition, setShowDefinition] = React.useState(false);
   const [inputValue, setInputValue] = React.useState("");
+  const [placeholder, setPlaceholder] = React.useState("");
 
   // Checks Inputed Valve to Display Button as Green or Red
   const [checkValue, setCheckValue] = React.useState(null);
@@ -24,6 +25,8 @@ const Quizlet = () => {
   // Houses incorrect definition terms
   const [wrongDataSet, setWrongDataSet] = React.useState(new Set());
   const [finishedCards, setFinishedCards] = React.useState(false);
+  // Handles Overwritten Feature
+  const [isOverwritten, setIsOverwritten] = React.useState(false);
 
   // Mode Handling
   const [mode, setMode] = React.useState({
@@ -81,8 +84,10 @@ const Quizlet = () => {
   const handleReset = () => {
     //
     setShowDefinition((p) => false);
-    setInputValue("");
-    setCheckValue(null);
+    setInputValue((p) => "");
+    setCheckValue((p) => null);
+    setIsOverwritten((p) => false);
+    setPlaceholder((p) => "");
   };
 
   const handlePrevTerm = () => {
@@ -155,7 +160,7 @@ const Quizlet = () => {
     return [mySet, matched];
   };
   const handleCheck = () => {
-    if (inputValue == "") return;
+    if (inputValue.length <= 1) return;
 
     const [definitionSet, undefined] = createSet(data[index].definition);
     let userArray = createSet(inputValue)[1];
@@ -184,11 +189,26 @@ const Quizlet = () => {
         output.push(data[index]);
       }
       setCheckValue((p) => false);
-      setInputValue((p) => data[index].definition);
+      setPlaceholder(
+        (p) => `Yours:\n${inputValue}\nActual:\n${data[index].definition}`
+      );
+      setInputValue((p) => "");
       return output;
     });
   };
 
+  const handleOverwrite = () => {
+    wrongDataSet.delete(data[index].term);
+    setWrongData((previousWrongData) =>
+      previousWrongData.filter(
+        (prevWrongValue) => prevWrongValue.term != data[index].term
+      )
+    );
+    setCheckValue((prevCheckValue) => true);
+    setInputValue((p) => "");
+    setIsOverwritten((p) => true);
+    setPlaceholder((p) => `Overwritten to ${data[index].definition}`);
+  };
   const handleMode = (mode) => {
     if (mode == "flashcards") {
       setMode((prevMode) => {
@@ -209,6 +229,11 @@ const Quizlet = () => {
     } else {
       return;
     }
+  };
+
+  const handleInputValue = (event) => {
+    setPlaceholder((p) => "Type the Definition");
+    setInputValue(event.target.value);
   };
 
   const handleFinish = () => {
@@ -348,11 +373,16 @@ const Quizlet = () => {
             <textarea
               name="quizletInput"
               value={inputValue}
-              onChange={(event) => setInputValue(event.target.value)}
+              onChange={(event) => handleInputValue(event)}
               className="quizletInput"
+              placeholder={
+                checkValue == false || isOverwritten
+                  ? `${placeholder}`
+                  : "Type the Definition"
+              }
             ></textarea>
             <button
-              className={`btn btn-${
+              className={`check-btn btn btn-${
                 checkValue == true
                   ? "success"
                   : checkValue == false
@@ -363,6 +393,14 @@ const Quizlet = () => {
             >
               Check
             </button>
+            {checkValue == false && (
+              <button
+                className="btn btn-outline-light"
+                onClick={() => handleOverwrite()}
+              >
+                Overwrite
+              </button>
+            )}
           </div>
         )}
       </div>
