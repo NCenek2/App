@@ -36,7 +36,7 @@ const Quizlet = () => {
 
   const handleData = () => {
     // Checks if cards can be made. Anything check, # and : check
-    if (!droppedData || !/#/gi.test(droppedData) || !/:/gi.test(droppedData)) {
+    if (!droppedData || !/.*[a-z]{2,}.*:.*[a-z]{2,}.*#/gi.test(droppedData)) {
       return;
     }
 
@@ -128,22 +128,11 @@ const Quizlet = () => {
 
   const createSet = (string) => {
     // replaced creates a string without parenthesis ()
-    let replaced = string.replace(/ *\([^)]*\) */g, " ");
-    // parenthesis gathers parenthesis data
-    let parenthesis = string.match(/ *\([^)]*\) */g);
-    // Collapses parenthesis data (50% - 60%) becomes (50%-60%)
-    for (let index in parenthesis) {
-      parenthesis[index] = parenthesis[index].split(" ").join("");
-    }
 
-    // Creates the total definition array
-    let matched = parenthesis
-      ? replaced.match(/[^\(\s\,\.][a-z-]*[^\)\s,\.]/gi).concat(parenthesis)
-      : replaced.match(/[^\(\s\,\.][a-z-]*[^\)\s,\.]/gi);
+    let matched = string.toLowerCase().split(/[.,\s]+/gi);
     let mySet = new Set();
     let unWanted = new Set([
       "the",
-      "a",
       "an",
       "at",
       "so",
@@ -154,8 +143,9 @@ const Quizlet = () => {
       "in",
       "there",
     ]);
+    if (!matched) return [null, null];
     for (let item of matched) {
-      if (!unWanted.has(item)) mySet.add(item);
+      if (!unWanted.has(item) && item.length > 1) mySet.add(item);
     }
     return [mySet, matched];
   };
@@ -163,12 +153,20 @@ const Quizlet = () => {
     if (inputValue.length <= 1) return;
 
     const [definitionSet, undefined] = createSet(data[index].definition);
-    let userArray = createSet(inputValue)[1];
+    let [userSet, userArray] = createSet(inputValue);
+    if ((!userSet && !userArray) || userSet.size < 1) return;
+    console.log("---------");
+    console.log(definitionSet, "def set");
+    console.log(userSet, "user set");
     let count = 0;
     let usedSet = new Set();
     // Currently overriding wrong data. no sum
     setWrongData((p) => {
       let output = [...p];
+      if (definitionSet.size < 1) {
+        setCheckValue((p) => true);
+        return output;
+      }
       for (let i = 0; i < userArray.length; i++) {
         if (definitionSet.has(userArray[i]) && !usedSet.has(userArray[i])) {
           usedSet.add(userArray[i]);
@@ -250,16 +248,26 @@ const Quizlet = () => {
       <React.Fragment>
         <div className="quizlet-body quizlet-front">
           <p className="quizlet-directions">
-            Term and definition pairs should be written in the following format
-            with numeric values in parenthesis.
+            Term and definition pairs should be written in the following
+            format...
           </p>
           <p className="quizlet-directions">TERM: DEFINITION#</p>
           <p className="quizlet-directions">
-            Make pairs as concise as possible. For example,...
+            Make pairs as concise as possible. Terms and Definitions contain at
+            least 2 or more consecutive letters. Do not use ":" except to
+            seperate term and defintion For example,...
           </p>
           <p className="quizlet-directions">
-            Median Value: Value at (1/2) of data length. Average of two middle
-            values, if even#
+            Median Value: Value at 1/2 of data length.#
+          </p>
+          <p className="quizlet-directions">
+            For the write session, one letter words, patterns that do not have
+            two consectuive letters, and common articles, prepositions, etc are
+            not included.
+          </p>
+          <p className="quizlet-directions">
+            Not Included: "the","an","at","so","is","are",
+            "of","and","in","there", "("
           </p>
           <textarea
             name="droppedData"
