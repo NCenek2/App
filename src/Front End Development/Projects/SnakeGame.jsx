@@ -7,7 +7,6 @@ const SnakeGame = () => {
   const [spacing, setSpacing] = React.useState(20);
   const [score, setScore] = React.useState(0);
   const [playing, setPlaying] = React.useState(false);
-
   const [snakeCoordinate, setSnakeCoordinate] = React.useState([0, 0]);
   const [foodCoordinate, setFoodCoordinate] = React.useState([
     Math.floor((Math.random() * 281 - 140) / spacing) * spacing,
@@ -24,200 +23,85 @@ const SnakeGame = () => {
       ]);
     };
     const handleTurn = () => {
-      if (turn == "UP") {
-        setSnakeCoordinate((currentCoordinate) => {
-          // Start new
-          const nextYCoordinate = currentCoordinate[1] - spacing;
-          const nextArray = [currentCoordinate[0], nextYCoordinate];
-          if (nextYCoordinate < -360) {
-            // Border Crash
-            setPlaying(false);
-            handleReset();
-            return currentCoordinate;
-          } else if (
+      setSnakeCoordinate((currentCoordinate) => {
+        let nextXCoordinate;
+        let nextYCoordinate;
+        let borderCrash;
+        let onFood;
+        // Start new
+        if (turn == "UP") {
+          nextXCoordinate = currentCoordinate[0];
+          nextYCoordinate = currentCoordinate[1] - spacing;
+          borderCrash = nextYCoordinate < -360;
+          onFood =
             currentCoordinate[0] == foodCoordinate[0] &&
-            nextYCoordinate == foodCoordinate[1]
-          ) {
-            // Food Collection
-            increaseScore();
-            setPrevPoints((oldPoints) => {
-              let oldArray = [...oldPoints];
-              oldArray.unshift(currentCoordinate);
-              return oldArray;
-            });
-            return nextArray;
-          } else if (
-            prevPoints.filter((item, index) => {
-              return (
-                item[0] == currentCoordinate[0] &&
-                item[1] == currentCoordinate[1]
-              );
-            }).length > 0
-          ) {
-            // Body Collision
-            setPlaying(false);
-            handleReset();
-            return currentCoordinate;
-          }
-          // End Statement to update body
-          if (prevPoints.length > 0) {
-            setPrevPoints((previousPoints) =>
-              previousPoints.map((obj, index) => {
-                const VALUES = Object.values(previousPoints);
-                if (index == 0) {
-                  return currentCoordinate;
-                } else {
-                  const prevIndex = index - 1;
-                  const prevValue = VALUES[prevIndex];
-                  return prevValue;
-                }
-              })
-            );
-          }
-          return nextArray;
-        });
-      } else if (turn == "RIGHT") {
-        setSnakeCoordinate((currentCoordinate) => {
-          const nextXCoordinate = currentCoordinate[0] + spacing;
-          const nextArray = [nextXCoordinate, currentCoordinate[1]];
-          if (nextXCoordinate > 140) {
-            setPlaying(false);
-            handleReset();
-            return currentCoordinate;
-          } else if (
+            nextYCoordinate == foodCoordinate[1];
+        } else if (turn == "RIGHT") {
+          nextXCoordinate = currentCoordinate[0] + spacing;
+          nextYCoordinate = currentCoordinate[1];
+          borderCrash = nextXCoordinate > 140;
+          onFood =
             nextXCoordinate == foodCoordinate[0] &&
-            currentCoordinate[1] == foodCoordinate[1]
-          ) {
-            increaseScore();
-            setPrevPoints((oldPoints) => {
-              let oldArray = [...oldPoints];
-              oldArray.unshift(currentCoordinate);
-              return oldArray;
-            });
-            return nextArray;
-          } else if (
-            prevPoints.filter((item, index) => {
-              return (
-                item[0] == currentCoordinate[0] &&
-                item[1] == currentCoordinate[1]
-              );
-            }).length > 0
-          ) {
-            setPlaying(false);
-            handleReset();
-            return currentCoordinate;
-          }
-          if (prevPoints.length > 0) {
-            setPrevPoints((previousPoints) =>
-              previousPoints.map((obj, index) => {
-                const VALUES = Object.values(previousPoints);
-                if (index == 0) {
-                  return currentCoordinate;
-                } else {
-                  const prevIndex = index - 1;
-                  const prevValue = VALUES[prevIndex];
-                  return prevValue;
-                }
-              })
-            );
-          }
-          return nextArray;
-        });
-      } else if (turn == "DOWN") {
-        setSnakeCoordinate((currentCoordinate) => {
-          const nextYCoordinate = currentCoordinate[1] + spacing;
-          const nextArray = [currentCoordinate[0], nextYCoordinate];
-          if (nextYCoordinate > 0) {
-            setPlaying(false);
-            handleReset();
-            return currentCoordinate;
-          } else if (
+            currentCoordinate[1] == foodCoordinate[1];
+        } else if (turn == "DOWN") {
+          nextXCoordinate = currentCoordinate[0];
+          nextYCoordinate = currentCoordinate[1] + spacing;
+          borderCrash = nextYCoordinate > 0;
+          onFood =
             currentCoordinate[0] == foodCoordinate[0] &&
-            nextYCoordinate == foodCoordinate[1]
-          ) {
-            increaseScore();
-            setPrevPoints((oldPoints) => {
-              let oldArray = [...oldPoints];
-              oldArray.unshift(currentCoordinate);
-              return oldArray;
-            });
-            return nextArray;
-          } else if (
-            prevPoints.filter((item, index) => {
-              return (
-                item[0] == currentCoordinate[0] &&
-                item[1] == currentCoordinate[1]
-              );
-            }).length > 0
-          ) {
-            setPlaying(false);
-            handleReset();
-            return currentCoordinate;
-          }
-          if (prevPoints.length > 0) {
-            setPrevPoints((previousPoints) =>
-              previousPoints.map((obj, index) => {
-                const VALUES = Object.values(previousPoints);
-                if (index == 0) {
-                  return currentCoordinate;
-                } else {
-                  const prevIndex = index - 1;
-                  const prevValue = VALUES[prevIndex];
-                  return prevValue;
-                }
-              })
-            );
-          }
-          return nextArray;
-        });
-      } else {
-        setSnakeCoordinate((currentCoordinate) => {
-          const nextXCoordinate = currentCoordinate[0] - spacing;
-          const nextArray = [nextXCoordinate, currentCoordinate[1]];
-          if (nextXCoordinate < -140) {
-            setPlaying(false);
-            handleReset();
-            return currentCoordinate;
-          } else if (
+            nextYCoordinate == foodCoordinate[1];
+        } else {
+          nextYCoordinate = currentCoordinate[1];
+          nextXCoordinate = currentCoordinate[0] - spacing;
+          borderCrash = nextXCoordinate < -140;
+          onFood =
             nextXCoordinate == foodCoordinate[0] &&
-            currentCoordinate[1] == foodCoordinate[1]
-          ) {
-            increaseScore();
-            setPrevPoints((oldPoints) => {
-              let oldArray = [...oldPoints];
-              oldArray.unshift(currentCoordinate);
-              return oldArray;
-            });
-            return nextArray;
-          } else if (
-            prevPoints.filter((item, index) => {
-              return (
-                item[0] == currentCoordinate[0] &&
-                item[1] == currentCoordinate[1]
-              );
-            }).length > 0
-          ) {
-            setPlaying(false);
-            handleReset();
-            return currentCoordinate;
-          }
-          if (prevPoints.length > 0) {
-            setPrevPoints((previousPoints) =>
-              previousPoints.map((obj, index) => {
-                const VALUES = Object.values(previousPoints);
-                if (index == 0) {
-                  return currentCoordinate;
-                } else {
-                  const prevIndex = index - 1;
-                  const prevValue = VALUES[prevIndex];
-                  return prevValue;
-                }
-              })
+            currentCoordinate[1] == foodCoordinate[1];
+        }
+        const nextArray = [nextXCoordinate, nextYCoordinate];
+        const hitBody =
+          prevPoints.filter((item, index) => {
+            return (
+              item[0] == currentCoordinate[0] && item[1] == currentCoordinate[1]
             );
-          }
-          return nextArray;
-        });
-      }
+          }).length > 0;
+        if (borderCrash) {
+          // Border Crash
+          setPlaying(false);
+          handleReset();
+          return currentCoordinate;
+        } else if (onFood) {
+          // Food Collection
+          increaseScore();
+          setPrevPoints((oldPoints) => {
+            let oldArray = [...oldPoints];
+            oldArray.unshift(currentCoordinate);
+            return oldArray;
+          });
+          // return nextArray;
+        } else if (hitBody) {
+          // Body Collision
+          setPlaying(false);
+          handleReset();
+          return currentCoordinate;
+        }
+        // End Statement to update body
+        if (prevPoints.length > 0) {
+          setPrevPoints((previousPoints) =>
+            previousPoints.map((obj, index) => {
+              const VALUES = Object.values(previousPoints);
+              if (index == 0) {
+                return currentCoordinate;
+              } else {
+                const prevIndex = index - 1;
+                const prevValue = VALUES[prevIndex];
+                return prevValue;
+              }
+            })
+          );
+        }
+        return nextArray;
+      });
     };
 
     if (playing) {
@@ -226,7 +110,7 @@ const SnakeGame = () => {
       }, speed);
       return () => clearInterval(handleScore);
     }
-  }, [turn, playing]);
+  }, [turn, playing, prevPoints]);
 
   // Handles Key Presses
   React.useEffect(() => {
