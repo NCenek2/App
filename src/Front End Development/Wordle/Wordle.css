@@ -1,0 +1,94 @@
+:root {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+input {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.wordle-container {
+  max-width: 320px;
+  min-height: 100vh;
+  margin-inline: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tile-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+.tile-section {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.wordleTile {
+  text-align: center;
+  height: 3rem;
+  font-weight: bolder;
+  background-color: #444;
+  border-radius: 0.25rem;
+  color: white;
+}
+
+.fourInput {
+  width: calc(100% / 4);
+}
+.fiveInput {
+  width: calc(100% / 5);
+}
+.sixInput {
+  width: calc(100% / 6);
+}
+
+.gray {
+  background-color: #777;
+}
+.yellow {
+  background-color: rgb(200, 200, 50);
+}
+.green {
+  background-color: rgb(72, 199, 72);
+}
+
+/* Keyboard */
+.keyboard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 0.125rem;
+}
+
+.keyboard {
+  cursor: pointer;
+  background-color: gray;
+}
+
+.wordleMargin {
+  margin-bottom: 0.5rem;
+}
+
+.wordleLetterCount {
+  display: flex;
+  gap: 0.25rem;
+}

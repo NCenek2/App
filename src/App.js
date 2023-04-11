@@ -13,6 +13,7 @@ import NotesApp from "./Front End Development/Projects/NotesApp";
 import SnakeGame from "./Front End Development/Projects/SnakeGame";
 import Matlab from "./Matlab/Matlab";
 import Quizlet from "./Front End Development/Projects/Quizlet";
+import Wordle from "./Front End Development/Wordle/Wordle";
 const App = () => {
   const [showNav, setShowNav] = React.useState(false);
 
@@ -74,6 +75,7 @@ const App = () => {
         <Route path="notes-app" element={<NotesApp />} />
         <Route path="snake-game" element={<SnakeGame />} />
         <Route path="quizlet" element={<Quizlet />} />
+        <Route path="wordle" element={<Wordle />} />
       </Routes>
     </React.Fragment>
   );
