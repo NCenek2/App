@@ -17,7 +17,7 @@ const sectionsData = [
     image: "images/wordle.JPG",
     text: `Have you ever wanted to play Wordle more than once a day? 
     Well, now you can with my knock off Worlde. Additionally, you can 
-    choose words with four and six letters! Enjoy!`,
+    choose words with four and six letters! P.S. Working on Guessing Logic Still`,
     link: "/wordle",
   },
   {

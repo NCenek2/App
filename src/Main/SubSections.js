@@ -24,7 +24,6 @@ const SubSections = ({ sectionsData }) => {
     }
   };
 
-  console.log(data);
   return (
     <React.Fragment>
       {data.map((section) => {

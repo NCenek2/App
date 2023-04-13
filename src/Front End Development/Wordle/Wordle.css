@@ -1,25 +1,5 @@
-:root {
-  margin: 0;
-  padding: 0;
-  font-family: monospace;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-span,
-input {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
 .wordle-container {
-  max-width: 320px;
+  max-width: 400px;
   min-height: 100vh;
   margin-inline: auto;
   text-align: center;
@@ -28,6 +8,9 @@ input {
   align-items: center;
   justify-content: center;
   text-align: center;
+  user-select: none;
+  row-gap: 0.5rem;
+  padding: 1rem;
 }
 
 .tile-container {
@@ -45,9 +28,10 @@ input {
   text-align: center;
   height: 3rem;
   font-weight: bolder;
-  background-color: #444;
+  background-color: #555;
   border-radius: 0.25rem;
   color: white;
+  pointer-events: none;
 }
 
 .fourInput {
@@ -60,8 +44,12 @@ input {
   width: calc(100% / 6);
 }
 
+.dark {
+  background-color: #77777762;
+}
+
 .gray {
-  background-color: #777;
+  background-color: #333;
 }
 .yellow {
   background-color: rgb(200, 200, 50);
@@ -76,12 +64,17 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 0.125rem;
+  row-gap: 0.25rem;
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 0.125rem;
 }
 
 .keyboard {
   cursor: pointer;
-  background-color: gray;
+  /* background-color: gray; */
 }
 
 .wordleMargin {
@@ -90,5 +83,5 @@ input {
 
 .wordleLetterCount {
   display: flex;
-  gap: 0.25rem;
+  gap: 1rem;
 }

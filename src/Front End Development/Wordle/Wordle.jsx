@@ -9,40 +9,40 @@ const FourLetters = () => {
   return (
     <React.Fragment>
       <div class="tile-section">
-        <input id="i0" type="text" class="fourInput wordleTile" disabled />
-        <input id="i1" type="text" class="fourInput wordleTile" disabled />
-        <input id="i2" type="text" class="fourInput wordleTile" disabled />
-        <input id="i3" type="text" class="fourInput wordleTile" disabled />
+        <input id="i0" type="text" class="fourInput wordleTile" />
+        <input id="i1" type="text" class="fourInput wordleTile" />
+        <input id="i2" type="text" class="fourInput wordleTile" />
+        <input id="i3" type="text" class="fourInput wordleTile" />
       </div>
       <div class="tile-section">
-        <input id="i4" type="text" class="fourInput wordleTile" disabled />
-        <input id="i5" type="text" class="fourInput wordleTile" disabled />
-        <input id="i6" type="text" class="fourInput wordleTile" disabled />
-        <input id="i7" type="text" class="fourInput wordleTile" disabled />
+        <input id="i4" type="text" class="fourInput wordleTile" />
+        <input id="i5" type="text" class="fourInput wordleTile" />
+        <input id="i6" type="text" class="fourInput wordleTile" />
+        <input id="i7" type="text" class="fourInput wordleTile" />
       </div>
       <div class="tile-section">
-        <input id="i8" type="text" class="fourInput wordleTile" disabled />
-        <input id="i9" type="text" class="fourInput wordleTile" disabled />
-        <input id="i10" type="text" class="fourInput wordleTile" disabled />
-        <input id="i11" type="text" class="fourInput wordleTile" disabled />
+        <input id="i8" type="text" class="fourInput wordleTile" />
+        <input id="i9" type="text" class="fourInput wordleTile" />
+        <input id="i10" type="text" class="fourInput wordleTile" />
+        <input id="i11" type="text" class="fourInput wordleTile" />
       </div>
       <div class="tile-section">
-        <input id="i12" type="text" class="fourInput wordleTile" disabled />
-        <input id="i13" type="text" class="fourInput wordleTile" disabled />
-        <input id="i14" type="text" class="fourInput wordleTile" disabled />
-        <input id="i15" type="text" class="fourInput wordleTile" disabled />
+        <input id="i12" type="text" class="fourInput wordleTile" />
+        <input id="i13" type="text" class="fourInput wordleTile" />
+        <input id="i14" type="text" class="fourInput wordleTile" />
+        <input id="i15" type="text" class="fourInput wordleTile" />
       </div>
       <div class="tile-section">
-        <input id="i16" type="text" class="fourInput wordleTile" disabled />
-        <input id="i17" type="text" class="fourInput wordleTile" disabled />
-        <input id="i18" type="text" class="fourInput wordleTile" disabled />
-        <input id="i19" type="text" class="fourInput wordleTile" disabled />
+        <input id="i16" type="text" class="fourInput wordleTile" />
+        <input id="i17" type="text" class="fourInput wordleTile" />
+        <input id="i18" type="text" class="fourInput wordleTile" />
+        <input id="i19" type="text" class="fourInput wordleTile" />
       </div>
       <div class="tile-section">
-        <input id="i20" type="text" class="fourInput wordleTile" disabled />
-        <input id="i21" type="text" class="fourInput wordleTile" disabled />
-        <input id="i22" type="text" class="fourInput wordleTile" disabled />
-        <input id="i23" type="text" class="fourInput wordleTile" disabled />
+        <input id="i20" type="text" class="fourInput wordleTile" />
+        <input id="i21" type="text" class="fourInput wordleTile" />
+        <input id="i22" type="text" class="fourInput wordleTile" />
+        <input id="i23" type="text" class="fourInput wordleTile" />
       </div>
     </React.Fragment>
   );
@@ -52,46 +52,46 @@ const FiveLetters = () => {
   return (
     <React.Fragment>
       <div class="tile-section">
-        <input id="i0" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i1" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i2" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i3" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i4" type="text" class="fiveInput wordleTile" disabled />
+        <input id="i0" type="text" class="fiveInput wordleTile" />
+        <input id="i1" type="text" class="fiveInput wordleTile" />
+        <input id="i2" type="text" class="fiveInput wordleTile" />
+        <input id="i3" type="text" class="fiveInput wordleTile" />
+        <input id="i4" type="text" class="fiveInput wordleTile" />
       </div>
       <div class="tile-section">
-        <input id="i5" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i6" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i7" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i8" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i9" type="text" class="fiveInput wordleTile" disabled />
+        <input id="i5" type="text" class="fiveInput wordleTile" />
+        <input id="i6" type="text" class="fiveInput wordleTile" />
+        <input id="i7" type="text" class="fiveInput wordleTile" />
+        <input id="i8" type="text" class="fiveInput wordleTile" />
+        <input id="i9" type="text" class="fiveInput wordleTile" />
       </div>
       <div class="tile-section">
-        <input id="i10" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i11" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i12" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i13" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i14" type="text" class="fiveInput wordleTile" disabled />
+        <input id="i10" type="text" class="fiveInput wordleTile" />
+        <input id="i11" type="text" class="fiveInput wordleTile" />
+        <input id="i12" type="text" class="fiveInput wordleTile" />
+        <input id="i13" type="text" class="fiveInput wordleTile" />
+        <input id="i14" type="text" class="fiveInput wordleTile" />
       </div>
       <div class="tile-section">
-        <input id="i15" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i16" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i17" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i18" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i19" type="text" class="fiveInput wordleTile" disabled />
+        <input id="i15" type="text" class="fiveInput wordleTile" />
+        <input id="i16" type="text" class="fiveInput wordleTile" />
+        <input id="i17" type="text" class="fiveInput wordleTile" />
+        <input id="i18" type="text" class="fiveInput wordleTile" />
+        <input id="i19" type="text" class="fiveInput wordleTile" />
       </div>
       <div class="tile-section">
-        <input id="i20" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i21" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i22" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i23" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i24" type="text" class="fiveInput wordleTile" disabled />
+        <input id="i20" type="text" class="fiveInput wordleTile" />
+        <input id="i21" type="text" class="fiveInput wordleTile" />
+        <input id="i22" type="text" class="fiveInput wordleTile" />
+        <input id="i23" type="text" class="fiveInput wordleTile" />
+        <input id="i24" type="text" class="fiveInput wordleTile" />
       </div>
       <div class="tile-section">
-        <input id="i25" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i26" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i27" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i28" type="text" class="fiveInput wordleTile" disabled />
-        <input id="i29" type="text" class="fiveInput wordleTile" disabled />
+        <input id="i25" type="text" class="fiveInput wordleTile" />
+        <input id="i26" type="text" class="fiveInput wordleTile" />
+        <input id="i27" type="text" class="fiveInput wordleTile" />
+        <input id="i28" type="text" class="fiveInput wordleTile" />
+        <input id="i29" type="text" class="fiveInput wordleTile" />
       </div>
     </React.Fragment>
   );
@@ -101,52 +101,52 @@ const SixLetters = () => {
   return (
     <React.Fragment>
       <div class="tile-section">
-        <input id="i0" type="text" class="sixInput wordleTile" disabled />
-        <input id="i1" type="text" class="sixInput wordleTile" disabled />
-        <input id="i2" type="text" class="sixInput wordleTile" disabled />
-        <input id="i3" type="text" class="sixInput wordleTile" disabled />
-        <input id="i4" type="text" class="sixInput wordleTile" disabled />
-        <input id="i5" type="text" class="sixInput wordleTile" disabled />
+        <input id="i0" type="text" class="sixInput wordleTile" />
+        <input id="i1" type="text" class="sixInput wordleTile" />
+        <input id="i2" type="text" class="sixInput wordleTile" />
+        <input id="i3" type="text" class="sixInput wordleTile" />
+        <input id="i4" type="text" class="sixInput wordleTile" />
+        <input id="i5" type="text" class="sixInput wordleTile" />
       </div>
       <div class="tile-section">
-        <input id="i6" type="text" class="sixInput wordleTile" disabled />
-        <input id="i7" type="text" class="sixInput wordleTile" disabled />
-        <input id="i8" type="text" class="sixInput wordleTile" disabled />
-        <input id="i9" type="text" class="sixInput wordleTile" disabled />
-        <input id="i10" type="text" class="sixInput wordleTile" disabled />
-        <input id="i11" type="text" class="sixInput wordleTile" disabled />
+        <input id="i6" type="text" class="sixInput wordleTile" />
+        <input id="i7" type="text" class="sixInput wordleTile" />
+        <input id="i8" type="text" class="sixInput wordleTile" />
+        <input id="i9" type="text" class="sixInput wordleTile" />
+        <input id="i10" type="text" class="sixInput wordleTile" />
+        <input id="i11" type="text" class="sixInput wordleTile" />
       </div>
       <div class="tile-section">
-        <input id="i12" type="text" class="sixInput wordleTile" disabled />
-        <input id="i13" type="text" class="sixInput wordleTile" disabled />
-        <input id="i14" type="text" class="sixInput wordleTile" disabled />
-        <input id="i15" type="text" class="sixInput wordleTile" disabled />
-        <input id="i16" type="text" class="sixInput wordleTile" disabled />
-        <input id="i17" type="text" class="sixInput wordleTile" disabled />
+        <input id="i12" type="text" class="sixInput wordleTile" />
+        <input id="i13" type="text" class="sixInput wordleTile" />
+        <input id="i14" type="text" class="sixInput wordleTile" />
+        <input id="i15" type="text" class="sixInput wordleTile" />
+        <input id="i16" type="text" class="sixInput wordleTile" />
+        <input id="i17" type="text" class="sixInput wordleTile" />
       </div>
       <div class="tile-section">
-        <input id="i18" type="text" class="sixInput wordleTile" disabled />
-        <input id="i19" type="text" class="sixInput wordleTile" disabled />
-        <input id="i20" type="text" class="sixInput wordleTile" disabled />
-        <input id="i21" type="text" class="sixInput wordleTile" disabled />
-        <input id="i22" type="text" class="sixInput wordleTile" disabled />
-        <input id="i23" type="text" class="sixInput wordleTile" disabled />
+        <input id="i18" type="text" class="sixInput wordleTile" />
+        <input id="i19" type="text" class="sixInput wordleTile" />
+        <input id="i20" type="text" class="sixInput wordleTile" />
+        <input id="i21" type="text" class="sixInput wordleTile" />
+        <input id="i22" type="text" class="sixInput wordleTile" />
+        <input id="i23" type="text" class="sixInput wordleTile" />
       </div>
       <div class="tile-section">
-        <input id="i24" type="text" class="sixInput wordleTile" disabled />
-        <input id="i25" type="text" class="sixInput wordleTile" disabled />
-        <input id="i26" type="text" class="sixInput wordleTile" disabled />
-        <input id="i27" type="text" class="sixInput wordleTile" disabled />
-        <input id="i28" type="text" class="sixInput wordleTile" disabled />
-        <input id="i29" type="text" class="sixInput wordleTile" disabled />
+        <input id="i24" type="text" class="sixInput wordleTile" />
+        <input id="i25" type="text" class="sixInput wordleTile" />
+        <input id="i26" type="text" class="sixInput wordleTile" />
+        <input id="i27" type="text" class="sixInput wordleTile" />
+        <input id="i28" type="text" class="sixInput wordleTile" />
+        <input id="i29" type="text" class="sixInput wordleTile" />
       </div>
       <div class="tile-section">
-        <input id="i30" type="text" class="sixInput wordleTile" disabled />
-        <input id="i31" type="text" class="sixInput wordleTile" disabled />
-        <input id="i32" type="text" class="sixInput wordleTile" disabled />
-        <input id="i33" type="text" class="sixInput wordleTile" disabled />
-        <input id="i34" type="text" class="sixInput wordleTile" disabled />
-        <input id="i35" type="text" class="sixInput wordleTile" disabled />
+        <input id="i30" type="text" class="sixInput wordleTile" />
+        <input id="i31" type="text" class="sixInput wordleTile" />
+        <input id="i32" type="text" class="sixInput wordleTile" />
+        <input id="i33" type="text" class="sixInput wordleTile" />
+        <input id="i34" type="text" class="sixInput wordleTile" />
+        <input id="i35" type="text" class="sixInput wordleTile" />
       </div>
     </React.Fragment>
   );
@@ -159,7 +159,23 @@ const Wordle = () => {
   const [success, SetSuccess] = React.useState(null);
   const [tileIndex, setTileIndex] = React.useState(0);
   const [currentRow, setCurrentRow] = React.useState(1);
+  const [mainObj, setMainObj] = React.useState({});
+  const [completedGreenSet, setCompletedGreenSet] = React.useState(new Set());
+
   // const [currentCorrect, setCurrentCorrect] = React.useState(0);
+
+  const handleCreateObj = (word, range) => {
+    const tempObj = {};
+    for (let i = 0; i < word.length; i++) {
+      const letter = word[i];
+      if (!(letter in tempObj)) {
+        tempObj[letter] = new Set();
+      }
+      tempObj[letter].add(range[i]);
+    }
+    return tempObj;
+  };
+
   const handleReset = () => {
     setLetterCount((p) => null);
     setLetterChosen((p) => false);
@@ -167,6 +183,8 @@ const Wordle = () => {
     SetSuccess((p) => null);
     setTileIndex((p) => 0);
     setCurrentRow((p) => 1);
+    setMainObj((p) => {});
+    setCompletedGreenSet((p) => new Set());
   };
 
   const handleFinished = (status) => {
@@ -181,17 +199,20 @@ const Wordle = () => {
 
   const handleWord = (wordLength) => {
     if (wordLength == 4) {
-      const length = list4.length;
-      const randomIndex = Math.floor(Math.random() * length);
-      setCurrentWord((p) => list4[randomIndex].word.toUpperCase());
+      const randomIndex = Math.floor(Math.random() * list4.length);
+      const randomWord = list4[randomIndex].word.toUpperCase();
+      setMainObj((p) => handleCreateObj(randomWord, [...Array(4).keys()]));
+      setCurrentWord((p) => randomWord);
     } else if (wordLength == 5) {
-      const length = list5.length;
-      const randomIndex = Math.floor(Math.random() * length);
-      setCurrentWord((p) => list5[randomIndex].word.toUpperCase());
+      const randomIndex = Math.floor(Math.random() * list5.length);
+      const randomWord = list5[randomIndex].word.toUpperCase();
+      setMainObj((p) => handleCreateObj(randomWord, [...Array(5).keys()]));
+      setCurrentWord((p) => randomWord);
     } else {
-      const length = list6.length;
-      const randomIndex = Math.floor(Math.random() * length);
-      setCurrentWord((p) => list6[randomIndex].word.toUpperCase());
+      const randomIndex = Math.floor(Math.random() * list6.length);
+      const randomWord = list6[randomIndex].word.toUpperCase();
+      setMainObj((p) => handleCreateObj(randomWord, [...Array(6).keys()]));
+      setCurrentWord((p) => randomWord);
     }
   };
 
@@ -214,45 +235,90 @@ const Wordle = () => {
 
   const handleColors = () => {
     let count = 0;
-    const NodeList = document.querySelectorAll("input");
 
+    // Step 1: Gather Row Tiles And Create Guess Object
+    const NodeList = document.querySelectorAll("input");
     const matches = [].slice
       .call(NodeList)
       .slice((currentRow - 1) * letterCount, letterCount * currentRow);
 
-    const wordSet = new Set();
-    const wordObj = {};
-    const yellowSet = new Set();
-    for (let i = 0; i < currentWord.length; i++) {
-      const letter = currentWord[i];
-      if (!wordSet.has(letter)) {
-        wordSet.add(letter);
-        wordObj[letter] = new Set();
+    let guessWord = "";
+    for (let match of matches) {
+      guessWord += match.value;
+    }
+    const guessRange = [...Array(letterCount * currentRow).keys()].slice(
+      (currentRow - 1) * letterCount,
+      letterCount * currentRow
+    );
+    const guessObj = handleCreateObj(guessWord, guessRange);
+
+    // Step 2: Create Objects To Correctly Identify Tile Color
+    const greenObj = {};
+    const yellowObj = {};
+    for (let letter in guessObj) {
+      if (letter in mainObj) {
+        guessObj[letter].forEach((index) => {
+          if (mainObj[letter].has(index % letterCount)) {
+            if (!(letter in greenObj)) greenObj[letter] = new Set();
+            greenObj[letter].add(index);
+          } else {
+            if (!(letter in yellowObj)) yellowObj[letter] = new Set();
+            yellowObj[letter].add(index);
+          }
+        });
+      } else {
+        document.querySelector(`#${letter}`).classList.remove("btn-secondary");
+        document.querySelector(`#${letter}`).classList.add("btn-dark");
       }
-      wordObj[letter].add(i);
     }
 
-    for (let match of matches) {
-      if (match.value === "") continue;
-      const tileNumber = match.id.match(/\d+/)[0];
-      const position = tileNumber % letterCount;
-      const letter = match.value;
-      if (letter in wordObj) {
-        if (wordObj[letter].has(position)) {
-          wordObj[letter].delete(position);
-          document.querySelector(`#${match.id}`).classList.add("green");
-          count++;
-        } else {
-          if (!yellowSet.has(letter)) {
-            document.querySelector(`#${match.id}`).classList.add("yellow");
-          }
-          yellowSet.add(letter);
-        }
-        if (wordObj[letter].size === 0) delete wordObj[letter];
+    // Step 3: Set Tile Colors Green then Yellow
+    const greenSet = new Set();
+    const localCompletedSet = new Set();
+    for (let letter in greenObj) {
+      greenSet.add(letter);
+      if (mainObj[letter].size == greenObj[letter].size)
+        localCompletedSet.add(letter);
+      greenObj[letter].forEach((index) => {
+        count++;
+        document.querySelector(`#i${index}`).classList.add("green");
+      });
+    }
+    for (let letter in yellowObj) {
+      if (localCompletedSet.has(letter)) continue;
+      const yellowIterator = yellowObj[letter].values();
+      const index = yellowIterator.next().value;
+      document.querySelector(`#i${index}`).classList.add("yellow");
+    }
+
+    // Step 4: Set KeyBoard
+
+    localCompletedSet.forEach((letter) => {
+      if (!completedGreenSet.has(letter)) {
+        document.querySelector(`#${letter}`).classList.remove("btn-secondary");
+        document.querySelector(`#${letter}`).classList.remove("btn-warning");
+        document.querySelector(`#${letter}`).classList.add("btn-success");
+      }
+    });
+
+    for (let letter in yellowObj) {
+      if (localCompletedSet.has(letter) || completedGreenSet.has(letter)) {
+        document.querySelector(`#${letter}`).classList.remove("btn-warning");
       } else {
-        document.querySelector(`#${match.id}`).classList.add("gray");
+        document.querySelector(`#${letter}`).classList.remove("btn-secondary");
+        document.querySelector(`#${letter}`).classList.add("btn-warning");
       }
     }
+
+    // Step 5: Set Global Green And Return Count
+
+    setCompletedGreenSet((prevGreenSet) => {
+      localCompletedSet.forEach((letter) => {
+        if (!prevGreenSet.has(letter)) prevGreenSet.add(letter);
+      });
+      return prevGreenSet;
+    });
+
     return count;
   };
 
@@ -278,7 +344,7 @@ const Wordle = () => {
     return (
       <main className="wordle-container">
         <h1>{success ? "You Won!" : "You Lost!"}</h1>
-        <h2>The word Was {currentWord}</h2>
+        <h2>The Word Was {currentWord}</h2>
         <button className="btn btn-outline-light" onClick={() => handleReset()}>
           Play Again!
         </button>
@@ -307,10 +373,8 @@ const Wordle = () => {
       </main>
     );
   }
-
   return (
     <main className="wordle-container">
-      <h1>Wordle</h1>
       <div class="tile-container">
         {letterCount == 4 ? (
           <FourLetters />
