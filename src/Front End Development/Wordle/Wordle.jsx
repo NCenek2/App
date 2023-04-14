@@ -160,7 +160,7 @@ const Wordle = () => {
   const [tileIndex, setTileIndex] = React.useState(0);
   const [currentRow, setCurrentRow] = React.useState(1);
   const [mainObj, setMainObj] = React.useState({});
-  const [completedGreenSet, setCompletedGreenSet] = React.useState(new Set());
+  const [keyboardGreenSet, setKeyboardGreenSet] = React.useState(new Set());
 
   // const [currentCorrect, setCurrentCorrect] = React.useState(0);
 
@@ -184,7 +184,7 @@ const Wordle = () => {
     setTileIndex((p) => 0);
     setCurrentRow((p) => 1);
     setMainObj((p) => {});
-    setCompletedGreenSet((p) => new Set());
+    setKeyboardGreenSet((p) => new Set());
   };
 
   const handleFinished = (status) => {
@@ -273,12 +273,16 @@ const Wordle = () => {
     }
 
     // Step 3: Set Tile Colors Green then Yellow
-    const greenSet = new Set();
+    // I Only Care About the localCompletedSet To Check
+    // Whether or not to add yellows
+    const localGreenKeyboardSet = new Set();
     const localCompletedSet = new Set();
     for (let letter in greenObj) {
-      greenSet.add(letter);
+      localGreenKeyboardSet.add(letter);
+
       if (mainObj[letter].size == greenObj[letter].size)
         localCompletedSet.add(letter);
+
       greenObj[letter].forEach((index) => {
         count++;
         document.querySelector(`#i${index}`).classList.add("green");
@@ -292,9 +296,8 @@ const Wordle = () => {
     }
 
     // Step 4: Set KeyBoard
-
-    localCompletedSet.forEach((letter) => {
-      if (!completedGreenSet.has(letter)) {
+    localGreenKeyboardSet.forEach((letter) => {
+      if (!keyboardGreenSet.has(letter)) {
         document.querySelector(`#${letter}`).classList.remove("btn-secondary");
         document.querySelector(`#${letter}`).classList.remove("btn-warning");
         document.querySelector(`#${letter}`).classList.add("btn-success");
@@ -302,7 +305,7 @@ const Wordle = () => {
     });
 
     for (let letter in yellowObj) {
-      if (localCompletedSet.has(letter) || completedGreenSet.has(letter)) {
+      if (localGreenKeyboardSet.has(letter) || keyboardGreenSet.has(letter)) {
         document.querySelector(`#${letter}`).classList.remove("btn-warning");
       } else {
         document.querySelector(`#${letter}`).classList.remove("btn-secondary");
@@ -312,7 +315,7 @@ const Wordle = () => {
 
     // Step 5: Set Global Green And Return Count
 
-    setCompletedGreenSet((prevGreenSet) => {
+    setKeyboardGreenSet((prevGreenSet) => {
       localCompletedSet.forEach((letter) => {
         if (!prevGreenSet.has(letter)) prevGreenSet.add(letter);
       });
