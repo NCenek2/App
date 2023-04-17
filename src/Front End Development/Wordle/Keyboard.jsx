@@ -1,265 +1,226 @@
 import React from "react";
 const Keyboard = ({ addLetter, removeLetter, checkWord }) => {
+  React.useEffect(() => {
+    const keyPress = (event) => {
+      if (event.key == "Tab") {
+        event.preventDefault();
+      } else if (/^[a-z]$/i.test(event.key)) {
+        const letter = document.getElementById(event.key.toUpperCase());
+        letter.click();
+      } else if (event.key == "Backspace") {
+        const deleteKey = document.getElementById(event.key);
+        deleteKey.click()
+      } else if (event.key == "Enter") {
+        event.preventDefault()
+        const enterKey = document.getElementById(event.key);
+        enterKey.click()
+      }
+    };
+    document.addEventListener("keydown", keyPress);
+    return () => document.removeEventListener("keydown", keyPress);
+  }, []);
+
   return (
     <React.Fragment>
       <div className="keyboard-container">
-        <div className="keyboard-row">
-          <span
-            id="Q"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            Q
-          </span>
-          <span
-            id="W"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            W
-          </span>
-          <span
-            id="E"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            E
-          </span>
-          <span
-            id="R"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            R
-          </span>
-          <span
-            id="T"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            T
-          </span>
-          <span
-            id="Y"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            Y
-          </span>
-          <span
-            id="U"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            U
-          </span>
-          <span
-            id="I"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            I
-          </span>
-          <span
-            id="O"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            O
-          </span>
-          <span
-            id="P"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            P
-          </span>
-        </div>
-        <div className="keyboard-row">
-          <span
-            id="A"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            A
-          </span>
-          <span
-            id="S"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            S
-          </span>
-          <span
-            id="D"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            D
-          </span>
-          <span
-            id="F"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            F
-          </span>
-          <span
-            id="G"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            G
-          </span>
-          <span
-            id="H"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            H
-          </span>
-          <span
-            id="J"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            J
-          </span>
-          <span
-            id="K"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            K
-          </span>
-          <span
-            id="L"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            L
-          </span>
-        </div>
-        <div className="keyboard-row">
-          <span
-            id="enter"
-            onClick={() => checkWord()}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            Enter
-          </span>
-          <span
-            id="Z"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            Z
-          </span>
-          <span
-            id="X"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            X
-          </span>
-          <span
-            id="C"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            C
-          </span>
-          <span
-            id="V"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            V
-          </span>
-          <span
-            id="B"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            B
-          </span>
-          <span
-            id="N"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            N
-          </span>
-          <span
-            id="M"
-            onClick={(e) => addLetter(e)}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            M
-          </span>
-          <span
-            onClick={() => removeLetter()}
-            className={`keyboard btn btn-${
-              window.innerWidth <= 400 ? "sm" : "md"
-            } btn-secondary`}
-          >
-            Del
-          </span>
-        </div>
+        <button
+          id="Q"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          Q
+        </button>
+        <button
+          id="W"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          W
+        </button>
+        <button
+          id="E"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          E
+        </button>
+        <button
+          id="R"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          R
+        </button>
+        <button
+          id="T"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          T
+        </button>
+        <button
+          id="Y"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          Y
+        </button>
+        <button
+          id="U"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          U
+        </button>
+        <button
+          id="I"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          I
+        </button>
+        <button
+          id="O"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          O
+        </button>
+        <button
+          id="P"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          P
+        </button>
+        <span></span>
+        <button
+          id="A"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          A
+        </button>
+        <button
+          id="S"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          S
+        </button>
+        <button
+          id="D"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          D
+        </button>
+        <button
+          id="F"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          F
+        </button>
+        <button
+          id="G"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          G
+        </button>
+        <button
+          id="H"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          H
+        </button>
+        <button
+          id="J"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          J
+        </button>
+        <button
+          id="K"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          K
+        </button>
+        <button
+          id="L"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          L
+        </button>
+        <span></span>
+        <button
+          id="Enter"
+          onClick={() => checkWord()}
+          className={`wordle-key gray-key wordle-lg-key`}
+        >
+          Enter
+        </button>
+        <button
+          id="Z"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          Z
+        </button>
+        <button
+          id="X"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          X
+        </button>
+        <button
+          id="C"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          C
+        </button>
+        <button
+          id="V"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          V
+        </button>
+        <button
+          id="B"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          B
+        </button>
+        <button
+          id="N"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          N
+        </button>
+        <button
+          id="M"
+          onClick={(e) => addLetter(e)}
+          className={`wordle-key gray-key `}
+        >
+          M
+        </button>
+        <button
+          id="Backspace"
+          onClick={() => removeLetter()}
+          className={`wordle-key gray-key wordle-lg-key`}
+        >
+          Del
+        </button>
       </div>
     </React.Fragment>
   );

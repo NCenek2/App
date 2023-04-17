@@ -52,29 +52,58 @@
   background-color: #333;
 }
 .yellow {
-  background-color: rgb(200, 200, 50);
+  background-color: hsl(70, 59%, 47%);
 }
 .green {
-  background-color: rgb(72, 199, 72);
+  background-color: hsl(122, 55%, 34%);
 }
 
 /* Keyboard */
 .keyboard-container {
   /* width: 100%; */
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 0.25rem;
+  row-gap: 0.25rem; */
+  display: grid;
+  grid-template-columns: repeat(20, minmax(auto, 1.25em));
+  grid-auto-rows: 3em;
+  justify-content: center;
+  color: white;
+  gap: 0.25em;
 }
 
-.keyboard-row {
-  display: flex;
-  gap: 0.1rem;
-}
 
-.keyboard {
+.wordle-key {
   cursor: pointer;
-  font-size: 1rem;
+  grid-column: span 2;
+  color: white;
+  border: none;
+  border-radius: 0.25em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* font-size: 1rem; */
+}
+
+.wordle-lg-key {
+  grid-column: span 3;
+}
+
+.gray-key {
+  background-color: hsl(200, 1%, 51%);
+}
+
+.dark-key {
+  background-color: hsl(0, 0%, 22%);
+}
+
+.green-key {
+  background-color: hsl(122, 55%, 34%);
+}
+
+.yellow-key {
+  background-color: hsl(70, 59%, 47%);
 }
 
 /*  End Keyboard */
@@ -88,13 +117,3 @@
   gap: 1rem;
 }
 
-@media (min-width: 360px) {
-  .keyboard-row {
-    gap: 0.3rem;
-  }
-}
-@media (min-width: 400px) {
-  .keyboard-row {
-    gap: 0.2rem;
-  }
-}

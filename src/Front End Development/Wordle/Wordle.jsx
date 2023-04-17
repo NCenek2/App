@@ -267,8 +267,8 @@ const Wordle = () => {
           }
         });
       } else {
-        document.querySelector(`#${letter}`).classList.remove("btn-secondary");
-        document.querySelector(`#${letter}`).classList.add("btn-dark");
+        document.querySelector(`#${letter}`).classList.remove("gray-key");
+        document.querySelector(`#${letter}`).classList.add("dark-key");
       }
     }
 
@@ -298,18 +298,18 @@ const Wordle = () => {
     // Step 4: Set KeyBoard
     localGreenKeyboardSet.forEach((letter) => {
       if (!keyboardGreenSet.has(letter)) {
-        document.querySelector(`#${letter}`).classList.remove("btn-secondary");
-        document.querySelector(`#${letter}`).classList.remove("btn-warning");
-        document.querySelector(`#${letter}`).classList.add("btn-success");
+        document.querySelector(`#${letter}`).classList.remove("gray-key");
+        document.querySelector(`#${letter}`).classList.remove("yellow-key");
+        document.querySelector(`#${letter}`).classList.add("green-key");
       }
     });
 
     for (let letter in yellowObj) {
       if (localGreenKeyboardSet.has(letter) || keyboardGreenSet.has(letter)) {
-        document.querySelector(`#${letter}`).classList.remove("btn-warning");
+        document.querySelector(`#${letter}`).classList.remove("yellow-key");
       } else {
-        document.querySelector(`#${letter}`).classList.remove("btn-secondary");
-        document.querySelector(`#${letter}`).classList.add("btn-warning");
+        document.querySelector(`#${letter}`).classList.remove("gray-key");
+        document.querySelector(`#${letter}`).classList.add("yellow-key");
       }
     }
 
