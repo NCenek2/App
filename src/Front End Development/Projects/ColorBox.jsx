@@ -4,8 +4,9 @@ import "./ColorBox.css";
 const ColorBox = () => {
   const [color, setColor] = useState("");
 
-  const handlePress = document.addEventListener("keypress", (event) => {
-    if (event.key === " ") {
+  const handlePress = document.addEventListener("keypress", (e) => {
+    if (e.key === " ") {
+      e.preventDefault();
       setColor("");
     }
     return () => document.removeEventListener(handlePress);
@@ -19,7 +20,7 @@ const ColorBox = () => {
           <input
             value={color}
             placeholder={"Enter a color"}
-            onChange={(event) => setColor(event.target.value)}
+            onChange={(e) => setColor(e.target.value)}
           />
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import "./NotesApp.css";
-import { FaNotesMedical, FaTrash } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
 const NotesApp = () => {
   const [notesData, setNotesData] = React.useState([
@@ -47,7 +47,6 @@ const NotesApp = () => {
     });
     focusTitle();
   };
-  console.log(notesData);
   const handleNoteClick = (event) => {
     const { id } = event.target;
     const withFilteredNote = notesData

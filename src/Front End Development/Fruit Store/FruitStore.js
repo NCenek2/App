@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./FruitStore.css";
 import Fruits from "./Fruits";
 import Sections from "./Sections";
@@ -7,14 +7,16 @@ import Checkouts from "./Checkouts";
 import fruitsData, { sectionsData } from "./FruitStoreData";
 
 function FruitStore() {
-  const [sections, setSections] = useState(sectionsData);
-  const [fruits, setFruits] = useState(fruitsData);
+  const sections = sectionsData;
+  const [fruits, setFruits] = React.useState(fruitsData);
+  const [isDisabled, setIsDisabled] = React.useState(true);
+  const [currentSection, setCurrentSection] = React.useState("Pick Fruits");
+  const [checkoutInputs, setCheckoutInputs] = React.useState({
+    name: "",
+    email: "",
+  });
 
-  const [isDisabled, setIsDisabled] = useState(true);
-
-  const [sectionOn, setSectionOn] = useState("Pick Fruits");
-
-  useEffect(() => {
+  React.useEffect(() => {
     if (fruits.filter((fruit) => fruit.amount !== 0).length > 0) {
       setIsDisabled(false);
     } else {
@@ -22,13 +24,11 @@ function FruitStore() {
     }
   }, [fruits]);
 
-  const handleSection = (name) => {
-    setSectionOn(name);
+  const handleSection = (clickedSection) => {
+    setCurrentSection(clickedSection);
   };
 
   const handleSelected = (inputID) => {
-    let filteredObject = fruits.filter((fruit) => fruit.id === inputID);
-    let fruitSelected = filteredObject.map((item) => item.fruit);
     setFruits((currentFruits) =>
       currentFruits.map((fruit) => {
         if (fruit.id === inputID) {
@@ -43,7 +43,7 @@ function FruitStore() {
         return fruit;
       })
     );
-  }; // End handle Selected
+  };
 
   const increaseFruitCount = (inputID, inputAmount) => {
     setFruits((currentFruits) =>
@@ -62,6 +62,7 @@ function FruitStore() {
         return fruit;
       })
     );
+
     if (fruits.filter((fruit) => fruit.amount > 0).length > 0) {
       setIsDisabled(false);
     } else {
@@ -115,36 +116,47 @@ function FruitStore() {
     }
   };
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const handleCheckoutInputs = (event) => {
+    const { name, value } = event.target;
 
-  const handleName = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleEmail = (event) => {
-    setEmail(event.target.value);
+    setCheckoutInputs((prevCheckoutInputs) => {
+      if (name == "name") {
+        return {
+          ...prevCheckoutInputs,
+          name: value,
+        };
+      } else {
+        return {
+          ...prevCheckoutInputs,
+          email: value,
+        };
+      }
+    });
   };
 
   return (
     <main className="fruit-store-container">
       <div className="counter">
-        <p>{fruits.filter((fruit) => fruit.selected === true && fruit.amount > 0).length}</p>
+        <p>
+          {
+            fruits.filter(
+              (fruit) => fruit.selected === true && fruit.amount > 0
+            ).length
+          }
+        </p>
       </div>
       <header className="header-fruit-store">
         <h1>Ceneks Fruit Store</h1>
         <Sections
           sections={sections}
-          sectionOn={sectionOn}
+          currentSection={currentSection}
           handleSection={handleSection}
           fruits={fruits}
         />
       </header>
-      {sectionOn === "Pick Fruits" ? (
-        <div className="content-section">
-          <Fruits fruits={fruits} handleSelected={handleSelected} />
-        </div>
-      ) : sectionOn === "Select Quantity" ? (
+      {currentSection === "Pick Fruits" ? (
+        <Fruits fruits={fruits} handleSelected={handleSelected} />
+      ) : currentSection === "Select Quantity" ? (
         <Quantities
           fruits={fruits}
           increase={increaseFruitCount}
@@ -155,10 +167,8 @@ function FruitStore() {
         <Checkouts
           fruits={fruits}
           isDisabled={isDisabled}
-          handleName={handleName}
-          handleEmail={handleEmail}
-          name={name}
-          email={email}
+          checkoutInputs={checkoutInputs}
+          handleCheckoutInputs={handleCheckoutInputs}
         />
       )}
     </main>

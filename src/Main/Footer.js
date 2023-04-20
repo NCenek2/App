@@ -16,10 +16,10 @@ const Footer = () => {
               href="https://www.linkedin.com/in/nicholas-cenek-91ba5b173"
               target="_blank"
             >
-              <i class="fa fa-linkedin" aria-hidden="true"></i>
+              <i className="fa fa-linkedin" aria-hidden="true"></i>
             </a>
             <a href="https://github.com/NCenek2/PythonScripts/tree/1d4253619df1cae3cee61246d3568ea577c534dd">
-              <i class="fa fa-github-square" aria-hidden="true"></i>
+              <i className="fa fa-github-square" aria-hidden="true"></i>
             </a>
           </ul>
         </div>

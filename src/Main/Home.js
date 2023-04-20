@@ -5,7 +5,7 @@ import Main from "./Main";
 import "./Home.css";
 import sectionsData, { mainData } from "./mainData";
 
-const Home = ({ showNav, toggleNav, isLoading, percentage }) => {
+const Home = ({ showNav, toggleNav, percentage, isLoading }) => {
   if (isLoading) {
     return <LoadingBar percentage={percentage} name={"Home"} color={"red"} />;
   }

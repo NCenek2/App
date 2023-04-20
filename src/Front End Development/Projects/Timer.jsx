@@ -1,44 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Timer.css";
 
 const Timer = () => {
-  const [seconds, setSeconds] = useState("00");
-  const [minutes, setMinutes] = useState("25");
-  const [breakLength, setBreakLength] = useState("5");
-  const [sessionLength, setSessionLength] = useState("25");
-  const [playing, setPlaying] = useState(false);
-  const [display, setDisplay] = useState("Session");
+  const [seconds, setSeconds] = React.useState("00");
+  const [minutes, setMinutes] = React.useState("25");
+  const [breakLength, setBreakLength] = React.useState("5");
+  const [sessionLength, setSessionLength] = React.useState("25");
+  const [playing, setPlaying] = React.useState(false);
+  const [display, setDisplay] = React.useState("Session");
 
   const breakIncrement = () => {
     let potentialBreakLength = parseInt(breakLength) + 1;
-    if (potentialBreakLength > 60) {
-      console.log("Break Length Can't be greater than 60");
-      return undefined;
-    }
-    potentialBreakLength = potentialBreakLength.toString();
-    setBreakLength(potentialBreakLength);
+    if (potentialBreakLength > 60) return undefined;
+    setBreakLength(potentialBreakLength.toString());
     return undefined;
   };
 
   const breakDecrement = () => {
     let potentialBreakLength = parseInt(breakLength) - 1;
-    if (potentialBreakLength <= 0) {
-      console.log("Break Length cannot be 0");
-      return undefined;
-    }
-    potentialBreakLength = potentialBreakLength.toString();
-    setBreakLength(potentialBreakLength);
+    if (potentialBreakLength <= 0) return undefined;
+    setBreakLength(potentialBreakLength.toString());
     return undefined;
   };
 
   const sessionIncrement = () => {
     let potentialSessionLength = parseInt(sessionLength) + 1;
-    if (potentialSessionLength > 60) {
-      console.log("Session Length Can't be greater than 60");
-      return undefined;
-    }
-    potentialSessionLength = potentialSessionLength.toString();
-    setSessionLength(potentialSessionLength);
+    if (potentialSessionLength > 60) return undefined;
+    setSessionLength(potentialSessionLength.toString());
+
     let newMinutes = parseInt(minutes) + 1;
     newMinutes = newMinutes.toString();
     if (newMinutes.length < 2) {
@@ -53,12 +42,9 @@ const Timer = () => {
 
   const sessionDecrement = () => {
     let potentialSessionLength = parseInt(sessionLength) - 1;
-    if (potentialSessionLength <= 0) {
-      console.log("Session Length cannot be 0");
-      return undefined;
-    }
-    potentialSessionLength.toString();
-    setSessionLength(potentialSessionLength);
+    if (potentialSessionLength <= 0) return undefined;
+    setSessionLength(potentialSessionLength.toString());
+    
     let newMinutes = parseInt(minutes) - 1;
     newMinutes = newMinutes.toString();
     if (newMinutes.length < 2) {
@@ -77,14 +63,13 @@ const Timer = () => {
     setMinutes("25");
     setSeconds("00");
     setPlaying(false);
-    console.clear();
   };
 
   const playingButton = () => {
     setPlaying(!playing);
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (playing) {
       const intervalID = window.setTimeout(() => {
         if (parseInt(minutes) > 0 && parseInt(seconds) === 0) {

@@ -1,14 +1,16 @@
 import {} from "@testing-library/user-event/dist/utils";
 
-const Section = ({ section, sectionOn, handleSection }) => {
+const Section = ({ section, currentSection, handleSection }) => {
+  const { name: sectionName } = section;
+
   return (
     <button
-      onClick={() => handleSection(section.name)}
+      onClick={() => handleSection(sectionName)}
       className={` btn btn-${
-        section.name === sectionOn ? "success" : "secondary"
+        sectionName === currentSection ? "success" : "secondary"
       } }`}
     >
-      {section.name}
+      {sectionName}
     </button>
   );
 };

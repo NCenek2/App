@@ -1,10 +1,11 @@
 import React from "react";
 import "./SnakeGame.css";
 
+const spacing = 20;
+let gameMode = "";
+
 const SnakeGame = () => {
-  const [gameMode, setGameMode] = React.useState("");
   const [speed, setSpeed] = React.useState(0);
-  const [spacing, setSpacing] = React.useState(20);
   const [score, setScore] = React.useState(0);
   const [playing, setPlaying] = React.useState(false);
   const [snakeCoordinate, setSnakeCoordinate] = React.useState([0, 0]);
@@ -130,34 +131,24 @@ const SnakeGame = () => {
   }, []);
 
   // Handles Speed Difficulty
-  const handleDifficulty = (mode) => {
-    if (mode == "EASY") {
-      if (window.innerWidth < 800) {
-        setSpeed(75);
-      } else {
-        setSpeed(60);
-      }
-    } else if (mode == "MEDIUM") {
-      if (window.innerWidth < 800) {
-        setSpeed(60);
-      } else {
-        setSpeed(45);
-      }
+  const handleDifficulty = (event) => {
+    const { name: selectedMode } = event.target;
+
+    if (selectedMode == "EASY") {
+      window.innerWidth < 800 ? setSpeed(75) : setSpeed(70);
+    } else if (selectedMode == "MEDIUM") {
+      window.innerWidth < 800 ? setSpeed(70) : setSpeed(65);
     } else {
-      if (window.innerWidth < 800) {
-        setSpeed(45);
-      } else {
-        setSpeed(30);
-      }
+      window.innerWidth < 800 ? setSpeed(62) : setSpeed(58);
     }
-    setGameMode(mode);
+
+    gameMode = selectedMode;
     setPlaying(true);
   };
-
   // Handles Reset to Select Difficulty
   const handleReset = () => {
     function resetFunctions() {
-      setGameMode("");
+      gameMode = "";
       setSnakeCoordinate([0, 0]);
       setFoodCoordinate([
         Math.floor((Math.random() * 281 - 140) / spacing) * spacing,
@@ -188,19 +179,22 @@ const SnakeGame = () => {
       <div className="snake-difficulty">
         <button
           className="btn btn-success"
-          onClick={() => handleDifficulty("EASY")}
+          name="EASY"
+          onClick={handleDifficulty}
         >
           Easy
         </button>
         <button
           className="btn btn-primary"
-          onClick={() => handleDifficulty("MEDIUM")}
+          name="MEDIUM"
+          onClick={handleDifficulty}
         >
           Medium
         </button>
         <button
           className="btn btn-danger"
-          onClick={() => handleDifficulty("HARD")}
+          name="HARD"
+          onClick={handleDifficulty}
         >
           Hard
         </button>

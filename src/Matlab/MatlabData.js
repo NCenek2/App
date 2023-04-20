@@ -1,7 +1,7 @@
 export const mainData = {
   title: "Matlab",
-  text1: `Matlab was the first programming languages that I had learned in college. Most of the code that I wrote in college
-  was used to create graphs to see mechanical system responses based on the solution of differential equations. Although it 
+  text1: `Matlab was the first programming languages that I had learned in college. Most of the code that I wrote
+  was used to create graphs to see mechanical system responses based on equations. Although it 
   is glorified for its ability to solve equations, Matlab had a lot of facinating add-ins.`,
   text2: `After taking my first Computer Science course, I was always interested in algorithms that used logical statements and loops. 
     To demonstrate that other knowledge, I created a game to simulate 2D-projectile motion. 

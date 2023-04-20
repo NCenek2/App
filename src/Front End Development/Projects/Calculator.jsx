@@ -168,105 +168,49 @@ const Calculator = () => {
         <button className="calculator-button" id="AC" onClick={resetAC}>
           AC
         </button>
-        <button
-          className="calculator-button"
-          id="/"
-          onClick={(event) => onSymbol(event)}
-        >
+        <button className="calculator-button" id="/" onClick={onSymbol}>
           /
         </button>
-        <button
-          className="calculator-button"
-          id="*"
-          onClick={(event) => onSymbol(event)}
-        >
+        <button className="calculator-button" id="*" onClick={onSymbol}>
           X
         </button>
-        <button
-          className="calculator-button"
-          id="7"
-          onClick={(event) => onNumber(event)}
-        >
+        <button className="calculator-button" id="7" onClick={onNumber}>
           7
         </button>
-        <button
-          className="calculator-button"
-          id="8"
-          onClick={(event) => onNumber(event)}
-        >
+        <button className="calculator-button" id="8" onClick={onNumber}>
           8
         </button>
-        <button
-          className="calculator-button"
-          id="9"
-          onClick={(event) => onNumber(event)}
-        >
+        <button className="calculator-button" id="9" onClick={onNumber}>
           9
         </button>
-        <button
-          className="calculator-button"
-          id="-"
-          onClick={(event) => onSymbol(event)}
-        >
+        <button className="calculator-button" id="-" onClick={onSymbol}>
           -
         </button>
-        <button
-          className="calculator-button"
-          id="4"
-          onClick={(event) => onNumber(event)}
-        >
+        <button className="calculator-button" id="4" onClick={onNumber}>
           4
         </button>
-        <button
-          className="calculator-button"
-          id="5"
-          onClick={(event) => onNumber(event)}
-        >
+        <button className="calculator-button" id="5" onClick={onNumber}>
           5
         </button>
-        <button
-          className="calculator-button"
-          id="6"
-          onClick={(event) => onNumber(event)}
-        >
+        <button className="calculator-button" id="6" onClick={onNumber}>
           6
         </button>
-        <button
-          className="calculator-button"
-          id="+"
-          onClick={(event) => onSymbol(event)}
-        >
+        <button className="calculator-button" id="+" onClick={onSymbol}>
           +
         </button>
-        <button
-          className="calculator-button"
-          id="1"
-          onClick={(event) => onNumber(event)}
-        >
+        <button className="calculator-button" id="1" onClick={onNumber}>
           1
         </button>
-        <button
-          className="calculator-button"
-          id="2"
-          onClick={(event) => onNumber(event)}
-        >
+        <button className="calculator-button" id="2" onClick={onNumber}>
           2
         </button>
-        <button
-          className="calculator-button"
-          id="3"
-          onClick={(event) => onNumber(event)}
-        >
+        <button className="calculator-button" id="3" onClick={onNumber}>
           3
         </button>
         <button className="calculator-button" id="=" onClick={() => onEqual()}>
           =
         </button>
-        <button
-          className="calculator-button"
-          id="0"
-          onClick={(event) => onNumber(event)}
-        >
+        <button className="calculator-button" id="0" onClick={onNumber}>
           0
         </button>
         <button

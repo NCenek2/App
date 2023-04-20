@@ -60,7 +60,7 @@ const SoundDrum = () => {
       </div>
     </div>
   );
-}; // End SoundDrum Component
+};
 
 const Buttons = ({ buttonsInfo, setString }) => {
   return (
@@ -72,13 +72,9 @@ const Buttons = ({ buttonsInfo, setString }) => {
   );
 };
 
-// End Buttons Component
-
 const Button = ({ buttonInfo, setString }) => {
   const handlePress = document.addEventListener("keypress", (event) => {
-    if (event.key.toUpperCase() === buttonInfo.name) {
-      handlePlay();
-    }
+    if (event.key.toUpperCase() === buttonInfo.name) handlePlay();
     return () => document.removeEventListener(handlePress);
   });
 
@@ -100,7 +96,5 @@ const Button = ({ buttonInfo, setString }) => {
     </div>
   );
 };
-
-// End Button Component
 
 export default SoundDrum;

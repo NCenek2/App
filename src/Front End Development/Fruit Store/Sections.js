@@ -1,7 +1,7 @@
 import React from "react";
 import Section from "./Section";
 
-const Sections = ({ sections, sectionOn, handleSection, fruits }) => {
+const Sections = ({ sections, currentSection, handleSection, fruits }) => {
   const [width, setWidth] = React.useState(window.innerWidth);
 
   React.useEffect(() => {
@@ -9,8 +9,6 @@ const Sections = ({ sections, sectionOn, handleSection, fruits }) => {
     window.addEventListener("resize", handleWidthChange);
     return () => window.removeEventListener("resize", handleWidthChange);
   }, []);
-
-  //
 
   if (width < 500) {
     let newSections = [...sections];
@@ -20,7 +18,7 @@ const Sections = ({ sections, sectionOn, handleSection, fruits }) => {
     return (
       <select
         className="sections-dropdown"
-        onChange={(event) => handleSection(event.target.value)}
+        onChange={(e) => handleSection(e.target.value)}
       >
         {newSections.map((section) => (
           <option key={section.id} value={section.name}>
@@ -38,7 +36,7 @@ const Sections = ({ sections, sectionOn, handleSection, fruits }) => {
           key={section.id}
           handleSection={handleSection}
           section={section}
-          sectionOn={sectionOn}
+          currentSection={currentSection}
           fruits={fruits}
         />
       ))}

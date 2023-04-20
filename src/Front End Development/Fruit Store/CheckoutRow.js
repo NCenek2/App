@@ -1,6 +1,6 @@
 import React from "react";
 
-const Checkout = ({ fruit }) => {
+const CheckoutRow = ({ fruit }) => {
   return (
     <React.Fragment>
       <p>{fruit.amount}</p>
@@ -10,4 +10,4 @@ const Checkout = ({ fruit }) => {
   );
 };
 
-export default Checkout;
+export default CheckoutRow;
