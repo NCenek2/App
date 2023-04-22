@@ -8,41 +8,41 @@ import Keyboard from "./Keyboard";
 const FourLetters = () => {
   return (
     <React.Fragment>
-      <div class="tile-section">
-        <input id="i0" type="text" className="fourInput wordleTile" />
-        <input id="i1" type="text" className="fourInput wordleTile" />
-        <input id="i2" type="text" className="fourInput wordleTile" />
-        <input id="i3" type="text" className="fourInput wordleTile" />
+      <div className="tile-section">
+        <input id="i0" name="1" className="fourInput wordleTile" />
+        <input id="i1" name="1" className="fourInput wordleTile" />
+        <input id="i2" name="1" className="fourInput wordleTile" />
+        <input id="i3" name="1" className="fourInput wordleTile" />
       </div>
       <div className="tile-section">
-        <input id="i4" type="text" className="fourInput wordleTile" />
-        <input id="i5" type="text" className="fourInput wordleTile" />
-        <input id="i6" type="text" className="fourInput wordleTile" />
-        <input id="i7" type="text" className="fourInput wordleTile" />
+        <input id="i4" name="2" className="fourInput wordleTile" />
+        <input id="i5" name="2" className="fourInput wordleTile" />
+        <input id="i6" name="2" className="fourInput wordleTile" />
+        <input id="i7" name="2" className="fourInput wordleTile" />
       </div>
       <div className="tile-section">
-        <input id="i8" type="text" className="fourInput wordleTile" />
-        <input id="i9" type="text" className="fourInput wordleTile" />
-        <input id="i10" type="text" className="fourInput wordleTile" />
-        <input id="i11" type="text" className="fourInput wordleTile" />
+        <input id="i8" name="3" className="fourInput wordleTile" />
+        <input id="i9" name="3" className="fourInput wordleTile" />
+        <input id="i10" name="3" className="fourInput wordleTile" />
+        <input id="i11" name="3" className="fourInput wordleTile" />
       </div>
       <div className="tile-section">
-        <input id="i12" type="text" className="fourInput wordleTile" />
-        <input id="i13" type="text" className="fourInput wordleTile" />
-        <input id="i14" type="text" className="fourInput wordleTile" />
-        <input id="i15" type="text" className="fourInput wordleTile" />
+        <input id="i12" name="4" className="fourInput wordleTile" />
+        <input id="i13" name="4" className="fourInput wordleTile" />
+        <input id="i14" name="4" className="fourInput wordleTile" />
+        <input id="i15" name="4" className="fourInput wordleTile" />
       </div>
       <div className="tile-section">
-        <input id="i16" type="text" className="fourInput wordleTile" />
-        <input id="i17" type="text" className="fourInput wordleTile" />
-        <input id="i18" type="text" className="fourInput wordleTile" />
-        <input id="i19" type="text" className="fourInput wordleTile" />
+        <input id="i16" name="5" className="fourInput wordleTile" />
+        <input id="i17" name="5" className="fourInput wordleTile" />
+        <input id="i18" name="5" className="fourInput wordleTile" />
+        <input id="i19" name="5" className="fourInput wordleTile" />
       </div>
       <div className="tile-section">
-        <input id="i20" type="text" className="fourInput wordleTile" />
-        <input id="i21" type="text" className="fourInput wordleTile" />
-        <input id="i22" type="text" className="fourInput wordleTile" />
-        <input id="i23" type="text" className="fourInput wordleTile" />
+        <input id="i20" name="6" className="fourInput wordleTile" />
+        <input id="i21" name="6" className="fourInput wordleTile" />
+        <input id="i22" name="6" className="fourInput wordleTile" />
+        <input id="i23" name="6" className="fourInput wordleTile" />
       </div>
     </React.Fragment>
   );
@@ -52,46 +52,46 @@ const FiveLetters = () => {
   return (
     <React.Fragment>
       <div className="tile-section">
-        <input id="i0" type="text" className="fiveInput wordleTile" />
-        <input id="i1" type="text" className="fiveInput wordleTile" />
-        <input id="i2" type="text" className="fiveInput wordleTile" />
-        <input id="i3" type="text" className="fiveInput wordleTile" />
-        <input id="i4" type="text" className="fiveInput wordleTile" />
+        <input id="i0" name="1" className="fiveInput wordleTile" />
+        <input id="i1" name="1" className="fiveInput wordleTile" />
+        <input id="i2" name="1" className="fiveInput wordleTile" />
+        <input id="i3" name="1" className="fiveInput wordleTile" />
+        <input id="i4" name="1" className="fiveInput wordleTile" />
       </div>
       <div className="tile-section">
-        <input id="i5" type="text" className="fiveInput wordleTile" />
-        <input id="i6" type="text" className="fiveInput wordleTile" />
-        <input id="i7" type="text" className="fiveInput wordleTile" />
-        <input id="i8" type="text" className="fiveInput wordleTile" />
-        <input id="i9" type="text" className="fiveInput wordleTile" />
+        <input id="i5" name="2" className="fiveInput wordleTile" />
+        <input id="i6" name="2" className="fiveInput wordleTile" />
+        <input id="i7" name="2" className="fiveInput wordleTile" />
+        <input id="i8" name="2" className="fiveInput wordleTile" />
+        <input id="i9" name="2" className="fiveInput wordleTile" />
       </div>
       <div className="tile-section">
-        <input id="i10" type="text" className="fiveInput wordleTile" />
-        <input id="i11" type="text" className="fiveInput wordleTile" />
-        <input id="i12" type="text" className="fiveInput wordleTile" />
-        <input id="i13" type="text" className="fiveInput wordleTile" />
-        <input id="i14" type="text" className="fiveInput wordleTile" />
+        <input id="i10" name="3" className="fiveInput wordleTile" />
+        <input id="i11" name="3" className="fiveInput wordleTile" />
+        <input id="i12" name="3" className="fiveInput wordleTile" />
+        <input id="i13" name="3" className="fiveInput wordleTile" />
+        <input id="i14" name="3" className="fiveInput wordleTile" />
       </div>
       <div className="tile-section">
-        <input id="i15" type="text" className="fiveInput wordleTile" />
-        <input id="i16" type="text" className="fiveInput wordleTile" />
-        <input id="i17" type="text" className="fiveInput wordleTile" />
-        <input id="i18" type="text" className="fiveInput wordleTile" />
-        <input id="i19" type="text" className="fiveInput wordleTile" />
+        <input id="i15" name="4" className="fiveInput wordleTile" />
+        <input id="i16" name="4" className="fiveInput wordleTile" />
+        <input id="i17" name="4" className="fiveInput wordleTile" />
+        <input id="i18" name="4" className="fiveInput wordleTile" />
+        <input id="i19" name="4" className="fiveInput wordleTile" />
       </div>
       <div className="tile-section">
-        <input id="i20" type="text" className="fiveInput wordleTile" />
-        <input id="i21" type="text" className="fiveInput wordleTile" />
-        <input id="i22" type="text" className="fiveInput wordleTile" />
-        <input id="i23" type="text" className="fiveInput wordleTile" />
-        <input id="i24" type="text" className="fiveInput wordleTile" />
+        <input id="i20" name="5" className="fiveInput wordleTile" />
+        <input id="i21" name="5" className="fiveInput wordleTile" />
+        <input id="i22" name="5" className="fiveInput wordleTile" />
+        <input id="i23" name="5" className="fiveInput wordleTile" />
+        <input id="i24" name="5" className="fiveInput wordleTile" />
       </div>
       <div className="tile-section">
-        <input id="i25" type="text" className="fiveInput wordleTile" />
-        <input id="i26" type="text" className="fiveInput wordleTile" />
-        <input id="i27" type="text" className="fiveInput wordleTile" />
-        <input id="i28" type="text" className="fiveInput wordleTile" />
-        <input id="i29" type="text" className="fiveInput wordleTile" />
+        <input id="i25" name="6" className="fiveInput wordleTile" />
+        <input id="i26" name="6" className="fiveInput wordleTile" />
+        <input id="i27" name="6" className="fiveInput wordleTile" />
+        <input id="i28" name="6" className="fiveInput wordleTile" />
+        <input id="i29" name="6" className="fiveInput wordleTile" />
       </div>
     </React.Fragment>
   );
@@ -101,52 +101,52 @@ const SixLetters = () => {
   return (
     <React.Fragment>
       <div className="tile-section">
-        <input id="i0" type="text" className="sixInput wordleTile" />
-        <input id="i1" type="text" className="sixInput wordleTile" />
-        <input id="i2" type="text" className="sixInput wordleTile" />
-        <input id="i3" type="text" className="sixInput wordleTile" />
-        <input id="i4" type="text" className="sixInput wordleTile" />
-        <input id="i5" type="text" className="sixInput wordleTile" />
+        <input id="i0" name="1" className="sixInput wordleTile" />
+        <input id="i1" name="1" className="sixInput wordleTile" />
+        <input id="i2" name="1" className="sixInput wordleTile" />
+        <input id="i3" name="1" className="sixInput wordleTile" />
+        <input id="i4" name="1" className="sixInput wordleTile" />
+        <input id="i5" name="1" className="sixInput wordleTile" />
       </div>
       <div className="tile-section">
-        <input id="i6" type="text" className="sixInput wordleTile" />
-        <input id="i7" type="text" className="sixInput wordleTile" />
-        <input id="i8" type="text" className="sixInput wordleTile" />
-        <input id="i9" type="text" className="sixInput wordleTile" />
-        <input id="i10" type="text" className="sixInput wordleTile" />
-        <input id="i11" type="text" className="sixInput wordleTile" />
+        <input id="i6" name="2" className="sixInput wordleTile" />
+        <input id="i7" name="2" className="sixInput wordleTile" />
+        <input id="i8" name="2" className="sixInput wordleTile" />
+        <input id="i9" name="2" className="sixInput wordleTile" />
+        <input id="i10" name="2" className="sixInput wordleTile" />
+        <input id="i11" name="2" className="sixInput wordleTile" />
       </div>
       <div className="tile-section">
-        <input id="i12" type="text" className="sixInput wordleTile" />
-        <input id="i13" type="text" className="sixInput wordleTile" />
-        <input id="i14" type="text" className="sixInput wordleTile" />
-        <input id="i15" type="text" className="sixInput wordleTile" />
-        <input id="i16" type="text" className="sixInput wordleTile" />
-        <input id="i17" type="text" className="sixInput wordleTile" />
+        <input id="i12" name="3" className="sixInput wordleTile" />
+        <input id="i13" name="3" className="sixInput wordleTile" />
+        <input id="i14" name="3" className="sixInput wordleTile" />
+        <input id="i15" name="3" className="sixInput wordleTile" />
+        <input id="i16" name="3" className="sixInput wordleTile" />
+        <input id="i17" name="3" className="sixInput wordleTile" />
       </div>
       <div className="tile-section">
-        <input id="i18" type="text" className="sixInput wordleTile" />
-        <input id="i19" type="text" className="sixInput wordleTile" />
-        <input id="i20" type="text" className="sixInput wordleTile" />
-        <input id="i21" type="text" className="sixInput wordleTile" />
-        <input id="i22" type="text" className="sixInput wordleTile" />
-        <input id="i23" type="text" className="sixInput wordleTile" />
+        <input id="i18" name="4" className="sixInput wordleTile" />
+        <input id="i19" name="4" className="sixInput wordleTile" />
+        <input id="i20" name="4" className="sixInput wordleTile" />
+        <input id="i21" name="4" className="sixInput wordleTile" />
+        <input id="i22" name="4" className="sixInput wordleTile" />
+        <input id="i23" name="4" className="sixInput wordleTile" />
       </div>
       <div className="tile-section">
-        <input id="i24" type="text" className="sixInput wordleTile" />
-        <input id="i25" type="text" className="sixInput wordleTile" />
-        <input id="i26" type="text" className="sixInput wordleTile" />
-        <input id="i27" type="text" className="sixInput wordleTile" />
-        <input id="i28" type="text" className="sixInput wordleTile" />
-        <input id="i29" type="text" className="sixInput wordleTile" />
+        <input id="i24" name="5" className="sixInput wordleTile" />
+        <input id="i25" name="5" className="sixInput wordleTile" />
+        <input id="i26" name="5" className="sixInput wordleTile" />
+        <input id="i27" name="5" className="sixInput wordleTile" />
+        <input id="i28" name="5" className="sixInput wordleTile" />
+        <input id="i29" name="5" className="sixInput wordleTile" />
       </div>
       <div className="tile-section">
-        <input id="i30" type="text" className="sixInput wordleTile" />
-        <input id="i31" type="text" className="sixInput wordleTile" />
-        <input id="i32" type="text" className="sixInput wordleTile" />
-        <input id="i33" type="text" className="sixInput wordleTile" />
-        <input id="i34" type="text" className="sixInput wordleTile" />
-        <input id="i35" type="text" className="sixInput wordleTile" />
+        <input id="i30" name="6" className="sixInput wordleTile" />
+        <input id="i31" name="6" className="sixInput wordleTile" />
+        <input id="i32" name="6" className="sixInput wordleTile" />
+        <input id="i33" name="6" className="sixInput wordleTile" />
+        <input id="i34" name="6" className="sixInput wordleTile" />
+        <input id="i35" name="6" className="sixInput wordleTile" />
       </div>
     </React.Fragment>
   );
@@ -222,10 +222,8 @@ const Wordle = () => {
     let count = 0;
 
     // Step 1: Gather Row Tiles And Create Guess Object
-    const NodeList = document.querySelectorAll("input");
-    const matches = [].slice
-      .call(NodeList)
-      .slice((currentRow - 1) * letterCount, letterCount * currentRow);
+    const NodeList = document.querySelectorAll(`[name="${currentRow}"]`);
+    const matches = [].slice.call(NodeList);
 
     let guessWord = "";
     for (let match of matches) {
@@ -280,7 +278,7 @@ const Wordle = () => {
       document.querySelector(`#i${index}`).classList.add("yellow");
     }
 
-    // Step 4: Set KeyBoard
+    // Step 4: Set Keyboard
     localGreenKeyboardSet.forEach((letter) => {
       if (!keyboardGreenSet.has(letter)) {
         document.querySelector(`#${letter}`).classList.remove("gray-key");
@@ -301,7 +299,7 @@ const Wordle = () => {
     // Step 5: Set Global Green And Return Count
 
     setKeyboardGreenSet((prevGreenSet) => {
-      localCompletedSet.forEach((letter) => {
+      localGreenKeyboardSet.forEach((letter) => {
         if (!prevGreenSet.has(letter)) prevGreenSet.add(letter);
       });
       return prevGreenSet;
@@ -346,15 +344,21 @@ const Wordle = () => {
         <h2 className="wordleMargin">How Many Letters for the Wordle?</h2>
         <div className="wordleLetterCount">
           <button
-            class="btn btn-secondary "
+            className="btn btn-secondary "
             onClick={() => handleWordLength(4)}
           >
             4
           </button>
-          <button class="btn btn-secondary" onClick={() => handleWordLength(5)}>
+          <button
+            className="btn btn-secondary"
+            onClick={() => handleWordLength(5)}
+          >
             5
           </button>
-          <button class="btn btn-secondary" onClick={() => handleWordLength(6)}>
+          <button
+            className="btn btn-secondary"
+            onClick={() => handleWordLength(6)}
+          >
             6
           </button>
         </div>
@@ -363,7 +367,7 @@ const Wordle = () => {
   }
   return (
     <main className="wordle-container">
-      <div class="tile-container">
+      <div className="tile-container">
         {letterCount == 4 ? (
           <FourLetters />
         ) : letterCount == 5 ? (
