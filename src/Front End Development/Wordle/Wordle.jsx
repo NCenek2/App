@@ -5,151 +5,33 @@ import React from "react";
 import "./Wordle.css";
 import Keyboard from "./Keyboard";
 
-const FourLetters = () => {
-  return (
-    <React.Fragment>
-      <div className="tile-section">
-        <input id="i0" name="1" className="fourInput wordleTile" />
-        <input id="i1" name="1" className="fourInput wordleTile" />
-        <input id="i2" name="1" className="fourInput wordleTile" />
-        <input id="i3" name="1" className="fourInput wordleTile" />
-      </div>
-      <div className="tile-section">
-        <input id="i4" name="2" className="fourInput wordleTile" />
-        <input id="i5" name="2" className="fourInput wordleTile" />
-        <input id="i6" name="2" className="fourInput wordleTile" />
-        <input id="i7" name="2" className="fourInput wordleTile" />
-      </div>
-      <div className="tile-section">
-        <input id="i8" name="3" className="fourInput wordleTile" />
-        <input id="i9" name="3" className="fourInput wordleTile" />
-        <input id="i10" name="3" className="fourInput wordleTile" />
-        <input id="i11" name="3" className="fourInput wordleTile" />
-      </div>
-      <div className="tile-section">
-        <input id="i12" name="4" className="fourInput wordleTile" />
-        <input id="i13" name="4" className="fourInput wordleTile" />
-        <input id="i14" name="4" className="fourInput wordleTile" />
-        <input id="i15" name="4" className="fourInput wordleTile" />
-      </div>
-      <div className="tile-section">
-        <input id="i16" name="5" className="fourInput wordleTile" />
-        <input id="i17" name="5" className="fourInput wordleTile" />
-        <input id="i18" name="5" className="fourInput wordleTile" />
-        <input id="i19" name="5" className="fourInput wordleTile" />
-      </div>
-      <div className="tile-section">
-        <input id="i20" name="6" className="fourInput wordleTile" />
-        <input id="i21" name="6" className="fourInput wordleTile" />
-        <input id="i22" name="6" className="fourInput wordleTile" />
-        <input id="i23" name="6" className="fourInput wordleTile" />
-      </div>
-    </React.Fragment>
-  );
-};
+const Letters = ({ letterCount }) => {
+  const letters = letterCount;
+  const letterClass =
+    letters == 4 ? "fourInput" : letters == 5 ? "fiveInput" : "sixInput";
 
-const FiveLetters = () => {
-  return (
-    <React.Fragment>
-      <div className="tile-section">
-        <input id="i0" name="1" className="fiveInput wordleTile" />
-        <input id="i1" name="1" className="fiveInput wordleTile" />
-        <input id="i2" name="1" className="fiveInput wordleTile" />
-        <input id="i3" name="1" className="fiveInput wordleTile" />
-        <input id="i4" name="1" className="fiveInput wordleTile" />
+  const container = [];
+  let i = 0;
+  for (let block = 0; block < 6; block++) {
+    const section = [];
+    const row = Math.floor(i / letters) + 1;
+    for (i; i < letters * row; i++) {
+      section.push(
+        <input
+          key={`${i}`}
+          id={`i${i}`}
+          name={`${row}`}
+          className={`${letterClass} wordleTile`}
+        />
+      );
+    }
+    container.push(
+      <div key={block} className="tile-section">
+        {section}
       </div>
-      <div className="tile-section">
-        <input id="i5" name="2" className="fiveInput wordleTile" />
-        <input id="i6" name="2" className="fiveInput wordleTile" />
-        <input id="i7" name="2" className="fiveInput wordleTile" />
-        <input id="i8" name="2" className="fiveInput wordleTile" />
-        <input id="i9" name="2" className="fiveInput wordleTile" />
-      </div>
-      <div className="tile-section">
-        <input id="i10" name="3" className="fiveInput wordleTile" />
-        <input id="i11" name="3" className="fiveInput wordleTile" />
-        <input id="i12" name="3" className="fiveInput wordleTile" />
-        <input id="i13" name="3" className="fiveInput wordleTile" />
-        <input id="i14" name="3" className="fiveInput wordleTile" />
-      </div>
-      <div className="tile-section">
-        <input id="i15" name="4" className="fiveInput wordleTile" />
-        <input id="i16" name="4" className="fiveInput wordleTile" />
-        <input id="i17" name="4" className="fiveInput wordleTile" />
-        <input id="i18" name="4" className="fiveInput wordleTile" />
-        <input id="i19" name="4" className="fiveInput wordleTile" />
-      </div>
-      <div className="tile-section">
-        <input id="i20" name="5" className="fiveInput wordleTile" />
-        <input id="i21" name="5" className="fiveInput wordleTile" />
-        <input id="i22" name="5" className="fiveInput wordleTile" />
-        <input id="i23" name="5" className="fiveInput wordleTile" />
-        <input id="i24" name="5" className="fiveInput wordleTile" />
-      </div>
-      <div className="tile-section">
-        <input id="i25" name="6" className="fiveInput wordleTile" />
-        <input id="i26" name="6" className="fiveInput wordleTile" />
-        <input id="i27" name="6" className="fiveInput wordleTile" />
-        <input id="i28" name="6" className="fiveInput wordleTile" />
-        <input id="i29" name="6" className="fiveInput wordleTile" />
-      </div>
-    </React.Fragment>
-  );
-};
-
-const SixLetters = () => {
-  return (
-    <React.Fragment>
-      <div className="tile-section">
-        <input id="i0" name="1" className="sixInput wordleTile" />
-        <input id="i1" name="1" className="sixInput wordleTile" />
-        <input id="i2" name="1" className="sixInput wordleTile" />
-        <input id="i3" name="1" className="sixInput wordleTile" />
-        <input id="i4" name="1" className="sixInput wordleTile" />
-        <input id="i5" name="1" className="sixInput wordleTile" />
-      </div>
-      <div className="tile-section">
-        <input id="i6" name="2" className="sixInput wordleTile" />
-        <input id="i7" name="2" className="sixInput wordleTile" />
-        <input id="i8" name="2" className="sixInput wordleTile" />
-        <input id="i9" name="2" className="sixInput wordleTile" />
-        <input id="i10" name="2" className="sixInput wordleTile" />
-        <input id="i11" name="2" className="sixInput wordleTile" />
-      </div>
-      <div className="tile-section">
-        <input id="i12" name="3" className="sixInput wordleTile" />
-        <input id="i13" name="3" className="sixInput wordleTile" />
-        <input id="i14" name="3" className="sixInput wordleTile" />
-        <input id="i15" name="3" className="sixInput wordleTile" />
-        <input id="i16" name="3" className="sixInput wordleTile" />
-        <input id="i17" name="3" className="sixInput wordleTile" />
-      </div>
-      <div className="tile-section">
-        <input id="i18" name="4" className="sixInput wordleTile" />
-        <input id="i19" name="4" className="sixInput wordleTile" />
-        <input id="i20" name="4" className="sixInput wordleTile" />
-        <input id="i21" name="4" className="sixInput wordleTile" />
-        <input id="i22" name="4" className="sixInput wordleTile" />
-        <input id="i23" name="4" className="sixInput wordleTile" />
-      </div>
-      <div className="tile-section">
-        <input id="i24" name="5" className="sixInput wordleTile" />
-        <input id="i25" name="5" className="sixInput wordleTile" />
-        <input id="i26" name="5" className="sixInput wordleTile" />
-        <input id="i27" name="5" className="sixInput wordleTile" />
-        <input id="i28" name="5" className="sixInput wordleTile" />
-        <input id="i29" name="5" className="sixInput wordleTile" />
-      </div>
-      <div className="tile-section">
-        <input id="i30" name="6" className="sixInput wordleTile" />
-        <input id="i31" name="6" className="sixInput wordleTile" />
-        <input id="i32" name="6" className="sixInput wordleTile" />
-        <input id="i33" name="6" className="sixInput wordleTile" />
-        <input id="i34" name="6" className="sixInput wordleTile" />
-        <input id="i35" name="6" className="sixInput wordleTile" />
-      </div>
-    </React.Fragment>
-  );
+    );
+  }
+  return <div className="tile-container">{container}</div>;
 };
 
 const list = [list4, list5, list6];
@@ -341,6 +223,7 @@ const Wordle = () => {
   if (!letterChosen) {
     return (
       <main className="wordle-container">
+        <Letters />
         <h2 className="wordleMargin">How Many Letters for the Wordle?</h2>
         <div className="wordleLetterCount">
           <button
@@ -367,15 +250,7 @@ const Wordle = () => {
   }
   return (
     <main className="wordle-container">
-      <div className="tile-container">
-        {letterCount == 4 ? (
-          <FourLetters />
-        ) : letterCount == 5 ? (
-          <FiveLetters />
-        ) : (
-          <SixLetters />
-        )}
-      </div>
+      <Letters letterCount={letterCount} />
       <Keyboard
         addLetter={addLetter}
         removeLetter={removeLetter}
