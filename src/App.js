@@ -6,7 +6,7 @@ import FruitStore from "./Front End Development/Fruit Store/FruitStore";
 import Python from "./Python/Python";
 import SnakeGame from "./Front End Development/Projects/SnakeGame";
 import Matlab from "./Matlab/Matlab";
-import Quizlet from "./Front End Development/Projects/Quizlet";
+import Quizlet from "./Front End Development/Quizlet/Quizlet";
 import Wordle from "./Front End Development/Wordle/Wordle";
 const App = () => {
   const [percentage, setPercentage] = React.useState(0);

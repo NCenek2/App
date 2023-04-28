@@ -24,6 +24,13 @@ const sectionsData = [
     link: "/wordle",
   },
   {
+    title: "Quizlet Cards",
+    image: "images/quizlet.JPG",
+    text: `Quizlet knock off that allows you to create study cards and 
+    check definitions based on correctness.`,
+    link: "/quizlet",
+  },
+  {
     title: "Snake Game",
     image: "images/snake_game.JPG",
     text: "The classic snake game uses WASD as controls. For mobile users, you have to use the buttons at the bottom. What high score can you get??",
@@ -53,13 +60,6 @@ const sectionsData = [
     href="https://github.com/NCenek2/Scripts/blob/main/what-is-it.js" 
     target="_blank">View Code</a>
     </div>`,
-  },
-  {
-    title: "Quizlet Cards",
-    image: "images/quizlet.JPG",
-    text: `Quizlet knock off that allows you to create study cards and 
-    check definitions based on correctness.`,
-    link: "/quizlet",
   },
   // {
   //   title: "Notes App",

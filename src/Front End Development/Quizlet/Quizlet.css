@@ -1,0 +1,199 @@
+.quizlet-container {
+  padding: 0.5em 1em;
+  color: black;
+}
+
+.decks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 100%;
+}
+.add-deck {
+}
+
+.deck-container {
+  border: 1px solid black;
+  padding: 0.25em 0.5em;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.deck-title {
+}
+.deck-description {
+}
+
+.deck-count {
+}
+
+.deck-btn {
+  border: none;
+  background-color: #f8f9fa;
+}
+.deck-icon {
+  pointer-events: none;
+  color: black;
+}
+
+.deck-button-container {
+  display: flex;
+  column-gap: 1em;
+  position: absolute;
+  right: 0.5em;
+  bottom: 0.35em;
+}
+
+/* Studycard Container */
+
+.studycards-container {
+  display: flex;
+  flex-direction: column;
+}
+.studycard-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 12fr;
+  text-align: center;
+  align-items: center;
+  padding: 0.25em 1em 0.5em 1em;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 15rem;
+}
+.studycards-title {
+  margin-bottom: 0.5em;
+  text-align: center;
+  color: white;
+}
+.studycards-home-btn {
+}
+.studycards-buttons-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.studycards-button {
+  width: 100%;
+}
+
+/* Edit Flashcards */
+.edit-flashcards-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  color: black;
+}
+
+.edit-title {
+  text-align: center;
+  color: white;
+}
+
+.edit-flashcards-title {
+}
+.edit-flashcards-definition {
+}
+.edit-flashcards-info {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.edit-flashcards-info > input {
+  margin-bottom: 0.5em;
+}
+
+.edit-flashcard-container {
+  padding: 0.5em 0.25em;
+}
+
+.edit-flashcard-definition {
+  color: black;
+  height: 10rem;
+}
+
+/* Write */
+.write-container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.write-title {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.write-count-term-container {
+  text-align: center;
+}
+
+.write-term {
+  margin-bottom: 0.5em;
+}
+
+.write-textarea {
+  height: 12rem;
+  padding: 0.25em 0.5em;
+}
+
+.write-btn-container {
+  display: flex;
+}
+
+.write-btn {
+  width: 100%;
+}
+
+.pointer-events {
+  pointer-events: none;
+}
+
+.quizlet-inputs {
+  border: 0.5px solid black;
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+}
+
+@media (min-width: 44rem) {
+  .quizlet-container {
+    max-width: 800px;
+    margin-inline: auto;
+  }
+  .decks-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+  }
+  .add-deck {
+    grid-column: span 2;
+  }
+
+  .studycards-container {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .studycard-container {
+    height: 25rem;
+  }
+
+  .edit-flashcards-container {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .write-container {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .write-textarea {
+    height: 25rem;
+  }
+
+  .no-decks {
+    grid-column: span 2;
+  }
+}
