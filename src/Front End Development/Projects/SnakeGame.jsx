@@ -104,7 +104,6 @@ const SnakeGame = () => {
         return nextArray;
       });
     };
-
     if (playing) {
       const handleScore = setInterval(() => {
         handleTurn();

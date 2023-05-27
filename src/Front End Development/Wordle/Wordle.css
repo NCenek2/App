@@ -52,7 +52,7 @@
   background-color: #333;
 }
 .yellow {
-  background-color: hsl(70, 59%, 47%);
+  background-color: hsl(70, 61%, 51%);
 }
 .green {
   background-color: hsl(122, 55%, 34%);
@@ -103,7 +103,7 @@
 }
 
 .yellow-key {
-  background-color: hsl(70, 59%, 47%);
+  background-color: hsl(70, 61%, 51%);
 }
 
 /*  End Keyboard */
