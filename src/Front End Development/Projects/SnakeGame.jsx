@@ -175,7 +175,7 @@ const SnakeGame = () => {
   // Selecting Difficulty
   if (gameMode === "") {
     return (
-      <div className="snake-difficulty">
+      <section className="snake-difficulty">
         <button
           className="btn btn-success"
           name="EASY"
@@ -197,11 +197,11 @@ const SnakeGame = () => {
         >
           Hard
         </button>
-      </div>
+      </section>
     );
   } else {
     return (
-      <main className="snake-game-container">
+      <section className="snake-game-container">
         <header
           className={`snake-header ${
             window.innerWidth >= 800 && "large-snake-header"
@@ -280,7 +280,7 @@ const SnakeGame = () => {
             <div className="food" style={foodStyle}></div>
           </div>
         </div>
-      </main>
+      </section>
     );
   }
 };

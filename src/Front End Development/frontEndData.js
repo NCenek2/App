@@ -52,14 +52,26 @@ const sectionsData = [
     Built using a Queue Data Structure.`,
     link: "",
     shown: false,
-    text2: `<div class="generic-subsections">
-    <a class="btn btn-secondary" style="width: 150px;" 
-    href="https://ncenek2.github.io/what-is-it/" 
-    target="_blank">View Project</a>
-    <a class="btn btn-secondary" style="width: 150px;" 
-    href="https://github.com/NCenek2/Scripts/blob/main/what-is-it.js" 
-    target="_blank">View Code</a>
-    </div>`,
+    text2: (
+      <div className="generic-subsections">
+        <a
+          className="btn btn-secondary"
+          style={{ width: "150px" }}
+          href="https://ncenek2.github.io/what-is-it/"
+          target="_blank"
+        >
+          View Project
+        </a>
+        <a
+          className="btn btn-secondary"
+          style={{ width: "150px" }}
+          href="https://github.com/NCenek2/Scripts/blob/main/what-is-it.js"
+          target="_blank"
+        >
+          View Code
+        </a>
+      </div>
+    ),
   },
   // {
   //   title: "Notes App",

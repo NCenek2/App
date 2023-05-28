@@ -34,10 +34,9 @@ const SubSections = ({ sectionsData }) => {
               <h2 className="subsection-title">{title}</h2>
               <img src={image} alt=""></img>
               <p className="subsection-text">{text}</p>
-              <div
-                dangerouslySetInnerHTML={{ __html: text2 }}
-                className={`short-subsection ${shown && "long-subsection"}`}
-              ></div>
+              <div className={`short-subsection ${shown && "long-subsection"}`}>
+                {text2}
+              </div>
               <button
                 id={title}
                 className="btn btn-dark"

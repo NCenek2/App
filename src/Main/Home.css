@@ -3,7 +3,6 @@
 }
 
 /* Generic Subsection */
-
 .generic-subsections {
   display: flex;
   flex-direction: column;
@@ -16,9 +15,9 @@
 
 .header-outer {
   max-width: 100%;
-  background-color: white;
-  color: black;
-  padding: 1rem 1.5rem;
+  background-color: var(--platinum);
+  color: var(--black);
+  padding: 1rem;
   box-shadow: var(--shadow);
   border-radius: 3px;
 }
@@ -33,16 +32,18 @@
 .header-inner h1 {
   font-size: 1.75rem;
   cursor: pointer;
+  font-weight: 600;
+  font-style: italic;
 }
 
 .fa-bars {
   font-size: 1.5rem;
-  color: black;
+  color: var(--black);
   cursor: pointer;
 }
 
 .fa-bars:hover {
-  color: red;
+  color: var(--yellow);
 }
 
 .menu {
@@ -59,9 +60,9 @@
 }
 
 .menu li:hover {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--yellow-hover);
   padding-left: 1.7rem;
-  color: white;
+  color: var(--black);
 }
 
 .show-menu {
@@ -102,12 +103,13 @@
     font-size: 1.125rem;
     padding: 0;
     transition: initial;
+    cursor: pointer;
   }
 
   .menu li:hover {
+    color: var(--yellow);
     background-color: transparent;
     padding: 0;
-    color: red;
   }
 }
 
@@ -205,11 +207,12 @@
 .main-subsection-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 30px 250px;
+  grid-template-rows: 30px 250px 90px;
   grid-auto-rows: auto;
   align-items: center;
   justify-content: center;
   gap: 10px;
+
 }
 
 .main-subsection-container p {

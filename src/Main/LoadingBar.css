@@ -19,7 +19,7 @@
 .loading,
 .percentage {
   margin-bottom: 15px;
-  color: white;
+  color: var(--gray);
 }
 
 .outer-bar {
@@ -29,7 +29,7 @@
   border-radius: 1vmax;
 }
 .inner-bar {
-  background-color: red;
+  background-color: var(--yellow);
   height: 10px;
   border-radius: 1vmax;
 }

@@ -1,6 +1,18 @@
 :root {
-  --grid-border: 2px solid rgba(128, 128, 128, 0.2);
   --shadow: 6px 6px 12px rgba(255, 255, 255, 0.2);
+  --retro: #2f1b41;
+  --maroon: #9f1e49;
+  --yellow: #fecd51;
+  --yellow-hover: rgba(254, 205, 81, 0.7);
+  --gray: #f2f2f2;
+  --black: #080708;
+  --cerulean: #457b9d;
+  --sapphire: #0353a4;
+  --cordovan: #912f40;
+  --platinum: #e6e8e6;
+  /* --grid-border: 2px solid rgba(128, 128, 128, 0.2); */
+  /* --grid-border: 2px solid rgba(254, 205, 81, 0.6); */
+  --grid-border: 2px solid rgba(128, 128, 128, 0.2);
 }
 
 h1,
@@ -27,7 +39,6 @@ label {
 
 body {
   font-family: cursive;
-  background-color: silver;
   color: white;
   width: 100%;
   background-image: url(../public/Background1.jpg);

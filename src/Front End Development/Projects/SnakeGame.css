@@ -11,6 +11,7 @@
 }
 
 .snake-game-container {
+  min-height: 100vh;
   margin-top: 10px;
   display: flex;
   flex-direction: column;

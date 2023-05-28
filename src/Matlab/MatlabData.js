@@ -28,14 +28,26 @@ const sectionsData = [
     text: ``,
     link: "",
     shown: false,
-    text2: `<div class="generic-subsections">
-  <a class="btn btn-secondary" style="width: 150px;" 
-  href="https://www.linkedin.com/posts/nicholas-cenek-91ba5b173_ive-had-time-to-put-coding-knowledge-learned-activity-6944690305958907904-0F51?utm_source=share&utm_medium=member_desktop" 
-  target="_blank">View Video</a>
-  <a class="btn btn-secondary" style="width: 150px;" 
-  href="https://github.com/NCenek2/Scripts/blob/main/Projectile%20Launcher.m" 
-  target="_blank">View Code</a>
-  </div>`,
+    text2: (
+      <div className="generic-subsections">
+        <a
+          className="btn btn-secondary"
+          style={{ width: "150px", margin: "0 auto" }}
+          href="https://www.linkedin.com/posts/nicholas-cenek-91ba5b173_ive-had-time-to-put-coding-knowledge-learned-activity-6944690305958907904-0F51?utm_source=share&utm_medium=member_desktop"
+          target="_blank"
+        >
+          View Video
+        </a>
+        <a
+          className="btn btn-secondary"
+          style={{ width: "150px", margin: "0 auto" }}
+          href="https://github.com/NCenek2/Scripts/blob/main/Projectile%20Launcher.m"
+          target="_blank"
+        >
+          View Code
+        </a>
+      </div>
+    ),
   },
 ];
 

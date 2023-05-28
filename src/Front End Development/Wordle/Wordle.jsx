@@ -210,12 +210,17 @@ const Wordle = () => {
   };
   if (success !== null) {
     return (
-      <main className="wordle-container">
-        <h1>{success ? "You Won!" : "You Lost!"}</h1>
-        <h2>The Word Was {currentWord}</h2>
-        <button className="btn btn-outline-light" onClick={() => handleReset()}>
-          Play Again!
-        </button>
+      <main className="wordle-main">
+        <section className="wordle-container">
+          <h1>{success ? "You Won!" : "You Lost!"}</h1>
+          <h2>The Word Was {currentWord}</h2>
+          <button
+            className="btn btn-outline-light"
+            onClick={() => handleReset()}
+          >
+            Play Again!
+          </button>
+        </section>
       </main>
     );
   }
