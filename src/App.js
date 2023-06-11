@@ -4,10 +4,11 @@ import Home from "./Main/Home";
 import FrontEnd from "./Front End Development/FrontEnd";
 import FruitStore from "./Front End Development/Fruit Store/FruitStore";
 import Python from "./Python/Python";
-import SnakeGame from "./Front End Development/Projects/SnakeGame";
+import SnakeGame from "./Front End Development/Snake_Game/SnakeGame";
 import Matlab from "./Matlab/Matlab";
 import Quizlet from "./Front End Development/Quizlet/Quizlet";
 import Wordle from "./Front End Development/Wordle/Wordle";
+
 const App = () => {
   const [percentage, setPercentage] = React.useState(0);
   const [isLoading, setIsLoading] = React.useState(true);
@@ -33,7 +34,6 @@ const App = () => {
   const toggleNav = () => {
     setShowNav((prevState) => !prevState);
   };
-
   return (
     <React.Fragment>
       <Routes>
@@ -68,21 +68,5 @@ const App = () => {
     </React.Fragment>
   );
 };
-
-// import Calculator from "./Front End Development/Projects/Calculator";
-// import ColorBox from "./Front End Development/Projects/ColorBox";
-// import SoundDrum from "./Front End Development/Projects/SoundDrum";
-// import Timer from "./Front End Development/Projects/Timer";
-// import DogAPI from "./Front End Development/Projects/DogAPI";
-// import NotesApp from "./Front End Development/Projects/NotesApp";
-
-{
-  /* <Route path="calculator" element={<Calculator />} />
-<Route path="color-box" element={<ColorBox />} />
-<Route path="sound-drum" element={<SoundDrum />} />
-<Route path="timer" element={<Timer />} />
-<Route path="dog-api" element={<DogAPI />} />
-<Route path="notes-app" element={<NotesApp />} /> */
-}
 
 export default App;

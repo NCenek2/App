@@ -41,7 +41,7 @@ const sectionsData = [
         <a
           className="btn btn-secondary"
           style={{ width: "150px", margin: "0 auto" }}
-          href="https://github.com/NCenek2/Scripts/blob/main/Projectile%20Launcher.m"
+          href="https://github.com/NCenek2/Scripts/tree/main/Matlab"
           target="_blank"
         >
           View Code

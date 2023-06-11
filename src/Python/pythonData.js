@@ -38,7 +38,7 @@ const sectionsData = [
         <a
           className="btn btn-secondary"
           style={{ width: "150px", margin: "0 auto" }}
-          href="https://youtu.be/BBOJbZ653dE"
+          href="https://youtu.be/51Xeq4210I8"
           target="_blank"
         >
           View Video
@@ -46,7 +46,7 @@ const sectionsData = [
         <a
           className="btn btn-secondary"
           style={{ width: "150px", margin: "0 auto" }}
-          href="https://github.com/NCenek2/PythonScripts/blob/1d4253619df1cae3cee61246d3568ea577c534dd/TurtleRace.py"
+          href="https://github.com/NCenek2/Scripts/tree/main/Python/TurtleRace"
           target="_blank"
         >
           View Code
@@ -80,7 +80,7 @@ const sectionsData = [
         <a
           className="btn btn-secondary"
           style={{ width: "150px", margin: "0 auto" }}
-          href="https://github.com/NCenek2/PythonScripts/blob/1d4253619df1cae3cee61246d3568ea577c534dd/Arithmetic_Formatter.py"
+          href="https://github.com/NCenek2/Scripts/blob/main/Python/Arithmetic_Formatter.py"
           target="_blank"
         >
           View Code
@@ -110,7 +110,7 @@ const sectionsData = [
         <a
           className="btn btn-secondary"
           style={{ width: "150px", margin: "0 auto" }}
-          href="https://github.com/NCenek2/PythonScripts/blob/1d4253619df1cae3cee61246d3568ea577c534dd/Budget%20Calculator.py"
+          href="https://github.com/NCenek2/Scripts/blob/main/Python/Budget%20Calculator.py"
           target="_blank"
         >
           View Code
@@ -144,7 +144,7 @@ const sectionsData = [
         <a
           className="btn btn-secondary"
           style={{ width: "150px", margin: "0 auto" }}
-          href="https://github.com/NCenek2/PythonScripts/blob/1d4253619df1cae3cee61246d3568ea577c534dd/Polygon%20Area%20Calculator.py"
+          href="https://github.com/NCenek2/Scripts/blob/main/Python/Polygon%20Area%20Calculator.py"
           target="_blank"
         >
           View Code
@@ -173,7 +173,7 @@ const sectionsData = [
         <a
           className="btn btn-secondary"
           style={{ width: "150px", margin: "0 auto" }}
-          href="https://github.com/NCenek2/PythonScripts/blob/main/Probability%20Calculator.py"
+          href="https://github.com/NCenek2/Scripts/blob/main/Python/Probability%20Calculator.py"
           target="_blank"
         >
           View Code
@@ -198,7 +198,7 @@ const sectionsData = [
         <a
           className="btn btn-secondary"
           style={{ width: "150px", margin: "0 auto" }}
-          href="https://github.com/NCenek2/PythonScripts/blob/main/Time%20Calculator.py"
+          href="https://github.com/NCenek2/Scripts/blob/main/Python/Time%20Calculator.py"
           target="_blank"
         >
           View Code

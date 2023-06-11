@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 
-const Footer = () => {
+const Footer = ({ githubURL }) => {
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -18,7 +18,7 @@ const Footer = () => {
             >
               <i className="fa fa-linkedin" aria-hidden="true"></i>
             </a>
-            <a href="https://github.com/NCenek2/PythonScripts/tree/1d4253619df1cae3cee61246d3568ea577c534dd">
+            <a href={`${githubURL}`} target="_blank">
               <i className="fa fa-github-square" aria-hidden="true"></i>
             </a>
           </ul>

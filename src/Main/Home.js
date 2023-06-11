@@ -4,6 +4,7 @@ import Header from "./Header";
 import Main from "./Main";
 import "./Home.css";
 import sectionsData, { mainData } from "./mainData";
+let githubURL = "https://github.com/NCenek2/NCenek2.github.io/tree/main/src";
 
 const Home = ({ showNav, toggleNav, percentage, isLoading }) => {
   if (isLoading) {
@@ -13,7 +14,11 @@ const Home = ({ showNav, toggleNav, percentage, isLoading }) => {
   return (
     <React.Fragment>
       <Header showNav={showNav} toggleNav={toggleNav} />
-      <Main sectionsData={sectionsData} mainData={mainData} />
+      <Main
+        sectionsData={sectionsData}
+        mainData={mainData}
+        githubURL={githubURL}
+      />
     </React.Fragment>
   );
 };
