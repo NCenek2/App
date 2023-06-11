@@ -1,9 +1,17 @@
 export const mainData = {
   title: "Python",
-  text1:
-    " Python was one of the first programming languages that I had learned, aside from MATLAB, a programming language primarily used for engineers. When I started learning Python, I was interested in creating games. Consequently, I created a Turtle Race game. Then, I started going through FreeCodeCamp's Curriculum to learn more of the basics of Scientific Computing. Listed below are some of the projects that I have created.",
-  text2:
-    "My current favorite project is Turtle Race. In Turtle Race, the CPU- red turtle in photo- is programmed to move either up or down based on the shortest distance in the X or Y direction at a specific interval (tracer).",
+  text1: `Python was one of the first programming languages that 
+  I had learned, aside from MATLAB, a programming language primarily
+  used for engineers. When I started learning Python, I was interested
+  in creating games. Consequently, I created a Turtle Race game. Then, 
+  I started going through FreeCodeCamp's Curriculum to learn more of the basics
+  of Scientific Computing. Listed below are some of the projects that I have created.`,
+  text2: `My favorite project is Turtle Race. In Turtle Race, the CPU- red turtle in
+    photo- is programmed to move shortest distance to reach the ball. First to 10 Wins!
+    This game can be downloaded on Windows system by downloading the executable on my Github
+    account. This can be accessed by clicking the Github link at the bottom of this page, or 
+    more directly by clicking more for Turtle Race and clicking the View Code button. Hope yoy
+    enjoy!`,
 };
 // {title: "",
 // image: "",
