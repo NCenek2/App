@@ -15,10 +15,11 @@ const Footer = ({ githubURL }) => {
             <a
               href="https://www.linkedin.com/in/nicholas-cenek-91ba5b173"
               target="_blank"
+              rel="noreferrer"
             >
               <i className="fa fa-linkedin" aria-hidden="true"></i>
             </a>
-            <a href={`${githubURL}`} target="_blank">
+            <a href={`${githubURL}`} target="_blank" rel="noreferrer">
               <i className="fa fa-github-square" aria-hidden="true"></i>
             </a>
           </ul>

@@ -35,6 +35,7 @@ const sectionsData = [
           style={{ width: "150px", margin: "0 auto" }}
           href="https://www.linkedin.com/posts/nicholas-cenek-91ba5b173_ive-had-time-to-put-coding-knowledge-learned-activity-6944690305958907904-0F51?utm_source=share&utm_medium=member_desktop"
           target="_blank"
+          rel="noreferrer"
         >
           View Video
         </a>
@@ -43,6 +44,7 @@ const sectionsData = [
           style={{ width: "150px", margin: "0 auto" }}
           href="https://github.com/NCenek2/Scripts/tree/main/Matlab"
           target="_blank"
+          rel="noreferrer"
         >
           View Code
         </a>

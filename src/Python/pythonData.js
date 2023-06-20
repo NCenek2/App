@@ -48,6 +48,7 @@ const sectionsData = [
           style={{ width: "150px", margin: "0 auto" }}
           href="https://youtu.be/51Xeq4210I8"
           target="_blank"
+          rel="noreferrer"
         >
           View Video
         </a>
@@ -56,6 +57,7 @@ const sectionsData = [
           style={{ width: "150px", margin: "0 auto" }}
           href="https://github.com/NCenek2/Scripts/tree/main/Python/TurtleRace"
           target="_blank"
+          rel="noreferrer"
         >
           View Code
         </a>
@@ -90,6 +92,7 @@ const sectionsData = [
           style={{ width: "150px", margin: "0 auto" }}
           href="https://github.com/NCenek2/Scripts/blob/main/Python/Arithmetic_Formatter.py"
           target="_blank"
+          rel="noreferrer"
         >
           View Code
         </a>
@@ -120,6 +123,7 @@ const sectionsData = [
           style={{ width: "150px", margin: "0 auto" }}
           href="https://github.com/NCenek2/Scripts/blob/main/Python/Budget%20Calculator.py"
           target="_blank"
+          rel="noreferrer"
         >
           View Code
         </a>
@@ -154,6 +158,7 @@ const sectionsData = [
           style={{ width: "150px", margin: "0 auto" }}
           href="https://github.com/NCenek2/Scripts/blob/main/Python/Polygon%20Area%20Calculator.py"
           target="_blank"
+          rel="noreferrer"
         >
           View Code
         </a>
@@ -183,6 +188,7 @@ const sectionsData = [
           style={{ width: "150px", margin: "0 auto" }}
           href="https://github.com/NCenek2/Scripts/blob/main/Python/Probability%20Calculator.py"
           target="_blank"
+          rel="noreferrer"
         >
           View Code
         </a>
@@ -208,6 +214,7 @@ const sectionsData = [
           style={{ width: "150px", margin: "0 auto" }}
           href="https://github.com/NCenek2/Scripts/blob/main/Python/Time%20Calculator.py"
           target="_blank"
+          rel="noreferrer"
         >
           View Code
         </a>

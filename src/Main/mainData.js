@@ -5,7 +5,7 @@ export const mainData = {
   learned into beneficial, real-life projects. This website is ALL 
   self-created, and has been inspired by the passion that I have for 
   web development. Most of my early programming experience comes from the 
-  FreeCodeCamp.org curriculum. Currently, I am currently in a Web Development 
+  FreeCodeCamp.org curriculum. I am currently in a Web Development 
   Bootcamp through Udemy, and in the process of creating my first full-stack
   web application utilziing MongoDB, Express.js, React.js, and Node.js.`,
   text2: `I have categorized my knowledge and skills into two main areas: 

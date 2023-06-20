@@ -30,6 +30,7 @@ const sectionsData = [
           style={{ width: "150px" }}
           href="https://ncenek2.github.io/wordle/"
           target="_blank"
+          rel="noreferrer"
         >
           View Project
         </a>
@@ -38,6 +39,7 @@ const sectionsData = [
           style={{ width: "150px" }}
           href="https://github.com/NCenek2/NCenek2.github.io/blob/main/src/Front%20End%20Development/Wordle/Wordle.jsx"
           target="_blank"
+          rel="noreferrer"
         >
           View Code
         </a>
@@ -58,6 +60,7 @@ const sectionsData = [
           style={{ width: "150px" }}
           href="https://ncenek2.github.io/quizlet/"
           target="_blank"
+          rel="noreferrer"
         >
           View Project
         </a>
@@ -66,6 +69,7 @@ const sectionsData = [
           style={{ width: "150px" }}
           href="https://github.com/NCenek2/NCenek2.github.io/blob/main/src/Front%20End%20Development/Quizlet/Quizlet.jsx"
           target="_blank"
+          rel="noreferrer"
         >
           View Code
         </a>
@@ -85,6 +89,7 @@ const sectionsData = [
           style={{ width: "150px" }}
           href="https://ncenek2.github.io/snake-game/"
           target="_blank"
+          rel="noreferrer"
         >
           View Project
         </a>
@@ -93,6 +98,7 @@ const sectionsData = [
           style={{ width: "150px" }}
           href="https://github.com/NCenek2/NCenek2.github.io/blob/main/src/Front%20End%20Development/Snake_Game/SnakeGame.jsx"
           target="_blank"
+          rel="noreferrer"
         >
           View Code
         </a>
@@ -114,6 +120,7 @@ const sectionsData = [
           style={{ width: "150px" }}
           href="https://ncenek2.github.io/fruit-store/"
           target="_blank"
+          rel="noreferrer"
         >
           View Project
         </a>
@@ -122,6 +129,7 @@ const sectionsData = [
           style={{ width: "150px" }}
           href="https://github.com/NCenek2/NCenek2.github.io/blob/main/src/Front%20End%20Development/Fruit%20Store/FruitStore.js"
           target="_blank"
+          rel="noreferrer"
         >
           View Code
         </a>
@@ -143,6 +151,7 @@ const sectionsData = [
           style={{ width: "150px" }}
           href="https://ncenek2.github.io/what-is-it/"
           target="_blank"
+          rel="noreferrer"
         >
           View Project
         </a>
@@ -151,6 +160,7 @@ const sectionsData = [
           style={{ width: "150px" }}
           href="https://github.com/NCenek2/what-is-it/blob/main/index.js"
           target="_blank"
+          rel="noreferrer"
         >
           View Code
         </a>
