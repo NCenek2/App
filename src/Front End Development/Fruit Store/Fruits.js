@@ -1,14 +1,21 @@
 import React from "react";
 import Fruit from "./Fruit";
-const Fruits = ({ fruits, handleSelected }) => {
+import fruitsData from "./fruitStoreData";
+
+const Fruits = ({ fruitsSelected, setFruitsSelected }) => {
   return (
-    <div className="content-section">
-      <section className="fruits-container">
-        {fruits.map((fruit) => (
-          <Fruit key={fruit.id} fruit={fruit} handleSelected={handleSelected} />
-        ))}
-      </section>
-    </div>
+    <section className="fruits-container">
+      {fruitsData.map((fruit, index) => {
+        return (
+          <Fruit
+            key={index}
+            fruit={fruit}
+            fruitsSelected={fruitsSelected}
+            setFruitsSelected={setFruitsSelected}
+          />
+        );
+      })}
+    </section>
   );
 };
 

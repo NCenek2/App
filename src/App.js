@@ -34,6 +34,9 @@ const App = () => {
   const toggleNav = () => {
     setShowNav((prevState) => !prevState);
   };
+
+  return <FruitStore />;
+
   return (
     <React.Fragment>
       <Routes>

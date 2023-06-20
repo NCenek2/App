@@ -1,21 +1,46 @@
-import React from "react";
-const Fruit = ({ fruit, handleSelected }) => {
-  return (
-    <article
-      onClick={() => handleSelected(fruit.id)}
-      className="fruit-container"
-      style={
-        fruit.selected
-          ? {
-              border: "3px solid blue",
-              boxShadow: "4px 2px 10px blue",
-            }
-          : { border: "3px solid white" }
+import React, { useState } from "react";
+import { Card } from "react-bootstrap";
+
+const Fruit = ({ fruit, fruitsSelected, setFruitsSelected }) => {
+  const [selectedFruit, setSelectedFruit] = useState(() => {
+    let selected = false;
+
+    for (let prevSelectedFruits of fruitsSelected) {
+      if (prevSelectedFruits.fruit == fruit.fruit) {
+        selected = true;
+        break;
       }
+    }
+
+    return selected;
+  });
+
+  const toggleSelected = () => {
+    setSelectedFruit((prevStatus) => {
+      const newStatus = !prevStatus;
+      if (newStatus) {
+        setFruitsSelected((prevFruitsSelected) => {
+          return [...prevFruitsSelected, fruit];
+        });
+      } else {
+        setFruitsSelected((prevFruitsSelected) =>
+          prevFruitsSelected.filter((prevFruit) => {
+            return prevFruit.fruit !== fruit.fruit;
+          })
+        );
+      }
+      return newStatus;
+    });
+  };
+
+  return (
+    <Card
+      className={`fruit-border ${selectedFruit && "fruit-blue-border"}`}
+      onClick={toggleSelected}
     >
-      <h2 className="fruit-container-title">{fruit.fruit}</h2>
-      <img className="fruit-container-image" src={fruit.url} alt={fruit.id} />
-    </article>
+      <Card.Img src={fruit.url} className="mb-1 p-1"></Card.Img>
+      <Card.Title className="fruit-size">{fruit.fruit}</Card.Title>
+    </Card>
   );
 };
 
