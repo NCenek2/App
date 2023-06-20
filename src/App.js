@@ -35,8 +35,6 @@ const App = () => {
     setShowNav((prevState) => !prevState);
   };
 
-  return <FruitStore />;
-
   return (
     <React.Fragment>
       <Routes>
