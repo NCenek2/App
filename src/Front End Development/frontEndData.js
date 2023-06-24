@@ -79,7 +79,7 @@ const sectionsData = [
   {
     title: "Snake Game",
     image: "images/snake_game.JPG",
-    text: "The classic snake game uses WASD as controls. For mobile users, you have to use the buttons at the bottom. What high score can you get??",
+    text: "The classic snake game uses WASD as controls. For mobile users, you can toggle a joystick to play. Built using a Linked List data structure.",
     link: "",
     shown: false,
     text2: (

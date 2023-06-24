@@ -65,7 +65,7 @@ const fruitsData = [
     url: "https://i0.wp.com/onlymyenglish.com/wp-content/uploads/2020/11/Avocado-min.png?resize=150%2C150&ssl=1",
     amount: 1,
     price: 2.5,
-    total: 2.0,
+    total: 2.5,
   },
   {
     fruit: "Coconut",

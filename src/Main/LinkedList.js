@@ -7,7 +7,7 @@ export default class LinkedList {
 
   prepend(value) {
     // O(1)
-    let newNode = new Node(value, this.head);
+    let newNode = new Node(value);
     if (this.length == 0) {
       this.head = newNode;
       this.tail = newNode;
@@ -15,25 +15,12 @@ export default class LinkedList {
       return newNode;
     }
 
+    let oldHead = this.head;
+    oldHead.prev = newNode;
     this.head = newNode;
+    this.head.next = oldHead;
     this.length++;
     return newNode;
-  }
-
-  removeHead() {
-    // O(1)
-    if (this.length == 0) return null;
-    let removedNode = this.head;
-    if (this.length == 1) {
-      this.head = null;
-      this.tail = null;
-      this.length--;
-      return removedNode;
-    }
-
-    this.head = this.head.next;
-    this.length--;
-    return removedNode;
   }
 
   append(value) {
@@ -46,52 +33,47 @@ export default class LinkedList {
       this.length++;
       return newNode;
     }
-    this.tail.next = newNode;
+
+    let oldTail = this.tail;
+    oldTail.next = newNode;
     this.tail = newNode;
+    this.tail.prev = oldTail;
     this.length++;
     return newNode;
   }
 
-  removeTail() {
-    // O(n)
-    if (this.length == 0) return null;
-    if (this.length == 1) {
-      let removedNode = this.tail;
-      this.head = null;
-      this.tail = null;
-      this.length--;
-      return removedNode;
+  map(fn) {
+    const res = new LinkedList();
+    let cursor = this.root;
+    while (cursor) {
+      res.add(fn(cursor.value));
+      cursor = cursor.next;
     }
 
-    let previous = null;
-    let current = this.head;
-    while (current.next) {
-      previous = current;
-      current = current.next;
-    }
-    let removedNode = current;
-    previous.next = null;
-    this.tail = previous;
-    this.length--;
-    return removedNode;
+    return res;
   }
 
-  print() {
-    // O(n)
+  printForward() {
     let output = "";
-    let current = this.head;
-    while (current) {
-      output = `${output}${current.value} -> `;
-      current = current.next;
+    for (let cur = this.head; cur != null; cur = cur.next) {
+      output = `${output}${cur.value} -> `;
     }
-    console.log(`${output}null`);
-    return;
+    return `${output}null`;
+  }
+
+  printBackward() {
+    let output = "";
+    for (let cur = this.tail; cur != null; cur = cur.prev) {
+      output = `<- ${output}${cur.value}`;
+    }
+    return `null${output}`;
   }
 }
 
 export class Node {
-  constructor(value, next) {
+  constructor(value) {
+    this.prev = null;
     this.value = value;
-    this.next = next;
+    this.next = null;
   }
 }
