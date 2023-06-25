@@ -16,6 +16,9 @@ const Header = ({ showNav, toggleNav }) => {
         <li onClick={() => navigate("/front-end-development")}>
           Front End Development
         </li>
+        <li onClick={() => navigate("/full-stack-development")}>
+          Full Stack Projects
+        </li>
         <li onClick={() => navigate("/python")}>Python</li>
       </ul>
     </header>

@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Main/Home";
 import FrontEnd from "./Front End Development/FrontEnd";
+import FullStack from "./Full Stack Projects/FullStack";
 import FruitStore from "./Front End Development/Fruit Store/FruitStore";
 import Python from "./Python/Python";
 import SnakeGame from "./Front End Development/Snake_Game/SnakeGame";
@@ -49,9 +50,14 @@ const App = () => {
             />
           }
         />
+
         <Route
           path="front-end-development"
           element={<FrontEnd showNav={showNav} toggleNav={toggleNav} />}
+        />
+        <Route
+          path="full-stack-development"
+          element={<FullStack showNav={showNav} toggleNav={toggleNav} />}
         />
         <Route path="fruit-store" element={<FruitStore />} />
         <Route
