@@ -250,11 +250,7 @@ const SnakeGame = () => {
   } else {
     return (
       <section className="snake-game-container">
-        <header
-          className={`snake-header ${
-            window.innerWidth >= 800 && "large-snake-header"
-          }`}
-        >
+        <header className="snake-header">
           <h3>{playing ? `Score: ${score}` : `CRASHED at ${score}`}</h3>
         </header>
         <div style={snakeBoardContainer}>
