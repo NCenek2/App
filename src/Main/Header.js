@@ -9,18 +9,11 @@ const Header = ({ showNav, toggleNav }) => {
     <header className="header-outer">
       <div className="header-inner">
         <h1 onClick={() => navigate("/")}>My Portfolio</h1>
-        <i className="fa fa-bars" aria-hidden="true" onClick={toggleNav}></i>
+        {/* <i className="fa fa-bars" aria-hidden="true" onClick={toggleNav}></i> */}
       </div>
-      <ul className={`menu ${showNav && "show-menu"}`}>
+      {/* <ul className={`menu ${showNav && "show-menu"}`}>
         <li onClick={() => navigate("/")}>Home</li>
-        <li onClick={() => navigate("/front-end-development")}>
-          Front End Development
-        </li>
-        <li onClick={() => navigate("/full-stack-development")}>
-          Full Stack Projects
-        </li>
-        <li onClick={() => navigate("/python")}>Python</li>
-      </ul>
+      </ul> */}
     </header>
   );
 };

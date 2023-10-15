@@ -34,9 +34,7 @@ const SubSections = ({ sectionsData }) => {
               <h2 className="subsection-title">{title}</h2>
               <img src={image} alt=""></img>
               <p className="subsection-text">{text}</p>
-              <div className={`short-subsection ${shown && "long-subsection"}`}>
-                {text2}
-              </div>
+              <div className={`${!shown && "show-content"}`}>{text2}</div>
               <button
                 id={title}
                 className="btn btn-dark"
