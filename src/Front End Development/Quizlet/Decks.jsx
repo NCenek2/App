@@ -20,9 +20,13 @@ const Decks = ({
       if (decks[deckId].cards.length == 0) return;
       setQuizSelected(true);
     } else {
-      return setDecks((prevDecks) =>
-        prevDecks.filter((prevDeck, prevDeckIndex) => prevDeckIndex != deckId)
-      );
+      return setDecks((prevDecks) => {
+        const newDeck = prevDecks.filter(
+          (prevDeck, prevDeckIndex) => prevDeckIndex != deckId
+        );
+        localStorage.setItem("cards", JSON.stringify(newDeck));
+        return newDeck;
+      });
     }
     setCurrentDeckId(deckId);
   };
@@ -63,7 +67,11 @@ const Decks = ({
       ) : (
         <h1 className="text-white text-center no-decks">No Decks</h1>
       )}
-      <button className="btn btn-primary add-deck" onClick={addDeck}>
+      <button
+        type="button"
+        className="btn btn-primary add-deck"
+        onClick={addDeck}
+      >
         Add Deck
       </button>
     </section>

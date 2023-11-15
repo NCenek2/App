@@ -16,7 +16,10 @@ const EditFlashCards = ({ decks, deckId, setDecks, exitSession }) => {
           definition: "",
         },
       ];
-      return [...prevDecks];
+
+      const newDeck = [...prevDecks];
+      localStorage.setItem("cards", JSON.stringify(newDeck));
+      return newDeck;
     });
   };
 
@@ -24,14 +27,20 @@ const EditFlashCards = ({ decks, deckId, setDecks, exitSession }) => {
     const { id, value } = e.target;
     setDecks((prevDecks) => {
       decks[deckId][id] = value;
-      return [...prevDecks];
+
+      const newDeck = [...prevDecks];
+      localStorage.setItem("cards", JSON.stringify(newDeck));
+      return newDeck;
     });
   };
 
   return (
-    <section className="edit-flashcards-container">
+    <section className="edit-flashcards-section">
       <h1 className="edit-title">Edit</h1>
-      <button className="btn btn-secondary" onClick={() => exitSession(deckId)}>
+      <button
+        className="btn btn-secondary add-deck"
+        onClick={() => exitSession(deckId)}
+      >
         Home
       </button>
       <div className="edit-flashcards-info">
@@ -43,6 +52,8 @@ const EditFlashCards = ({ decks, deckId, setDecks, exitSession }) => {
           spellCheck="false"
           onChange={handleChange}
         />
+      </div>
+      <div className="edit-flashcards-info">
         <label htmlFor="description">Description</label>
         <input
           id="description"
@@ -52,22 +63,23 @@ const EditFlashCards = ({ decks, deckId, setDecks, exitSession }) => {
           onChange={handleChange}
         />
       </div>
-
-      {/* // Description: Title: {decks[deckId].title} */}
-      {decks[deckId].cards.map((currentCard, index) => {
-        const { term, definition } = currentCard;
-        return (
-          <EditFlashcard
-            key={index}
-            cardId={index}
-            deckId={deckId}
-            term={term}
-            definition={definition}
-            setDecks={setDecks}
-          />
-        );
-      })}
-      <button className="btn btn-primary" onClick={() => handleAdd()}>
+      <div className="edit-flashcards-container">
+        {/* // Description: Title: {decks[deckId].title} */}
+        {decks[deckId].cards.map((currentCard, index) => {
+          const { term, definition } = currentCard;
+          return (
+            <EditFlashcard
+              key={index}
+              cardId={index}
+              deckId={deckId}
+              term={term}
+              definition={definition}
+              setDecks={setDecks}
+            />
+          );
+        })}
+      </div>
+      <button className="btn btn-primary add-deck" onClick={() => handleAdd()}>
         Add
       </button>
     </section>

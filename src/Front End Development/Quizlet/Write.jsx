@@ -170,17 +170,14 @@ const Write = ({ decks, deckId, exitSession }) => {
   return (
     <section className="write-container">
       <h1 className="write-title">Write</h1>
-      <button
-        className="btn btn-secondary mb-2"
-        onClick={() => exitSession(deckId)}
-      >
+      <button className="btn btn-secondary" onClick={() => exitSession(deckId)}>
         Home
       </button>
       <div className="write-count-term-container">
         <p className={`${index == data.length - 1 && "last-index"}`}>
           {index + 1}/{data.length}
         </p>
-        <h3 className="write-term">
+        <h3>
           {data[index].term.substring(0, 49).toUpperCase().slice(0, 1) +
             data[index].term.substring(0, 49).slice(1, 50)}{" "}
         </h3>

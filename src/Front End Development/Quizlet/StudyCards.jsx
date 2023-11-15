@@ -51,13 +51,13 @@ const StudyCards = ({ decks, deckId, exitSession }) => {
         <div className="studycards-buttons-container">
           <button
             className="studycards-button btn btn-outline-light"
-            onClick={() => prevCard()}
+            onClick={prevCard}
           >
             Prev
           </button>
           <button
             className="studycards-button btn btn-outline-light"
-            onClick={() => nextCard()}
+            onClick={nextCard}
           >
             Next
           </button>

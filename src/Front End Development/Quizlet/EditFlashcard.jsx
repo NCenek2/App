@@ -5,19 +5,25 @@ const EditFlashcard = ({ cardId, deckId, term, definition, setDecks }) => {
     const { id, value } = e.target;
     setDecks((prevDecks) => {
       prevDecks[deckId].cards[cardId][id] = value;
-      return [...prevDecks];
+
+      const newDeck = [...prevDecks];
+      localStorage.setItem("cards", JSON.stringify(newDeck));
+      return newDeck;
     });
   };
 
   const handleDelete = () => {
     setDecks((prevDecks) => {
       prevDecks[deckId].cards.splice(cardId, 1);
-      return [...prevDecks];
+
+      const newDeck = [...prevDecks];
+      localStorage.setItem("cards", JSON.stringify(newDeck));
+      return newDeck;
     });
   };
 
   return (
-    <article className="card bg-light edit-flashcard-container">
+    <article className="card edit-flashcard-container">
       <label htmlFor="term">Term: </label>
       <input
         id="term"
