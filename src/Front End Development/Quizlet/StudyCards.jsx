@@ -29,7 +29,7 @@ const StudyCards = ({ decks, deckId, exitSession }) => {
     <section className="studycards-container">
       <h1 className="studycards-title">Study</h1>
       <button
-        className="btn btn-secondary studycards-home-btn"
+        className="btn section-color studycards-home-btn"
         onClick={() => exitSession(deckId)}
       >
         Home

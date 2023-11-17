@@ -40,7 +40,7 @@ const EditFlashcard = ({ cardId, deckId, term, definition, setDecks }) => {
         onChange={handleChange}
       ></textarea>
       <br />
-      <button className="btn btn-danger" onClick={() => handleDelete()}>
+      <button className="btn delete-color" onClick={() => handleDelete()}>
         Delete
       </button>
     </article>

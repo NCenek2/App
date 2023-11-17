@@ -113,12 +113,33 @@
 }
 
 .edit-flashcard-container {
-  background-color: rgb(171, 165, 165);
+  background-color: rgba(231, 226, 226, 0.729);
   padding: 0.5em 0.25em;
 }
 
 .quizlet-inputs {
   color: #555555;
+  border: none;
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+}
+
+.add-color,
+.section-color,
+.delete-color {
+  color: white;
+}
+
+.delete-color {
+  background-color: hsl(350, 85%, 58%);
+}
+
+.add-color {
+  background-color: hsl(210, 85%, 58%);
+}
+
+.section-color {
+  background-color: hsl(140, 5%, 53%);
 }
 
 .edit-flashcard-definition {
@@ -161,12 +182,6 @@
   pointer-events: none;
 }
 
-.quizlet-inputs {
-  border: 0.5px solid black;
-  border-radius: 0.25em;
-  padding: 0.25em 0.5em;
-}
-
 @media (min-width: 44rem) {
   .quizlet-container {
     max-width: 800px;
@@ -202,6 +217,12 @@
   .edit-flashcards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .edit-flashcards-container-single {
+    width: 500px;
+    max-width: 700px;
+    margin-inline: auto;
   }
 
   .write-container {

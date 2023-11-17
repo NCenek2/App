@@ -38,7 +38,7 @@ const EditFlashCards = ({ decks, deckId, setDecks, exitSession }) => {
     <section className="edit-flashcards-section">
       <h1 className="edit-title">Edit</h1>
       <button
-        className="btn btn-secondary add-deck"
+        className="btn section-color add-deck"
         onClick={() => exitSession(deckId)}
       >
         Home
@@ -63,8 +63,13 @@ const EditFlashCards = ({ decks, deckId, setDecks, exitSession }) => {
           onChange={handleChange}
         />
       </div>
-      <div className="edit-flashcards-container">
-        {/* // Description: Title: {decks[deckId].title} */}
+      <div
+        className={`${
+          decks[deckId].cards.length === 1
+            ? "edit-flashcards-container-single"
+            : "edit-flashcards-container"
+        }`}
+      >
         {decks[deckId].cards.map((currentCard, index) => {
           const { term, definition } = currentCard;
           return (
@@ -79,7 +84,7 @@ const EditFlashCards = ({ decks, deckId, setDecks, exitSession }) => {
           );
         })}
       </div>
-      <button className="btn btn-primary add-deck" onClick={() => handleAdd()}>
+      <button className="btn add-color add-deck" onClick={() => handleAdd()}>
         Add
       </button>
     </section>

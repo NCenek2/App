@@ -170,7 +170,7 @@ const Write = ({ decks, deckId, exitSession }) => {
   return (
     <section className="write-container">
       <h1 className="write-title">Write</h1>
-      <button className="btn btn-secondary" onClick={() => exitSession(deckId)}>
+      <button className="btn section-color" onClick={() => exitSession(deckId)}>
         Home
       </button>
       <div className="write-count-term-container">

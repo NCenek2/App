@@ -69,7 +69,7 @@ const Decks = ({
       )}
       <button
         type="button"
-        className="btn btn-primary add-deck"
+        className="btn add-color add-deck"
         onClick={addDeck}
       >
         Add Deck
