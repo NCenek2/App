@@ -1,37 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import EditFlashcard from "./EditFlashcard";
+import QuizletContext from "./QuizletProvider";
 
-const EditFlashCards = ({ decks, deckId, setDecks, exitSession }) => {
+const EditFlashCards = () => {
+  const { decks, currentDeckId, setDecks, exitSession } =
+    useContext(QuizletContext);
+
   const handleAdd = () => {
-    setDecks((prevDecks) => {
-      // Prevents Empty Duplicates
-      prevDecks[deckId].cards = prevDecks[deckId].cards.filter(
-        (card) => card.term !== "" && card.definition !== ""
-      );
-      // Adds card to deck
-      prevDecks[deckId].cards = [
-        ...prevDecks[deckId].cards,
-        {
-          term: "",
-          definition: "",
-        },
-      ];
+    const prevDecks = [...decks];
+    prevDecks[currentDeckId].cards = prevDecks[currentDeckId].cards.filter(
+      (card) => card.term !== "" && card.definition !== ""
+    );
+    // Adds card to deck
+    prevDecks[currentDeckId].cards = [
+      ...prevDecks[currentDeckId].cards,
+      {
+        term: "",
+        definition: "",
+      },
+    ];
+    // Prevents Empty Duplicates
 
-      const newDeck = [...prevDecks];
-      localStorage.setItem("cards", JSON.stringify(newDeck));
-      return newDeck;
-    });
+    setDecks([...prevDecks]);
   };
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setDecks((prevDecks) => {
-      decks[deckId][id] = value;
+    const prevDecks = [...decks];
+    decks[currentDeckId][id] = value;
 
-      const newDeck = [...prevDecks];
-      localStorage.setItem("cards", JSON.stringify(newDeck));
-      return newDeck;
-    });
+    setDecks([...prevDecks]);
   };
 
   return (
@@ -39,7 +37,7 @@ const EditFlashCards = ({ decks, deckId, setDecks, exitSession }) => {
       <h1 className="edit-title">Edit</h1>
       <button
         className="btn section-color add-deck"
-        onClick={() => exitSession(deckId)}
+        onClick={() => exitSession(currentDeckId)}
       >
         Home
       </button>
@@ -48,7 +46,7 @@ const EditFlashCards = ({ decks, deckId, setDecks, exitSession }) => {
         <input
           id="title"
           className="edit-flashcards-title quizlet-inputs"
-          value={decks[deckId].title}
+          value={decks[currentDeckId].title}
           spellCheck="false"
           onChange={handleChange}
         />
@@ -58,33 +56,31 @@ const EditFlashCards = ({ decks, deckId, setDecks, exitSession }) => {
         <input
           id="description"
           className="edit-flashcards-description quizlet-inputs"
-          value={decks[deckId].description}
+          value={decks[currentDeckId].description}
           spellCheck="false"
           onChange={handleChange}
         />
       </div>
       <div
         className={`${
-          decks[deckId].cards.length === 1
+          decks[currentDeckId].cards.length === 1
             ? "edit-flashcards-container-single"
             : "edit-flashcards-container"
         }`}
       >
-        {decks[deckId].cards.map((currentCard, index) => {
+        {decks[currentDeckId].cards.map((currentCard, index) => {
           const { term, definition } = currentCard;
           return (
             <EditFlashcard
               key={index}
               cardId={index}
-              deckId={deckId}
               term={term}
               definition={definition}
-              setDecks={setDecks}
             />
           );
         })}
       </div>
-      <button className="btn add-color add-deck" onClick={() => handleAdd()}>
+      <button className="btn add-color add-deck" onClick={handleAdd}>
         Add
       </button>
     </section>

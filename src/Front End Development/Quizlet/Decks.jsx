@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import Deck from "./Deck";
+import QuizletContext from "./QuizletProvider";
 
-const Decks = ({
-  decks,
-  setDecks,
-  setStudySelected,
-  setEditSelected,
-  setQuizSelected,
-  setCurrentDeckId,
-}) => {
+const Decks = () => {
+  const {
+    decks,
+    setDecks,
+    setStudySelected,
+    setEditSelected,
+    setQuizSelected,
+    setCurrentDeckId,
+  } = useContext(QuizletContext);
+
   const selectDeck = (e, deckId) => {
     const { name } = e.target;
+
     if (name == "study") {
       if (decks[deckId].cards.length == 0) return;
       setStudySelected(true);
@@ -20,29 +24,32 @@ const Decks = ({
       if (decks[deckId].cards.length == 0) return;
       setQuizSelected(true);
     } else {
-      return setDecks((prevDecks) => {
-        const newDeck = prevDecks.filter(
-          (prevDeck, prevDeckIndex) => prevDeckIndex != deckId
-        );
-        localStorage.setItem("cards", JSON.stringify(newDeck));
-        return newDeck;
-      });
+      console.log("DELETING for filter");
+
+      // Handles Name Delete for Double Click of Trash Icon
+      const newDeck = decks.filter(
+        (prevDeck, prevDeckIndex) => prevDeckIndex != deckId
+      );
+      console.log(newDeck);
+      setDecks(newDeck);
+      return;
     }
+
     setCurrentDeckId(deckId);
   };
 
   const addDeck = () => {
     let deckId = decks.length;
-    setDecks((prevDecks) => {
-      return [
-        ...prevDecks,
-        {
-          title: "",
-          description: "",
-          cards: [],
-        },
-      ];
-    });
+
+    setDecks([
+      ...decks,
+      {
+        title: "",
+        description: "",
+        cards: [],
+      },
+    ]);
+
     setEditSelected(true);
     setCurrentDeckId(deckId);
   };

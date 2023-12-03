@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import QuizletContext from "./QuizletProvider";
 
-const StudyCards = ({ decks, deckId, exitSession }) => {
-  const [cards, setCards] = React.useState(decks[deckId].cards);
+const StudyCards = () => {
+  const { decks, currentDeckId, exitSession } = useContext(QuizletContext);
+
+  const [cards, setCards] = React.useState(decks[currentDeckId].cards);
   const [showTerm, setShowTerm] = React.useState(true);
   const [index, setIndex] = React.useState(0);
 
@@ -30,14 +33,14 @@ const StudyCards = ({ decks, deckId, exitSession }) => {
       <h1 className="studycards-title">Study</h1>
       <button
         className="btn section-color studycards-home-btn"
-        onClick={() => exitSession(deckId)}
+        onClick={() => exitSession(currentDeckId)}
       >
         Home
       </button>
       <React.Fragment>
         <article
           className="card bg-light text-black studycard-container"
-          onClick={() => handleTerm()}
+          onClick={handleTerm}
         >
           <p>
             Card: {index + 1}/{cards.length}

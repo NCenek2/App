@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaArrowCircleRight } from "react-icons/fa";
+import QuizletContext from "./QuizletProvider";
 
-const Write = ({ decks, deckId, exitSession }) => {
+const Write = () => {
+  const { decks, currentDeckId, exitSession } = useContext(QuizletContext);
+
   // an array of Object containing data
-  const [data, setData] = React.useState(decks[deckId].cards);
+  const [data, setData] = React.useState(decks[currentDeckId].cards);
 
   // Index keeps index of the card
   const [index, setIndex] = React.useState(0);
@@ -27,32 +30,6 @@ const Write = ({ decks, deckId, exitSession }) => {
     document.addEventListener("keydown", handleTab);
     return () => document.removeEventListener("keydown", handleTab);
   }, []);
-
-  // React.useEffect(() => {
-  //   const handleEnter = (e) => {
-  //     if (e.key == "Enter" && checkValue == null) {
-  //       e.preventDefault();
-  //       handleCheck();
-  //     } else if ((checkValue || isOverwritten) && e.key == "Enter") {
-  //       e.preventDefault();
-  //       handleNextTerm();
-  //     } else if (!isOverwritten || (checkValue == false)) {
-  //       if (e.key == "o") {
-  //         e.preventDefault();
-  //         handleCardOverwrite();
-  //       } else if (e.key == "n") {
-  //         e.preventDefault();
-  //         handleNextTerm();
-  //       }
-  //     } else if (checkValue == false) {
-  //       e.preventDefault();
-  //     }
-  //     if (checkValue != null || isOverwritten) e.preventDefault();
-  //   };
-
-  //   window.addEventListener("keypress", handleEnter);
-  //   return () => window.removeEventListener("keypress", handleEnter);
-  // }, [checkValue, isOverwritten, inputValue]);
 
   const handleCardOverwrite = () => {
     setWrongData((previousWrongData) =>
@@ -170,7 +147,10 @@ const Write = ({ decks, deckId, exitSession }) => {
   return (
     <section className="write-container">
       <h1 className="write-title">Write</h1>
-      <button className="btn section-color" onClick={() => exitSession(deckId)}>
+      <button
+        className="btn section-color"
+        onClick={() => exitSession(currentDeckId)}
+      >
         Home
       </button>
       <div className="write-count-term-container">
@@ -184,7 +164,7 @@ const Write = ({ decks, deckId, exitSession }) => {
       </div>
       <button
         className="btn btn-primary "
-        onClick={() => handleNextTerm()}
+        onClick={handleNextTerm}
         disabled={checkValue == null && "true"}
       >
         <FaArrowCircleRight />
@@ -206,7 +186,7 @@ const Write = ({ decks, deckId, exitSession }) => {
               ? "danger"
               : "outline-light"
           } write-btn`}
-          onClick={() => handleCheck()}
+          onClick={handleCheck}
         >
           Check
         </button>
@@ -214,7 +194,7 @@ const Write = ({ decks, deckId, exitSession }) => {
           className={`btn btn-outline-light write-btn ${
             (checkValue == null || checkValue == true) && "pointer-events"
           }`}
-          onClick={() => handleCardOverwrite()}
+          onClick={handleCardOverwrite}
           disabled={checkValue == null && "true"}
         >
           Overwrite

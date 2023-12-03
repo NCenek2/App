@@ -5,6 +5,8 @@ import SnakeGame from "./Front End Development/Snake_Game/SnakeGame";
 import Matlab from "./Matlab/Matlab";
 import Quizlet from "./Front End Development/Quizlet/Quizlet";
 import Wordle from "./Front End Development/Wordle/Wordle";
+import { QuizletProvider } from "./Front End Development/Quizlet/QuizletProvider";
+import QuizletWrapper from "./Front End Development/Quizlet/QuizletWrapper";
 
 const App = () => {
   const [percentage, setPercentage] = React.useState(0);
@@ -51,7 +53,7 @@ const App = () => {
           element={<Matlab showNav={showNav} toggleNav={toggleNav} />}
         />
         <Route path="snake-game" element={<SnakeGame />} />
-        <Route path="quizlet" element={<Quizlet />} />
+        <Route path="quizlet" element={<QuizletWrapper />} />
         <Route path="wordle" element={<Wordle />} />
       </Routes>
     </React.Fragment>

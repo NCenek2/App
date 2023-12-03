@@ -1,25 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import QuizletContext from "./QuizletProvider";
 
-const EditFlashcard = ({ cardId, deckId, term, definition, setDecks }) => {
+const EditFlashcard = ({ cardId, term, definition }) => {
+  const { decks, setDecks, currentDeckId } = useContext(QuizletContext);
+
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setDecks((prevDecks) => {
-      prevDecks[deckId].cards[cardId][id] = value;
-
-      const newDeck = [...prevDecks];
-      localStorage.setItem("cards", JSON.stringify(newDeck));
-      return newDeck;
-    });
+    const prevDecks = [...decks];
+    prevDecks[currentDeckId].cards[cardId][id] = value;
+    setDecks([...prevDecks]);
   };
 
   const handleDelete = () => {
-    setDecks((prevDecks) => {
-      prevDecks[deckId].cards.splice(cardId, 1);
-
-      const newDeck = [...prevDecks];
-      localStorage.setItem("cards", JSON.stringify(newDeck));
-      return newDeck;
-    });
+    const prevDecks = [...decks];
+    prevDecks[currentDeckId].cards.splice(cardId, 1);
+    setDecks([...prevDecks]);
   };
 
   return (
@@ -40,7 +35,7 @@ const EditFlashcard = ({ cardId, deckId, term, definition, setDecks }) => {
         onChange={handleChange}
       ></textarea>
       <br />
-      <button className="btn delete-color" onClick={() => handleDelete()}>
+      <button className="btn delete-color" onClick={handleDelete}>
         Delete
       </button>
     </article>

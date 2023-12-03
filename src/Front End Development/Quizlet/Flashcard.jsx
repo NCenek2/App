@@ -1,6 +1,6 @@
 import React from "react";
 
-const Flashcard = ({ id, term, definition }) => {
+const Flashcard = ({ term, definition }) => {
   return (
     <article>
       <h2>{term}</h2>
@@ -10,11 +10,3 @@ const Flashcard = ({ id, term, definition }) => {
 };
 
 export default Flashcard;
-{
-  /* <Flashcard
-    key={index}
-    id={index}
-    term={term}
-    definition={definition}
-  /> */
-}

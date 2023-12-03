@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaBook, FaEdit, FaTrash, FaKeyboard } from "react-icons/fa";
 
 const Deck = ({ deckId, title, description, cardAmount, selectDeck }) => {
-  const [deleteClicked, setDeleteClicked] = React.useState(false);
+  const [deleteClicked, setDeleteClicked] = useState(false);
+
   const handleDeckClick = (e) => {
     selectDeck(e, deckId);
     setDeleteClicked(false);
