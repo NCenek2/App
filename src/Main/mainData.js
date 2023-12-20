@@ -67,9 +67,9 @@ const sectionsData = [
     ),
   },
   {
-    title: "Quizlet Clone",
-    image: "images/quizlet.JPG",
-    text: `Quizlet knock off that allows you to create study cards and check definitions based on correctness!`,
+    title: "Rigel",
+    image: "images/rigel.JPG",
+    text: `Rigel is a studying app that allows you to create decks and cards for studying. If you want to be prepared for your next exam. Click right here!`,
     link: "",
     shown: false,
     text2: (
@@ -77,7 +77,7 @@ const sectionsData = [
         <a
           className="btn btn-secondary"
           style={{ width: "150px" }}
-          href="https://ncenek2.github.io/quizlet/"
+          href="https://ncenek2.github.io/rigel/"
           target="_blank"
           rel="noreferrer"
         >
@@ -86,7 +86,7 @@ const sectionsData = [
         <a
           className="btn btn-secondary"
           style={{ width: "150px" }}
-          href="https://github.com/NCenek2/NCenek2.github.io/blob/main/src/Front%20End%20Development/Quizlet/Quizlet.jsx"
+          href="https://github.com/NCenek2/NCenek2.github.io/blob/main/src/Front%20End%20Development/Quizlet"
           target="_blank"
           rel="noreferrer"
         >

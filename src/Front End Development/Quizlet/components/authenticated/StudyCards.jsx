@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
-import QuizletContext from "./QuizletProvider";
+import React, { useState } from "react";
+import useModeContext from "../../contexts/ModeContext";
 
 const StudyCards = () => {
-  const { decks, currentDeckId, exitSession } = useContext(QuizletContext);
-
-  const [cards, setCards] = React.useState(decks[currentDeckId].cards);
-  const [showTerm, setShowTerm] = React.useState(true);
-  const [index, setIndex] = React.useState(0);
+  const { exitSession, cards } = useModeContext();
+  const [showTerm, setShowTerm] = useState(true);
+  const [index, setIndex] = useState(0);
 
   const prevCard = () => {
     setIndex((prevIndex) => {
@@ -30,11 +28,7 @@ const StudyCards = () => {
 
   return (
     <section className="studycards-container">
-      <h1 className="studycards-title">Study</h1>
-      <button
-        className="btn section-color studycards-home-btn"
-        onClick={() => exitSession(currentDeckId)}
-      >
+      <button className="btn btn-outline-light add-deck" onClick={exitSession}>
         Home
       </button>
       <React.Fragment>
@@ -46,9 +40,9 @@ const StudyCards = () => {
             Card: {index + 1}/{cards.length}
           </p>
           {showTerm ? (
-            <h2>{cards[index].term}</h2>
+            <h2>{cards[index]?.term}</h2>
           ) : (
-            <p>{cards[index].definition}</p>
+            <p>{cards[index]?.definition}</p>
           )}
         </article>
         <div className="studycards-buttons-container">
