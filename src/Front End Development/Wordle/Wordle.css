@@ -3,6 +3,7 @@
 } */
 
 .wordle-container {
+  color: whitesmoke;
   max-width: 400px;
   min-height: 100vh;
   margin-inline: auto;
