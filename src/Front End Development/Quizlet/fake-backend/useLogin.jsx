@@ -8,6 +8,7 @@ const useLogin = () => {
 
   const login = async ({ email, password }) => {
     setTimeout(() => null, 1000);
+
     if (!email || !password) {
       let error = new DBError("Bad Request", {
         status: 400,

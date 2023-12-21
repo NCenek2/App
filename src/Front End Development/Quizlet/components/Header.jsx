@@ -65,7 +65,7 @@ const Header = () => {
                   <Link
                     className="nav-link white-smoke"
                     onClick={() => setAuth(null)}
-                    to="/rigel"
+                    to="/rigel/login"
                   >
                     Log Out
                   </Link>

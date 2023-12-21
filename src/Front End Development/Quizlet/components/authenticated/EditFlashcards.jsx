@@ -104,6 +104,7 @@ const EditFlashCards = () => {
 
     setDecks(newDecks);
     setMadeChanges(false);
+    setShowErrorMessage(false);
   };
 
   const handleChange = (e) => {

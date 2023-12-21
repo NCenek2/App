@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import axios from "../api/axios";
-import useAuth from "../hooks/useAuth";
-import ErrorAlert from "./authenticated/ErrorAlert";
+import { useNavigate, useLocation } from "react-router-dom";
 import useLogin from "../fake-backend/useLogin";
+import { Link } from "react-router-dom";
+import ErrorAlert from "./authenticated/ErrorAlert";
+import useAuth from "../hooks/useAuth";
 
 const Login = () => {
   const login = useLogin();
+  const { setAuth } = useAuth();
 
   const [errorMessage, setErrorMessage] = useState("");
   const [showErrorMessage, setShowErrorMessage] = useState(false);
@@ -57,6 +58,12 @@ const Login = () => {
     }
   };
 
+  const handleBypass = () => {
+    setAuth("TOKEN");
+    setShowErrorMessage(false);
+    navigate(from, { replace: true });
+  };
+
   return (
     <>
       {showErrorMessage && (
@@ -104,9 +111,12 @@ const Login = () => {
           >
             Register
           </Link>
-          <Link to="" className="btn btn-link text-decoration-none">
-            Forgot Password
-          </Link>
+          <button
+            className="btn btn-link text-decoration-none"
+            onClick={handleBypass}
+          >
+            Bypass Login
+          </button>
         </div>
       </div>
     </>
