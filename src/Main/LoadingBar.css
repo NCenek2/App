@@ -29,7 +29,7 @@
   border-radius: 1vmax;
 }
 .inner-bar {
-  background-color: var(--yellow);
+  background: hsl(52, 69%, 51%);
   height: 10px;
   border-radius: 1vmax;
 }

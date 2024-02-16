@@ -2,13 +2,14 @@ export const mainData = {
   title: "Welcome",
   text1: `Hello, my name is Nicholas Cenek. I am an enthusistic 
   programmer who enjoys learning and applying the skills that I have 
-  learned into beneficial, real-life projects. This website is 
-  self-created, and has been inspired by the passion that I have for 
-  software engineering. Recently, I have created a full-stack quiz application
-  called Rigel, utilizing Postgres, TypeScript, React, Node.js and JSON Web Tokens (JWT). Creating Rigel
-  allowed me to learn about secure authentication with JWTs, how to establish a
-  more maintainable development process with Typescript, and how to organize data  
-  in a relational way with SQL.`,
+  learned into beneficial, real-life projects. 
+
+  My latest project, Viz, is a metrics app created to gauge performance
+  based on manager-defined metrics. Viz was created with the same template as Rigel,
+  and I have since integrated the backend with Nest.js, a backend framework which allows
+  for the development of efficient, scalable Node.js applications.
+  
+  I am currently working on a demo version for Viz to display its features.`,
   text2: `I originally had all my projects split into different categories,
   but have since decided to break all my most important/ favorite projects together on this page.
   I have another section that describes my first programming game created with Matlab.
@@ -17,9 +18,39 @@ export const mainData = {
 
 const sectionsData = [
   {
+    title: "Viz",
+    image: "images/VizCover.JPG",
+    text: `Viz is a metrics app made for managers and their teams. Managers can input metrics that they want their employees to meet within cycles
+    and use these results to foster insightful discussions. Demo version coming soon.`,
+    link: "",
+    shown: false,
+    text2: (
+      <div className="generic-subsections">
+        <a
+          className="btn btn-secondary"
+          style={{ width: "150px" }}
+          href="https://www.linkedin.com/posts/nicholas-cenek-91ba5b173_webdevelopment-fullstack-pernstack-activity-7157572496601337856-Z5ZA?utm_source=share&utm_medium=member_desktop"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Full-Stack Video
+        </a>
+        <a
+          className="btn btn-secondary"
+          style={{ width: "150px" }}
+          href="https://github.com/NCenek2/Viz"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Full-Stack Code
+        </a>
+      </div>
+    ),
+  },
+  {
     title: "Rigel",
     image: "images/rigel.JPG",
-    text: `Rigel is a studying application similar to Quizlet that allows users to create decks for studying. If you want to be prepared for your next exam. Give Rigel a try!`,
+    text: `Rigel is a studying application, similar to Quizlet, that allows users to create decks for studying. If you want to be prepared for your next exam. Give Rigel a try!`,
     link: "",
     shown: false,
     text2: (
@@ -81,6 +112,15 @@ const sectionsData = [
           rel="noreferrer"
         >
           Watch Video
+        </a>
+        <a
+          className="btn btn-secondary"
+          style={{ width: "150px" }}
+          href="https://github.com/NCenek2/Sonix"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Full-Stack Code
         </a>
       </div>
     ),
