@@ -18,7 +18,7 @@ const getRandom = (measurement: number) => {
 };
 
 const SnakeGame = () => {
-  const [snakeBoardContainer, setSnakeBoardContainer] = useState({
+  const [snakeBoardContainer, _] = useState({
     width: `${width + spacing}px`,
     maxWidth: "400px",
     height: `${height + spacing}px`,
@@ -147,6 +147,7 @@ const SnakeGame = () => {
       }, speed);
       return () => clearInterval(handleScore);
     }
+    return;
   }, [turn, playing, prevPoints]);
 
   // Handles Key Presses
