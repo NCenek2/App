@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router";
 import useLocalStorage from "../../../../hooks/useLocalStorage";
 import { useAlert } from "../useAlert";
+import { ROUTE_PREFIX } from "../../constants";
 
 type User = {
   user_id: number;
@@ -10,6 +12,7 @@ type User = {
 const useUserService = () => {
   const [users, setUsers] = useLocalStorage<User[]>("users", []);
   const { setAlert } = useAlert();
+  const navigate = useNavigate();
 
   const register = async (email: string, password: string) => {
     setTimeout(() => null, 1000);
@@ -31,6 +34,7 @@ const useUserService = () => {
       ) + 1 || 0;
 
     setUsers([...users, { email, password, user_id }]);
+    navigate(`${ROUTE_PREFIX}/login`);
     return;
   };
   return { register };
