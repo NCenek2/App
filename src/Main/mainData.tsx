@@ -73,7 +73,7 @@ const sectionsData: SectionData[] = [
         <a
           className="btn btn-secondary"
           style={{ width: "150px" }}
-          href="https://ncenek2.github.io/rigel/"
+          href="https://ncenek2.github.io/rigel"
           target="_blank"
           rel="noreferrer"
         >
