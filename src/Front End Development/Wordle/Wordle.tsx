@@ -89,7 +89,7 @@ const Wordle = () => {
     const selectedList = list[wordLength - 4];
     const randomIndex = Math.floor(Math.random() * selectedList.length);
     const randomWord = selectedList[randomIndex].word.toUpperCase();
-    setMainObj(handleCreateObj(randomWord, [...Array(wordLength)]));
+    setMainObj(handleCreateObj(randomWord, [...Array(wordLength).keys()]));
     setCurrentWord(randomWord);
   };
 
