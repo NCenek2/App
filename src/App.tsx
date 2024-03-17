@@ -5,6 +5,7 @@ import SnakeGame from "./Front End Development/Snake_Game/SnakeGame";
 import Matlab from "./Matlab/Matlab";
 import Wordle from "./Front End Development/Wordle/Wordle";
 import RigelIndex from "./Front End Development/Rigel/RigelIndex";
+import VizIndex from "./Front End Development/Viz/VizIndex";
 
 const App = () => {
   const [percentage, setPercentage] = useState(0);
@@ -37,6 +38,7 @@ const App = () => {
         <Route path="matlab" element={<Matlab />} />
         <Route path="snake-game" element={<SnakeGame />} />
         <Route path="/rigel/*" element={<RigelIndex />} />
+        <Route path="/viz/*" element={<VizIndex />} />
         <Route path="wordle" element={<Wordle />} />
       </Routes>
     </>

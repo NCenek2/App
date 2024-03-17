@@ -44,6 +44,15 @@ const sectionsData: SectionData[] = [
         <a
           className="btn btn-secondary"
           style={{ width: "150px" }}
+          href="https://ncenek2.github.io/viz"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Test App
+        </a>
+        <a
+          className="btn btn-secondary"
+          style={{ width: "150px" }}
           href="https://www.linkedin.com/posts/nicholas-cenek-91ba5b173_webdevelopment-fullstack-pernstack-activity-7157572496601337856-Z5ZA?utm_source=share&utm_medium=member_desktop"
           target="_blank"
           rel="noreferrer"
@@ -77,7 +86,7 @@ const sectionsData: SectionData[] = [
           target="_blank"
           rel="noreferrer"
         >
-          View Project
+          Test App
         </a>
         <a
           className="btn btn-secondary"
