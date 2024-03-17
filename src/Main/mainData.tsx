@@ -15,10 +15,8 @@ export const mainData: MainData = {
   and I have since integrated the backend with Nest.js, a backend framework which allows
   for the development of efficient, scalable Node.js applications.
   
-  I am currently working on a demo version for Viz to display its features.`,
-  text2: `I originally had all my projects split into different categories,
-  but have since decided to break all my most important/ favorite projects together on this page.
-  I have another section that describes my first programming game created with Matlab.
+  I just finished my static version of Viz to allow you all to test its features!`,
+  text2: `If you find something that does not work as it should feel free to email me! 
   Thanks for visiting, and I hope you enjoy!`,
 };
 
