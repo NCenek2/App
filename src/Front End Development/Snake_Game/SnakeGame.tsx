@@ -1,54 +1,40 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import "./SnakeGame.css";
 import SnakeDifficulty from "./SnakeDifficulty";
-import LinkedList, { Node } from "../../Main/LinkedList";
-import { Joystick } from "react-joystick-component";
-
-const spacing = 20; // In px
-const width = window.innerWidth >= 400 ? 400 : 200;
-const paddingX = width >= 400 ? 10 : 0;
-const height = 400;
-
-const getRandom = (measurement: number) => {
-  return (
-    Math.floor(
-      (Math.random() * (measurement + 1) - measurement / 2) / spacing
-    ) * spacing
-  );
-};
+import { Node } from "../../Main/LinkedList";
+import SnakeJoystick from "./SnakeJoystick";
+import SnakeBoard from "./SnakeBoard";
+import useSnake from "./useSnake";
+import SnakeHeader from "./SnakeHeader";
 
 const SnakeGame = () => {
-  const [snakeBoardContainer, _] = useState({
-    width: `${width + spacing}px`,
-    maxWidth: "400px",
-    height: `${height + spacing}px`,
-    padding: `0px ${paddingX}px`,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  });
-
-  const [playing, setPlaying] = useState(false);
-  const [gameMode, setGameMode] = useState("");
-  const [turn, setTurn] = useState("UP");
-  const [speed, setSpeed] = useState(0);
-  const [score, setScore] = useState(0);
-  const [usingJoystick, setUsingJoystick] = useState(false);
-
-  const [snakeCoordinate, setSnakeCoordinate] = useState(
-    new Node<number[]>([0, 0])
-  );
-  const [prevPoints, setPrevPoints] = useState(new LinkedList<number[]>());
-  const [foodCoordinate, setFoodCoordinate] = useState([
-    getRandom(width == 400 ? 360 : width - paddingX),
-    getRandom(height),
-  ]);
+  const {
+    speed,
+    gameMode,
+    setScore,
+    setFoodCoordinate,
+    prevPoints,
+    setPrevPoints,
+    getRandom,
+    width,
+    paddingX,
+    height,
+    spacing,
+    setSnakeCoordinate,
+    turn,
+    setTurn,
+    foodCoordinate,
+    playing,
+    setPlaying,
+    handleReset,
+    usingJoystick,
+  } = useSnake();
 
   useEffect(() => {
     const increaseScore = () => {
       setScore((previousScore) => previousScore + 1);
       setFoodCoordinate([
-        getRandom(width == 400 ? 360 : width - paddingX),
+        getRandom(width === 400 ? 360 : width - paddingX),
         getRandom(height),
       ]);
     };
@@ -152,7 +138,7 @@ const SnakeGame = () => {
 
   // Handles Key Presses
   useEffect(() => {
-    const settingTurn = (e: any) => {
+    const settingTurn = (e: KeyboardEvent) => {
       if (e.key == "w") {
         setTurn("UP");
       } else if (e.key == "d") {
@@ -167,132 +153,16 @@ const SnakeGame = () => {
     return () => document.removeEventListener("keydown", settingTurn);
   }, []);
 
-  const handleJoyStick = (e: any) => {
-    const { direction } = e;
-    if (direction == turn) return;
-    if (direction == "FORWARD") {
-      setTurn("UP");
-    } else if (direction == "RIGHT") {
-      setTurn("RIGHT");
-    } else if (direction == "BACKWARD") {
-      setTurn("DOWN");
-    } else {
-      setTurn("LEFT");
-    }
-  };
-
-  // Handles Reset to Select Difficulty
-  const handleReset = () => {
-    function resetFunctions() {
-      setGameMode("");
-      setSnakeCoordinate(new Node([0, 0]));
-      setFoodCoordinate([
-        getRandom(width == 400 ? 360 : width - paddingX),
-        getRandom(height),
-      ]);
-      setTurn("UP");
-      setPrevPoints(new LinkedList());
-      setScore(0);
-    }
-
-    const resetTimeout = setTimeout(resetFunctions, 3000);
-    return () => clearTimeout(resetTimeout);
-  };
-
-  // Snake Translation
-  const snakeStyle = {
-    transform: `translate(${snakeCoordinate.value[0]}px, ${snakeCoordinate.value[1]}px)`,
-  };
-
-  // Food Translation
-  const foodStyle = {
-    transform: `translate(${foodCoordinate[0]}px, ${foodCoordinate[1]}px)`,
-  };
-
-  const renderBody = () => {
-    if (prevPoints.length == 0) return null;
-
-    let output = [];
-    for (let body = prevPoints.head; body != null; body = body.next) {
-      const [xValue, yValue] = body.value;
-      const bodyStyleRed = {
-        transform: `translate(${xValue}px, ${yValue}px)`,
-        backgroundColor: `${
-          gameMode == "EASY"
-            ? "rgba(0, 180, 0, 0.5)"
-            : gameMode == "MEDIUM"
-            ? "rgba(0, 0, 180, 0.5)"
-            : "rgba(180, 0, 0, 0.5)"
-        }`,
-      };
-      output.push(
-        <div
-          key={`${xValue},${yValue}`}
-          className="body"
-          style={bodyStyleRed}
-        ></div>
-      );
-    }
-
-    return <>{output}</>;
-  };
-
   // Selecting Difficulty
   if (gameMode === "") {
-    return (
-      <SnakeDifficulty
-        setSpeed={setSpeed}
-        setPlaying={setPlaying}
-        setGameMode={setGameMode}
-        usingJoystick={usingJoystick}
-        setUsingJoystick={setUsingJoystick}
-      />
-    );
+    return <SnakeDifficulty />;
   } else {
     return (
       <section className="snake-game-container">
-        <header className="snake-header">
-          <h3>{playing ? `Score: ${score}` : `CRASHED at ${score}`}</h3>
-        </header>
-        <div style={snakeBoardContainer}>
-          <div
-            className={`snake ${
-              gameMode == "EASY"
-                ? "snake-easy"
-                : gameMode == "MEDIUM"
-                ? "snake-medium"
-                : "snake-hard"
-            }`}
-            style={snakeStyle}
-          ></div>
-          {/* Handles Update of Body */}
-          {prevPoints.length > 0 && renderBody()}
-          <div className="food" style={foodStyle}></div>
-          <div
-            className={`snake-board ${
-              gameMode == "EASY"
-                ? "snake-border-easy"
-                : gameMode == "MEDIUM"
-                ? "snake-border-medium"
-                : "snake-border-hard"
-            }`}
-          ></div>
-        </div>
+        <SnakeHeader />
+        <SnakeBoard />
         <div className="snake-joystick">
-          {usingJoystick && (
-            <Joystick
-              move={handleJoyStick}
-              baseColor="white"
-              stickColor={`${
-                gameMode == "EASY"
-                  ? "green"
-                  : gameMode == "MEDIUM"
-                  ? "blue"
-                  : "red"
-              }`}
-              minDistance={30}
-            />
-          )}
+          {usingJoystick && <SnakeJoystick />}
         </div>
       </section>
     );

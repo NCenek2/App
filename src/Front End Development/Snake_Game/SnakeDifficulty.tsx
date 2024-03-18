@@ -1,20 +1,10 @@
 import { Form } from "react-bootstrap";
+import useSnake from "./useSnake";
 
-type SnakeDifficultyProps = {
-  setSpeed: React.Dispatch<React.SetStateAction<number>>;
-  setPlaying: React.Dispatch<React.SetStateAction<boolean>>;
-  setGameMode: React.Dispatch<React.SetStateAction<string>>;
-  usingJoystick: boolean;
-  setUsingJoystick: React.Dispatch<React.SetStateAction<boolean>>;
-};
+const SnakeDifficulty = () => {
+  const { setSpeed, setPlaying, setGameMode, usingJoystick, setUsingJoystick } =
+    useSnake();
 
-const SnakeDifficulty = ({
-  setSpeed,
-  setPlaying,
-  setGameMode,
-  usingJoystick,
-  setUsingJoystick,
-}: SnakeDifficultyProps) => {
   const handleJoystick = () => {
     setUsingJoystick((prevJoystickValue) => !prevJoystickValue);
   };
