@@ -20,6 +20,13 @@ const useUserService = () => {
     hideAlert();
     setTimeout(() => {}, 1000);
     const { email, password, username } = data;
+
+    const userExists = users.find((user) => user.email === email);
+    if (userExists) {
+      setAlert("User with that email already exists");
+      return;
+    }
+
     const userId = users.reduce(
       (accumulator, user) => Math.max(accumulator, user.userId + 1),
       1

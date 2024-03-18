@@ -218,8 +218,6 @@ const useUserMetricService = () => {
       (rankingA, rankingB) => rankingB.score - rankingA.score
     );
 
-    console.log(sortedRanks);
-
     return sortedRanks;
   }
 

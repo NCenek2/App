@@ -47,8 +47,6 @@ const Main = () => {
         updated.push(dashboardResult);
       }
     }
-    console.log(updated);
-
     await updateDashboardUserMetrics({ updated });
     setMadeChanges(false);
     setUpdatedSet(new Set<number>());
