@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { USERS } from "../../constants/constants";
 
 type PasswordData = {
@@ -9,6 +10,12 @@ type PasswordDataProps = PasswordData & {
 };
 
 export function PasswordForm({ password, updateFields }: PasswordDataProps) {
+  const passwordRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    passwordRef.current!.focus();
+  }, []);
+
   return (
     <>
       <label htmlFor="password" className="form-group">
@@ -23,6 +30,7 @@ export function PasswordForm({ password, updateFields }: PasswordDataProps) {
         required={true}
         value={password}
         onChange={(e) => updateFields({ password: e.target.value })}
+        ref={passwordRef}
       />
     </>
   );

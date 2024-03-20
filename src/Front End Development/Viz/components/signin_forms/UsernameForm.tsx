@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { USERS } from "../../constants/constants";
 
 type UsernameData = {
@@ -9,6 +10,12 @@ type UsernameDataProps = UsernameData & {
 };
 
 export function UsernameForm({ username, updateFields }: UsernameDataProps) {
+  const usernameRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    usernameRef.current!.focus();
+  }, []);
+
   return (
     <>
       <label htmlFor="username" className="form-group">
@@ -23,6 +30,7 @@ export function UsernameForm({ username, updateFields }: UsernameDataProps) {
         autoComplete="off"
         required={true}
         onChange={(e) => updateFields({ username: e.target.value })}
+        ref={usernameRef}
       />
     </>
   );

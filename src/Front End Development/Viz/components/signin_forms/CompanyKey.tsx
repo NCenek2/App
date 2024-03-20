@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+
 type CompanyKey = {
   companyKey: string;
 };
@@ -7,6 +9,12 @@ type CompanyKeyProps = CompanyKey & {
 };
 
 export function CompanyKeyForm({ companyKey, updateFields }: CompanyKeyProps) {
+  const companyKeyRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    companyKeyRef.current!.focus();
+  }, []);
+
   return (
     <>
       <label htmlFor="companykey" className="form-group">
@@ -19,6 +27,7 @@ export function CompanyKeyForm({ companyKey, updateFields }: CompanyKeyProps) {
         required={true}
         value={companyKey}
         onChange={(e) => updateFields({ companyKey: e.target.value })}
+        ref={companyKeyRef}
       />
     </>
   );

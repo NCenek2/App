@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { DECK_MIN_LENGTH } from "../../constants";
 
 type PasswordData = {
@@ -10,6 +10,12 @@ type PasswordDataProps = PasswordData & {
 };
 
 export function PasswordForm({ password, updateFields }: PasswordDataProps) {
+  const passwordRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    passwordRef.current!.focus();
+  }, []);
+
   return (
     <>
       <label htmlFor="password" className="form-group">
@@ -23,6 +29,7 @@ export function PasswordForm({ password, updateFields }: PasswordDataProps) {
         minLength={DECK_MIN_LENGTH}
         value={password}
         onChange={(e) => updateFields({ password: e.target.value })}
+        ref={passwordRef}
       />
     </>
   );
