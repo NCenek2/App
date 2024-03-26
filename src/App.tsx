@@ -12,8 +12,10 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    let interval: ReturnType<typeof setInterval> | null = null;
+
     if (isLoading) {
-      const increasePercentage = setInterval(() => {
+      interval = setInterval(() => {
         setPercentage((prevPercentage) => {
           const newPercentage = prevPercentage + 1;
           if (newPercentage > 100) {
@@ -22,10 +24,10 @@ const App = () => {
           }
           return newPercentage;
         });
-        return () => clearInterval(increasePercentage);
-      }, 10);
+      }, 5);
     }
-    return undefined;
+
+    return () => clearInterval(interval!);
   }, [isLoading]);
 
   return (

@@ -1,5 +1,5 @@
-import "./Home.css";
-import { MainData } from "./mainData";
+import "./MainSection.css";
+import { MainData } from "../mainData";
 
 type MainSectionProps = {
   mainData: MainData;

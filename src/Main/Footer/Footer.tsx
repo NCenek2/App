@@ -1,4 +1,4 @@
-import "./Home.css";
+import "./Footer.css";
 
 type FooterProps = {
   githubURL: string;
@@ -14,18 +14,20 @@ const Footer = ({ githubURL }: FooterProps) => {
         </div>
         <div className="socials">
           <p>Social</p>
-          <ul className="icons">
+          <div className="icons">
             <a
               href="https://www.linkedin.com/in/nicholas-cenek-91ba5b173"
               target="_blank"
               rel="noreferrer"
-            >
-              <i className="fa fa-linkedin" aria-hidden="true"></i>
-            </a>
-            <a href={`${githubURL}`} target="_blank" rel="noreferrer">
-              <i className="fa fa-github-square" aria-hidden="true"></i>
-            </a>
-          </ul>
+              className="fa fa-linkedin"
+            ></a>
+            <a
+              href={`${githubURL}`}
+              target="_blank"
+              rel="noreferrer"
+              className="fa fa-github-square"
+            ></a>
+          </div>
         </div>
       </div>
     </footer>

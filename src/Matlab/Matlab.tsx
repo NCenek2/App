@@ -1,4 +1,4 @@
-import Header from "../Main/Header";
+import Header from "../Main/Header/Header";
 import Main from "../Main/Main";
 import sectionsData, { mainData } from "./MatlabData";
 

@@ -1,7 +1,3 @@
-* {
-  font-family: "Courier New", Courier, monospace, sans-serif;
-}
-
 /* Loading Bar */
 
 .loading-container-primary {
@@ -28,6 +24,7 @@
   width: 300px;
   border-radius: 1vmax;
 }
+
 .inner-bar {
   background: hsl(52, 69%, 51%);
   height: 10px;

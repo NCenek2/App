@@ -15,6 +15,13 @@
   --grid-border: 2px solid rgba(128, 128, 128, 0.2);
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace, sans-serif;
+}
+
 h1,
 h2,
 h3,
@@ -26,20 +33,20 @@ ol,
 ul,
 i,
 p,
+div,
+img,
+a,
+button,
+input,
 label {
   margin: 0;
-}
-
-* {
-  margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Courier New", Courier, monospace, sans-serif;
 }
 
 body {
   font-family: cursive;
   color: white;
   width: 100%;
+  min-height: 100vh;
   background-image: url(../public/Background1.jpg);
 }

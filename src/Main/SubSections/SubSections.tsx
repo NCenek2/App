@@ -1,7 +1,7 @@
+import "./SubSections.css";
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import "./Home.css";
-import { SectionData } from "./mainData";
+import { SectionData } from "../mainData";
 
 type SubSectionsProps = {
   sectionsData: SectionData[];

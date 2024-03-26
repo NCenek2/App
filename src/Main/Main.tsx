@@ -1,7 +1,7 @@
-import "./Home.css";
-import MainSection from "./MainSection";
-import SubSections from "./SubSections";
-import Footer from "./Footer";
+import "./Main.css";
+import MainSection from "./MainSection/MainSection";
+import SubSections from "./SubSections/SubSections";
+import Footer from "./Footer/Footer";
 import { MainData, SectionData } from "./mainData";
 
 type MainProps = {

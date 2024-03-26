@@ -1,5 +1,5 @@
-import LoadingBar from "./LoadingBar";
-import Header from "./Header";
+import LoadingBar from "./LoadingBar/LoadingBar";
+import Header from "./Header/Header";
 import Main from "./Main";
 import "./Home.css";
 import sectionsData, { mainData } from "./mainData";
@@ -12,7 +12,7 @@ type HomeProps = {
 
 const Home = ({ percentage, isLoading }: HomeProps) => {
   if (isLoading) {
-    return <LoadingBar percentage={percentage} name={"Home"} />;
+    return <LoadingBar percentage={percentage} />;
   }
 
   return (
