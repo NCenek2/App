@@ -229,7 +229,7 @@ const sectionsData: SectionData[] = [
         <a
           className="btn btn-secondary"
           style={{ width: "150px" }}
-          href="https://github.com/NCenek2/NCenek2.github.io/blob/main/src/Front%20End%20Development/Wordle/Wordle.jsx"
+          href="https://github.com/NCenek2/NCenek2.github.io/blob/main/src/Front%20End%20Development/Wordle/"
           target="_blank"
           rel="noreferrer"
         >
@@ -259,7 +259,7 @@ const sectionsData: SectionData[] = [
         <a
           className="btn btn-secondary"
           style={{ width: "150px" }}
-          href="https://github.com/NCenek2/NCenek2.github.io/blob/main/src/Front%20End%20Development/Snake_Game/SnakeGame.jsx"
+          href="https://github.com/NCenek2/NCenek2.github.io/blob/main/src/Front%20End%20Development/Snake_Game/"
           target="_blank"
           rel="noreferrer"
         >
