@@ -15,7 +15,9 @@ export const mainData: MainData = {
   and I have since integrated the backend with Nest.js, a backend framework which allows
   for the development of efficient, scalable Node.js applications.
   
-  I just finished my static version of Viz to allow you all to test its features!`,
+  I am not actively working on projects, but decided to take some time to learn about
+  Windows Presentation Application (WPF) and the Fundamentals of the Operating System
+  through a Udemy course by Hussein Nasser.`,
   text2: `If you find something that does not work as it should feel free to email me! 
   Thanks for visiting, and I hope you enjoy!`,
 };
