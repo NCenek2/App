@@ -180,6 +180,36 @@ const sectionsData: SectionData[] = [
     ),
   },
   {
+    title: "Sockets",
+    image: "images/Sockets.png",
+    text: `Another chat application! However, this Angular application uses Web Sockets for real-time communication.
+    Sockets implements a join rooms feature to connect with other users.`,
+    link: "",
+    shown: false,
+    text2: (
+      <div className="generic-subsections">
+        <a
+          className="btn btn-secondary"
+          style={{ width: "150px" }}
+          href="https://youtu.be/4Td402l0Z94"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Watch Video
+        </a>
+        <a
+          className="btn btn-secondary"
+          style={{ width: "150px" }}
+          href="https://github.com/NCenek2/Sockets"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Download
+        </a>
+      </div>
+    ),
+  },
+  {
     title: "Chat App",
     image: "images/chatapp.JPG",
     text: `This chat application is made with Windows Presentation Application, C#, and Tcp sockets. 
