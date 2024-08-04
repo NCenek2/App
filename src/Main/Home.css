@@ -1,9 +1,139 @@
 /* Generic Subsection */
+:root {
+  --zDistance: 1500px;
+  --xRotate: -12deg;
+}
+
 .generic-subsections {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 25px;
-  gap: 15px;
-  margin-inline: auto;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.dialog {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 2rem);
+  max-width: 500px;
+  padding: 1rem 1.5rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: whitesmoke;
+  border-radius: 1vmax;
+  border: none;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.dialog-header div:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.dialog::backdrop {
+  background-color: hsla(216, 28%, 7%, 0.7);
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.banner .slider {
+  position: absolute;
+  width: 225px;
+  height: 225px;
+  top: 10%;
+  left: calc(50% - 100px);
+  transform-style: preserve-3d;
+  transform: perspective(var(--zDistance));
+}
+
+@keyframes autoRun {
+  from {
+    transform: perspective(var(--zDistance)) rotateX(var(--xRotate))
+      rotateY(0deg);
+  }
+  to {
+    transform: perspective(var(--zDistance)) rotateX(var(--xRotate))
+      rotateY(360deg);
+  }
+}
+
+.banner .slider .item {
+  position: absolute;
+  inset: 0 0 0 0;
+  transform: rotateY(
+      calc(((var(--position) - 1) * (360 / var(--quantity))) * 1deg)
+    )
+    translateZ(350px);
+}
+
+.banner .slider .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (min-width: 550px) {
+  .banner .slider {
+    width: 250px;
+    height: 250px;
+  }
+
+  .banner .slider .item {
+    transform: rotateY(
+        calc(((var(--position) - 1) * (360 / var(--quantity))) * 1deg)
+      )
+      translateZ(400px);
+  }
+}
+
+@media (min-width: 768px) {
+  .banner .slider {
+    width: 250px;
+    height: 250px;
+  }
+
+  .banner .slider .item {
+    transform: rotateY(
+        calc(((var(--position) - 1) * (360 / var(--quantity))) * 1deg)
+      )
+      translateZ(450px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .banner .slider {
+    width: 250px;
+    height: 250px;
+  }
+
+  .banner .slider .item {
+    transform: rotateY(
+        calc(((var(--position) - 1) * (360 / var(--quantity))) * 1deg)
+      )
+      translateZ(500px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .banner .slider {
+    width: 300px;
+    height: 300px;
+  }
+
+  .banner .slider .item {
+    transform: rotateY(
+        calc(((var(--position) - 1) * (360 / var(--quantity))) * 1deg)
+      )
+      translateZ(550px);
+  }
 }
