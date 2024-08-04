@@ -2,6 +2,7 @@ import "./Home.css";
 import sectionsData from "./projectData";
 import { useRef, useState } from "react";
 import Modal from "./Modal";
+import LoadingBar from "./LoadingBar/LoadingBar";
 
 export type ModalType = HTMLDialogElement & {
   open: (title: string, description: string, jsx: React.JSX.Element) => void;
@@ -11,6 +12,7 @@ export type ModalType = HTMLDialogElement & {
 const Home = () => {
   const modalRef = useRef<ModalType>(null);
   const [projects, setProjects] = useState(sectionsData);
+  const [isLoading, setIsLoading] = useState(true);
 
   function handleProjectSelect(
     title: string,
@@ -23,6 +25,10 @@ const Home = () => {
     if (modalRef.current) {
       modalRef.current.open(title, description, links);
     }
+  }
+
+  if (isLoading) {
+    return <LoadingBar isLoading={isLoading} setIsLoading={setIsLoading} />;
   }
 
   return (
