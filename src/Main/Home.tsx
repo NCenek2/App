@@ -19,7 +19,6 @@ const Home = () => {
     description: string,
     links: React.JSX.Element
   ) {
-    console.log(title);
     setProjects((prevProjects) => prevProjects);
 
     if (modalRef.current) {

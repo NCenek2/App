@@ -14,18 +14,23 @@ const LoadingBar = ({ isLoading, setIsLoading }: LoadingBarProps) => {
 
     if (isLoading) {
       interval = setInterval(() => {
+        let finished = false;
         setPercentage((prevPercentage) => {
-          const newPercentage = prevPercentage + 1;
+          const newPercentage = prevPercentage + 4;
           if (newPercentage > 100) {
-            setIsLoading(false);
+            finished = true;
             return prevPercentage;
           }
           return newPercentage;
         });
-      }, 5);
+
+        if (finished) setIsLoading(false);
+      }, 25);
     }
 
-    return () => clearInterval(interval!);
+    return () => {
+      if (interval) clearInterval(interval);
+    };
   }, [isLoading]);
 
   return (
