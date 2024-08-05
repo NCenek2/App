@@ -36,7 +36,7 @@ const LoadingBar = ({ isLoading, setIsLoading }: LoadingBarProps) => {
   return (
     <div className="loading-container-primary">
       <div className="loading-container-secondary">
-        <h1 className="loading">Loading</h1>
+        <h1 className="loading">Welcome</h1>
         <h2 className="percentage">{percentage}%</h2>
         <div className="outer-bar">
           <div className="inner-bar" style={{ width: `${percentage}%` }}></div>
