@@ -10,7 +10,7 @@ const Keyboard = ({ addLetter, removeLetter, checkWord }: KeyboardProps) => {
   useEffect(() => {
     const keyPress = (e: Event) => {
       const keyboardEvent = e as KeyboardEvent;
-      
+
       if (keyboardEvent.key == "Tab") {
         keyboardEvent.preventDefault();
       } else if (/^[a-z]$/i.test(keyboardEvent.key)) {

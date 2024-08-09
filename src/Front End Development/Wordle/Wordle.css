@@ -63,8 +63,8 @@
 /* Keyboard */
 .keyboard-container {
   display: grid;
-  grid-template-columns: repeat(20, minmax(auto, 1.25em));
-  grid-auto-rows: 3em;
+  grid-template-columns: repeat(20, minmax(auto, 1rem));
+  grid-auto-rows: 3rem;
   justify-content: center;
   color: white;
   gap: 0.25em;
