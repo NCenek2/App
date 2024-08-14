@@ -1,10 +1,17 @@
-import React, { useState } from "react";
-import useMode from "../../hooks/useMode";
+import React, { useMemo, useState } from "react";
+import useCard from "../../hooks/useCard";
+import { Card } from "../../contexts/CardContext";
+import useDeck from "../../hooks/useDeck";
 
 const StudyCards = () => {
-  const { exitSession, cards } = useMode();
+  const { cards, resetCards } = useCard();
+  const { currentDeck, exitMode } = useDeck();
   const [showTerm, setShowTerm] = useState(true);
   const [index, setIndex] = useState(0);
+
+  const currentCards: Card[] = useMemo(() => {
+    return cards.filter((card) => card.deck_id === currentDeck?.deck_id);
+  }, []);
 
   const prevCard = () => {
     setIndex((prevIndex) => {
@@ -16,7 +23,7 @@ const StudyCards = () => {
 
   const nextCard = () => {
     setIndex((prevIndex) => {
-      if (prevIndex + 1 >= cards.length) return prevIndex;
+      if (prevIndex + 1 >= currentCards.length) return prevIndex;
       return prevIndex + 1;
     });
     setShowTerm(true);
@@ -25,6 +32,11 @@ const StudyCards = () => {
   const handleTerm = () => {
     setShowTerm((p) => !p);
   };
+
+  function exitSession() {
+    exitMode();
+    resetCards();
+  }
 
   return (
     <section className="studycards-container">
@@ -37,12 +49,12 @@ const StudyCards = () => {
           onClick={handleTerm}
         >
           <p>
-            Card: {index + 1}/{cards.length}
+            Card: {index + 1}/{currentCards.length}
           </p>
           {showTerm ? (
-            <h2>{cards[index]?.term}</h2>
+            <h2>{currentCards[index]?.term}</h2>
           ) : (
-            <p>{cards[index]?.definition}</p>
+            <p>{currentCards[index]?.definition}</p>
           )}
         </article>
         <div className="studycards-buttons-container">

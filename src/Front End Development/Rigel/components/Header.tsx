@@ -9,7 +9,10 @@ const Header = () => {
   return (
     <nav className="navbar navbar-dark header-color sticky-top">
       <div className="container-fluid">
-        <Link className="navbar-brand" to={`${ROUTE_PREFIX}/`}>
+        <Link
+          className="navbar-brand"
+          to={auth ? `${ROUTE_PREFIX}/main` : `${ROUTE_PREFIX}/`}
+        >
           Rigel
         </Link>
         <button

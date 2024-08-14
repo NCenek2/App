@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
-import useMode from "../../hooks/useMode";
-import { Card } from "../../contexts/DeckContext";
 import { useAlert } from "../../hooks/useAlert";
+import { Card } from "../../contexts/CardContext";
+import useCard from "../../hooks/useCard";
+import useDeck from "../../hooks/useDeck";
+
+// Holds the wrong cards after incorrect answers
+let wrongData: Card[] = [];
+
 const Write = () => {
-  const { exitSession, cards, setCards } = useMode();
+  const { cards, resetCards } = useCard();
+  const { exitMode, currentDeck } = useDeck();
   const { setAlert } = useAlert();
 
   // Index keeps index of the card
@@ -12,12 +18,12 @@ const Write = () => {
   const [inputValue, setInputValue] = useState("");
   const [placeholder, setPlaceholder] = useState("");
 
+  const [currentCards, setCurrentCards] = useState<Card[]>(
+    cards.filter((card) => card.deck_id === currentDeck?.deck_id)
+  );
+
   // Checks Inputed Valve to Display Button as Green or Red
   const [checkValue, setCheckValue] = useState<boolean | null>(null);
-  // Holds the wrong cards after incorrect answers
-  const [wrongData, setWrongData] = useState<Card[]>([]);
-  // Houses incorrect definition terms
-  const [wrongDataSet, setWrongDataSet] = useState(new Set<string>());
 
   useEffect(() => {
     const handleTab = (e: any) => {
@@ -28,15 +34,13 @@ const Write = () => {
   }, []);
 
   const handleCardOverwrite = () => {
-    setWrongData((previousWrongData) =>
-      previousWrongData.filter(
-        (prevWrongValue) => prevWrongValue.term !== cards[index].term
-      )
+    wrongData = wrongData.filter(
+      (prevWrongValue) => prevWrongValue.card_id !== currentCards[index].card_id
     );
 
     setCheckValue(true);
     setInputValue("");
-    setPlaceholder(`Overwritten to ${cards[index].definition}`);
+    setPlaceholder(`Overwritten to ${currentCards[index].definition}`);
   };
 
   const handleInputValue = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -52,18 +56,16 @@ const Write = () => {
   };
 
   const handleNextTerm = () => {
-    if (wrongData.length === 0 && index + 1 >= cards.length) {
+    if (wrongData.length === 0 && index + 1 >= currentCards.length) {
       setAlert("You finished!", "success");
       return exitSession();
     }
+
     setIndex((prevIndex) => {
-      if (prevIndex + 1 >= cards.length) {
-        setCards(() => {
-          handleCardReset();
-          setWrongDataSet(new Set<string>());
-          return wrongData;
-        });
-        setWrongData([]);
+      if (prevIndex + 1 >= currentCards.length) {
+        handleCardReset();
+        setCurrentCards([...wrongData]);
+        wrongData = [];
         return 0;
       }
       handleCardReset();
@@ -100,56 +102,38 @@ const Write = () => {
 
   const handleCheck = () => {
     if (inputValue.length <= 1) return;
-    const definitionSet = createSet(cards[index].definition);
+    const definitionSet = createSet(currentCards[index].definition);
     let userSet = createSet(inputValue);
 
-    if (userSet.size < 1) return;
+    let correctGuess = true;
 
-    setWrongData((prevWrongData) => {
-      let correctGuess = true;
+    const countCorrect = new Set(
+      [...definitionSet].filter((item) => userSet.has(item))
+    ).size;
 
-      const countCorrect = new Set(
-        [...definitionSet].filter((item) => userSet.has(item))
-      ).size;
+    setInputValue("");
 
-      setInputValue("");
+    // Current card properties
+    const { definition } = currentCards[index];
+    let message = `Yours:\n${inputValue}\nActual:\n${definition}`;
 
-      // Current card properties
-      const { term, definition, card_id } = cards[index];
-      let message = `Yours:\n${inputValue}\nActual:\n${definition}`;
+    if (countCorrect === definitionSet.size) {
+      message = "Perfect\n" + message;
+    } else if (countCorrect >= Math.ceil(definitionSet.size * 0.6)) {
+      message = "Correct\n" + message;
+    } else {
+      wrongData.push(currentCards[index]);
+      correctGuess = false;
+    }
 
-      if (countCorrect === definitionSet.size) {
-        message = "Perfect\n" + message;
-      } else if (countCorrect >= Math.ceil(definitionSet.size * 0.6)) {
-        message = "Correct\n" + message;
-      } else {
-        correctGuess = false;
-
-        if (!wrongDataSet.has(term)) {
-          // Add term to wrong set after failing check
-          setWrongDataSet((prevWrongDataSet) => {
-            prevWrongDataSet.add(term);
-            return prevWrongDataSet;
-          });
-          prevWrongData.push(cards[index]);
-        }
-      }
-
-      if (correctGuess) {
-        prevWrongData = prevWrongData.filter(
-          (wrongData) => wrongData.card_id !== card_id
-        );
-        setWrongDataSet((prevWrongDataSet) => {
-          prevWrongDataSet.delete(term);
-          return prevWrongDataSet;
-        });
-      }
-
-      setPlaceholder(message);
-      setCheckValue(correctGuess);
-      return prevWrongData;
-    });
+    setPlaceholder(message);
+    setCheckValue(correctGuess);
   };
+
+  function exitSession() {
+    exitMode();
+    resetCards();
+  }
 
   return (
     <>
@@ -161,19 +145,22 @@ const Write = () => {
           Home
         </button>
         <div className="write-count-term-container">
-          <p className={`${index === cards.length - 1 && "last-index"}`}>
-            {index + 1}/{cards.length}
+          <p className={`${index === currentCards.length - 1 && "last-index"}`}>
+            {index + 1}/{currentCards.length}
           </p>
           <h3>
-            {cards[index]?.term.substring(0, 49).toUpperCase().slice(0, 1) +
-              cards[index]?.term.substring(0, 49).slice(1, 50)}{" "}
+            {currentCards[index]?.term
+              .substring(0, 49)
+              .toUpperCase()
+              .slice(0, 1) +
+              currentCards[index]?.term.substring(0, 49).slice(1, 50)}{" "}
           </h3>
         </div>
         {checkValue !== null && (
           <button
             className="btn add-color"
             onClick={handleNextTerm}
-            disabled={checkValue == null && true}
+            disabled={checkValue === null}
           >
             Next
           </button>
@@ -203,7 +190,7 @@ const Write = () => {
           </button>
           <button
             className={`btn btn-outline-light write-btn ${
-              (checkValue === null || checkValue === true) && "pointer-events"
+              checkValue !== false && "pointer-events"
             }`}
             onClick={handleCardOverwrite}
             disabled={checkValue == null && true}

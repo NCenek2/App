@@ -1,37 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EditFlashcard from "./EditFlashcard";
 import {
   CARD_DEFINITION_LENGTH,
   CARD_TERM_LENGTH,
   DECK_NAME_LENGTH,
 } from "../../constants";
-import useMode from "../../hooks/useMode";
-import useDeck from "../../hooks/useDeck";
-import { Card, NewCard } from "../../contexts/DeckContext";
 import useDeckService from "../../hooks/services/useDeckService";
 import { useAlert } from "../../hooks/useAlert";
+import { Card, NewCard } from "../../contexts/CardContext";
+import useCard from "../../hooks/useCard";
+import useDeck from "../../hooks/useDeck";
+
+let updatedSet = new Set<number>();
+let deletedSet = new Set<number>();
 
 const EditFlashCards = () => {
-  const { decks } = useDeck();
-  const { currentDeckId, exitSession, cards, setCards } = useMode();
+  const { cards, madeChanges, setMadeChanges, resetCards } = useCard();
+  const { currentDeck, exitMode } = useDeck();
   const { updateDecks } = useDeckService();
-  const [madeChanges, setMadeChanges] = useState(false);
   const { setAlert } = useAlert();
 
-  const [deckTitle, setDeckTitle] = useState(
-    currentDeckId !== null ? decks[currentDeckId].deck_name : ""
+  const [currentCards, setCurrentCards] = useState<NewCard[]>(
+    cards.filter((card) => card.deck_id === currentDeck?.deck_id)
   );
 
-  const [updatedSet, setUpdatedSet] = useState<Set<number>>(new Set<number>());
-  const [deletedSet, setDeletedSet] = useState<Set<number>>(new Set<number>());
+  useEffect(() => {
+    setCurrentCards(
+      cards.filter((card) => card.deck_id === currentDeck?.deck_id)
+    );
+    updatedSet = new Set<number>();
+    deletedSet = new Set<number>();
+    resetCards();
+  }, [cards]);
 
-  if (currentDeckId == null) {
-    return <h1>Deck Id is null</h1>;
+  const [deckTitle, setDeckTitle] = useState(
+    currentDeck !== null ? currentDeck.deck_name : ""
+  );
+
+  if (currentDeck == null) {
+    return <h1>Deck is null</h1>;
   }
 
   const hasIncompleteCards = () => {
-    const incompleteCards = cards.some(
-      (card) => card.term.trim() === "" && card.definition.trim() === ""
+    const incompleteCards = currentCards.some(
+      (card) => card.term.trim() === "" || card.definition.trim() === ""
     );
 
     if (incompleteCards) {
@@ -53,7 +65,7 @@ const EditFlashCards = () => {
   const termOrDefinitionExceedsLength = () => {
     let cardLengthExceeded = false;
 
-    for (let card of cards) {
+    for (let card of currentCards) {
       if (card.term.length > CARD_TERM_LENGTH) {
         cardLengthExceeded = true;
         setAlert(
@@ -76,8 +88,12 @@ const EditFlashCards = () => {
 
   const handleAdd = () => {
     if (hasIncompleteCards()) return;
-    let newCard: Card = {
-      card_id: -1,
+
+    const { deck_id } = currentDeck;
+
+    let newCard: NewCard = {
+      deck_id,
+      card_id: Date.now().toString(),
       term: "",
       definition: "",
     };
@@ -93,7 +109,7 @@ const EditFlashCards = () => {
     }
 
     setMadeChanges(true);
-    setCards((prev) => [...prev, newCard]);
+    setCurrentCards((prevCurrentCards) => [...prevCurrentCards, newCard]);
   };
 
   const handleUpdate = async () => {
@@ -106,25 +122,27 @@ const EditFlashCards = () => {
 
     let created: NewCard[] = [];
     let updated: Card[] = [];
-    let deleted: number[] = Array.from(deletedSet);
 
-    const deck_id = decks[currentDeckId].deck_id;
-    const deck_name_old = decks[currentDeckId].deck_name;
+    const { deck_id } = currentDeck;
+    const deck_name_old = "";
 
-    for (let card of cards) {
-      if (card.card_id === -1) {
+    for (let card of currentCards) {
+      const { card_id, term, definition } = card;
+      if (typeof card_id === "string") {
         created.push({
           deck_id,
-          term: card.term,
-          definition: card.definition,
+          card_id,
+          term,
+          definition,
         });
-      } else if (updatedSet.has(card.card_id)) {
-        updated.push(card);
+      } else if (updatedSet.has(card.card_id as number)) {
+        updated.push(card as Card);
       }
     }
 
     const deckData = { deck_id, deck_name: deckTitle, deck_name_old };
-    await updateDecks({ deckData, deleted, updated, created });
+    await updateDecks({ deckData, deletedSet, updated, created });
+
     setMadeChanges(false);
   };
 
@@ -132,6 +150,11 @@ const EditFlashCards = () => {
     setMadeChanges(true);
     setDeckTitle(e.target.value);
   };
+
+  function exitSession() {
+    exitMode();
+    resetCards();
+  }
 
   return (
     <section className="edit-flashcards-section">
@@ -152,24 +175,21 @@ const EditFlashCards = () => {
       />
       <div
         className={`${
-          cards.length === 1
+          currentCards.length === 1
             ? "edit-flashcards-container-single"
             : "edit-flashcards-container"
         }`}
       >
-        {cards.map((currentCard, index) => {
-          const { card_id, term, definition } = currentCard;
+        {currentCards.map((currentCard, index) => {
+          const { card_id } = currentCard;
           return (
             <EditFlashcard
-              key={index}
-              card_id={card_id}
+              key={card_id}
+              {...currentCard}
               card_index={index}
-              setMadeChanges={setMadeChanges}
-              setDeletedSet={setDeletedSet}
+              setCurrentCards={setCurrentCards}
               updatedSet={updatedSet}
-              setUpdatedSet={setUpdatedSet}
-              term={term}
-              definition={definition}
+              deletedSet={deletedSet}
             />
           );
         })}

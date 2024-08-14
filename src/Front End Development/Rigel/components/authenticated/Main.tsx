@@ -1,15 +1,11 @@
 import React from "react";
-import { DeckProvider } from "../../contexts/DeckContext";
-import MainSwitch from "./MainSwitch";
-import { ModeProvider } from "../../contexts/ModeContext";
+import Decks from "./Decks";
 
 const Main = () => {
   return (
-    <DeckProvider>
-      <ModeProvider>
-        <MainSwitch />
-      </ModeProvider>
-    </DeckProvider>
+    <main className="quizlet-container">
+      <Decks />
+    </main>
   );
 };
 

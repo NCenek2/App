@@ -1,14 +1,13 @@
-import React, { Dispatch, SetStateAction } from "react";
-import { Card } from "../../contexts/DeckContext";
+import React, { Dispatch } from "react";
 import { CARD_DEFINITION_LENGTH, CARD_TERM_LENGTH } from "../../constants";
-import useMode from "../../hooks/useMode";
+import { NewCard } from "../../contexts/CardContext";
+import useCard from "../../hooks/useCard";
 
 type EditFlashCardProps = {
-  setMadeChanges: Dispatch<SetStateAction<boolean>>;
   card_index: number;
-  setDeletedSet: Dispatch<SetStateAction<Set<number>>>;
+  setCurrentCards: Dispatch<React.SetStateAction<NewCard[]>>;
   updatedSet: Set<number>;
-  setUpdatedSet: Dispatch<SetStateAction<Set<number>>>;
+  deletedSet: Set<number>;
 };
 
 const EditFlashcard = ({
@@ -16,12 +15,12 @@ const EditFlashcard = ({
   term,
   definition,
   card_index,
-  setDeletedSet,
+  setCurrentCards,
   updatedSet,
-  setUpdatedSet,
-  setMadeChanges,
-}: Card & EditFlashCardProps) => {
-  const { setCards } = useMode();
+  deletedSet,
+}: NewCard & EditFlashCardProps) => {
+  const { setMadeChanges } = useCard();
+
   const handleChange = (
     e:
       | React.ChangeEvent<HTMLInputElement>
@@ -29,32 +28,31 @@ const EditFlashcard = ({
   ) => {
     setMadeChanges(true);
 
-    if (card_id !== -1 && !updatedSet.has(card_id)) {
-      setUpdatedSet((prevUpdatedSet: Set<number>) => {
-        prevUpdatedSet.add(card_id);
-        return prevUpdatedSet;
-      });
+    if (typeof card_id !== "string" && !updatedSet.has(card_id)) {
+      updatedSet.add(card_id);
     }
 
     const { id, value } = e.target;
 
-    setCards((prevCards) => {
-      const newCards: Card[] = [...prevCards];
-      newCards[card_index][id] = value;
-      return [...newCards];
+    setCurrentCards((prevCards) => {
+      const newCards: NewCard[] = [...prevCards];
+
+      const newCard = { ...newCards[card_index], [id]: value };
+      newCards[card_index] = newCard;
+      return newCards;
     });
   };
 
   const handleDelete = () => {
     setMadeChanges(true);
     // For cases where we are not using an existing id
-    if (card_id === -1) {
-      setCards((prevCards) =>
-        prevCards.filter((_, index) => index !== card_index)
+    if (typeof card_id === "string") {
+      setCurrentCards((prevCards) =>
+        prevCards.filter((card) => card.card_id !== card_id)
       );
     } else {
       // For Cases where we are deleting a card with an id
-      setCards((prevCards) =>
+      setCurrentCards((prevCards) =>
         prevCards.filter((card) => card.card_id !== card_id)
       );
 
@@ -62,16 +60,10 @@ const EditFlashcard = ({
         // Removes those that are updated to allow for an
         // easier distribution when i send the data to
         // server.
-        setUpdatedSet((prevUpdatedSet: Set<number>) => {
-          prevUpdatedSet.delete(card_id);
-          return prevUpdatedSet;
-        });
+        updatedSet.delete(card_id);
       }
 
-      setDeletedSet((prevSet: Set<number>) => {
-        prevSet.add(card_id);
-        return prevSet;
-      });
+      deletedSet.add(card_id);
     }
   };
 
@@ -93,7 +85,7 @@ const EditFlashcard = ({
         value={definition}
         onChange={handleChange}
         maxLength={CARD_DEFINITION_LENGTH}
-      ></textarea>
+      />
       <br />
       <button className="btn btn-red" onClick={handleDelete}>
         Delete

@@ -3,6 +3,7 @@ import React, {
   Dispatch,
   SetStateAction,
   ReactNode,
+  useState,
 } from "react";
 import useLocalStorage from "../../../hooks/useLocalStorage";
 
@@ -20,34 +21,21 @@ type AllDeckInfoResponse = {
   definition: string;
 };
 
-export type Card = {
-  [key: string]: any;
-  card_id: number;
-  term: string;
-  definition: string;
-};
-
-export type NewCard = {
-  deck_id: number;
-  term: string;
-  definition: string;
-};
-
-export type DeckData = {
+export type Deck = {
   deck_id: number;
   deck_name: string;
-  cards: Card[];
+  card_count: number;
 };
 
 export type DeckContextType = {
-  decks: DeckData[];
-  setDecks: Dispatch<SetStateAction<DeckData[]>>;
+  decks: Deck[];
+  setDecks: Dispatch<SetStateAction<Deck[]>>;
 };
 
 export const organizeData = (
   deckNames: ViewDecksResponse[],
   deckInfo: AllDeckInfoResponse[]
-): DeckData[] => {
+): Deck[] => {
   let temp: any = {};
   for (let deck of deckNames) {
     const { deck_id, deck_name } = deck;
@@ -66,13 +54,13 @@ export const organizeData = (
     });
   }
 
-  let output: DeckData[] = [];
+  let output: Deck[] = [];
 
   for (let id in temp) {
     output.push({
       deck_id: Number(id),
       deck_name: temp[id].deck_name,
-      cards: temp[id].cards,
+      card_count: temp[id].card_count,
     });
   }
 
@@ -80,9 +68,14 @@ export const organizeData = (
 };
 
 const useDeckContext = () => {
-  const [decks, setDecks] = useLocalStorage<DeckData[]>("decks", []);
+  const [decks, setDecks] = useLocalStorage<Deck[]>("decks", []);
+  const [currentDeck, setCurrentDeck] = useState<Deck | null>(null);
 
-  return { decks, setDecks };
+  const exitMode = () => {
+    setCurrentDeck(null);
+  };
+
+  return { decks, setDecks, currentDeck, setCurrentDeck, exitMode };
 };
 
 export type UseDeckContextType = ReturnType<typeof useDeckContext>;
@@ -90,6 +83,9 @@ export type UseDeckContextType = ReturnType<typeof useDeckContext>;
 const useDeckContextType: UseDeckContextType = {
   decks: [],
   setDecks: () => {},
+  currentDeck: null,
+  setCurrentDeck: () => {},
+  exitMode: () => {},
 };
 
 export const DeckContext =
