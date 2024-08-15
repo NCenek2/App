@@ -28,7 +28,9 @@ const RigelIndex = () => {
   return (
     <AlertProvider>
       <AuthProvider>
-        <RigelApp />
+        <div className="rigel-wrapper">
+          <RigelApp />
+        </div>
       </AuthProvider>
     </AlertProvider>
   );
