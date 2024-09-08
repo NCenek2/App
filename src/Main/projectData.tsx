@@ -77,7 +77,7 @@ const sectionsData: ProjectData[] = [
   {
     title: "Sonix",
     image: "images/sonix.JPG",
-    description: `Sonix was created using the MERN Stack (MongoDB, Express, React, and Node). 
+    description: `Sonix was created with Next.js. 
     This social media application allows users to create/ react to other user's 
     posts.`,
     links: (
@@ -92,11 +92,19 @@ const sectionsData: ProjectData[] = [
         </a>
         <a
           className="btn btn-outline-light"
-          href="https://github.com/NCenek2/Sonix"
+          href="https://github.com/NCenek2/Sonix-Next"
           target="_blank"
           rel="noreferrer"
         >
           View Code
+        </a>
+        <a
+          className="btn btn-outline-light"
+          href="https://sonix-next.vercel.app"
+          target="_blank"
+          rel="noreferrer"
+        >
+          View App
         </a>
       </div>
     ),
